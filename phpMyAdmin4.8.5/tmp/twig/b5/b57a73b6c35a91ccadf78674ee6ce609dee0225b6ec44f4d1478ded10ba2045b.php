@@ -61,6 +61,6 @@ class __TwigTemplate_65a3537faa70f1b47f4b6933b67868b4d6ad355a76ccf96695c01e2fd87
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "database/structure/print_view_data_dictionary_link.twig", "D:\\phpstudy_pro\\WWW\\phpMyAdmin4.8.5\\templates\\database\\structure\\print_view_data_dictionary_link.twig");
+        return new Twig_Source("", "database/structure/print_view_data_dictionary_link.twig", "D:\\phpstudy_pro\\WWW\\kv\\phpMyAdmin4.8.5\\templates\\database\\structure\\print_view_data_dictionary_link.twig");
     }
 }

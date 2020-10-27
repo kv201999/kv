@@ -199,7 +199,7 @@ function iniOrder(item){
 		html+='<p>下单时间：'+item.create_time+'</p>';
 		html+='<p>支付时间：<span class="payTime">'+item.pay_time+'</span></p>';
 		html+='<div class="paystatebox">';
-			html+='<p class="amount">￥'+item.money+'</p>';
+			html+='<p class="amount">'+item.money+'</p>';
 			if(item.pay_status==1||item.pay_status==2){
 				html+='<a href="javascript:;"  class="payConfirmBtn">确认收款</a>';
 			}else if(item.pay_status==3){
@@ -299,7 +299,7 @@ $(function(){
 		var liObj=obj.parents('li');
 		var osn=liObj.attr('data-osn');
 		var item=nowlist[osn];
-		var con='确定已收到<b style="color:#fc744d;font-size:20px;">￥'+item.money+'</b>';
+		var con='确定已收到<b style="color:#fc744d;font-size:20px;">'+item.money+'</b>';
 		if(cnf_mscheck_needpwd=='是'){
 			con+='<div style="font-weight:bold;">请输入二级密码：<br><input type="password" id="password2" style="display:inline-block;line-height:26px;padding:2px 5px;border:1px solid #dedede;;border-radius:3px;" /></div>';
 		}
@@ -400,7 +400,7 @@ $(function(){
 		if(item.hk_cover){
 			$('.bannerItem').find('img').attr('src',item.hk_cover);
 		}
-		$('#hk_money').text('￥'+item.hk_money).attr('data-money',item.hk_money);
+		$('#hk_money').text(item.hk_money).attr('data-money',item.hk_money);
 		$('#hk_money').next('.cpBtn').attr('data-clipboard-text',item.hk_money);
 		
 		$('#hk_id').text(item.id).attr('hk-id',item.id);

@@ -40,14 +40,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<p class="txtline">账号：<?php echo $_smarty_tpl->tpl_vars['user']->value['phone'];?>
 </p>
 		<?php if (getConfig('cnf_xyhk_model')=='是') {?>
-		<p class="txtline">可提余额：￥<?php echo $_smarty_tpl->tpl_vars['user']->value['balance'];?>
+		<p class="txtline">可提余额：<?php echo $_smarty_tpl->tpl_vars['user']->value['balance'];?>
 </p>
 		<?php } else { ?>
-		<p class="txtline">可提余额：￥<?php echo $_smarty_tpl->tpl_vars['user']->value['balance'];?>
+		<p class="txtline">可提余额：<?php echo $_smarty_tpl->tpl_vars['user']->value['balance'];?>
  <a href="javascript:;" class="editBtn transToBalance" style="width:6rem;" data-type="1">可提⇄接单</a></p>
-		<p class="txtline">接单余额：￥<?php echo $_smarty_tpl->tpl_vars['user']->value['sx_balance'];?>
+		<p class="txtline">接单余额：<?php echo $_smarty_tpl->tpl_vars['user']->value['sx_balance'];?>
  <a href="javascript:;" class="editBtn transToBalance" style="width:6rem;" data-type="2">接单⇄可提</a></p>
-		<p class="txtline">接单冻结：￥<?php echo $_smarty_tpl->tpl_vars['user']->value['fz_balance'];?>
+		<p class="txtline">接单冻结：<?php echo $_smarty_tpl->tpl_vars['user']->value['fz_balance'];?>
 </p>
 		<?php }?>
 		<p class="txtline">收款账号：<?php echo $_smarty_tpl->tpl_vars['banklog']->value['bank_name'];?>
@@ -57,8 +57,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<div class="OutNum">提现额度：<div class="inbox"><input type="text" id="money"></div></div>
 		<a href="javascript:;" class="cashOutBtn" style="margin-top:1.5rem;">提现</a>
 		<div style="padding:1rem 2rem 0;">
-			<div style="color:#f60;">单笔提现：￥<?php echo getConfig('min_cash_money');?>
- ~ ￥<?php echo getConfig('max_cash_money');?>
+			<div style="color:#f60;">单笔提现：<?php echo getConfig('min_cash_money');?>
+ ~ <?php echo getConfig('max_cash_money');?>
 </div>
 			<div style="color:#f60;"><?php echo $_smarty_tpl->tpl_vars['cash_time_str']->value;?>
 </div>

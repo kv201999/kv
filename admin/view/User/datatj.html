@@ -94,7 +94,7 @@ $('#searchBtn').on('click',function(){
 				html+='<td>'+json.data.od_sum_cnt+'</td>';
 				html+='<td>'+json.data.od_sum_money+'</td>';
 				html+='<td>'+json.data.od_sum_fee+'</td>';
-				html+='<td>￥<b>'+data.od_ok_money_ytoday+'</b> / <b>'+data.od_all_money_ytoday+'</b>，<b>'+data.od_ok_cnt_ytoday+'</b> / <b>'+data.od_all_cnt_ytoday+'</b>单，成功率：<b>'+data.od_ytdpercent+'</b></td>';
+				html+='<td><b>'+data.od_ok_money_ytoday+'</b> / <b>'+data.od_all_money_ytoday+'</b>，<b>'+data.od_ok_cnt_ytoday+'</b> / <b>'+data.od_all_cnt_ytoday+'</b>单，成功率：<b>'+data.od_ytdpercent+'</b></td>';
 				html+='<td>'+json.data.od_ok_cnt+'</td>';
 				html+='<td>'+json.data.od_ok_money+'</td>';
 				html+='<td>'+json.data.od_ok_fee+'</td>';
@@ -120,7 +120,7 @@ $('#searchBtn').on('click',function(){
 				html+='<td>'+json.data.ms_pay_money+'</td>';
 				html+='<td>'+json.data.ms_cash_money+'</td>';
 				html+='<td>'+json.data.sh_cash_money+'</td>';
-				html+='<td>￥<b>'+data.od_ok_money_today+'</b> / <b>'+data.od_all_money_today+'</b>，<b>'+data.od_ok_cnt_today+'</b> / <b>'+data.od_all_cnt_today+'</b>单，成功率：<b>'+data.od_tdpercent+'</b></td>';
+				html+='<td><b>'+data.od_ok_money_today+'</b> / <b>'+data.od_all_money_today+'</b>，<b>'+data.od_ok_cnt_today+'</b> / <b>'+data.od_all_cnt_today+'</b>单，成功率：<b>'+data.od_tdpercent+'</b></td>';
 				html+='<td>'+json.data.ms_balance+'</td>';
 				html+='<td>'+json.data.ms_fz_balance+'</td>';
 				html+='<td>'+json.data.sh_balance+'</td>';
@@ -136,9 +136,9 @@ $('#searchBtn').on('click',function(){
 			html+='</tr>';
 			
 			html+='<tr>';
-				html+='<td colspan="3">￥<b>'+data.m15_ok.money+'</b> / <b>'+data.m15_all.money+'</b>，<b>'+data.m15_ok.cnt+'</b> / <b>'+data.m15_all.cnt+'</b>单，成功率：<b>'+data.m15_percent+'</b></td>';
-				html+='<td colspan="1">￥<b>'+data.m30_ok.money+'</b> / <b>'+data.m30_all.money+'</b>，<b>'+data.m30_ok.cnt+'</b> / <b>'+data.m30_all.cnt+'</b>单，成功率：<b>'+data.m30_percent+'</b></td>';
-				html+='<td colspan="5">￥<b>'+data.m60_ok.money+'</b> / <b>'+data.m60_all.money+'</b>，<b>'+data.m60_ok.cnt+'</b> / <b>'+data.m60_all.cnt+'</b>单，成功率：<b>'+data.m60_percent+'</b></td>';
+				html+='<td colspan="3"><b>'+data.m15_ok.money+'</b> / <b>'+data.m15_all.money+'</b>，<b>'+data.m15_ok.cnt+'</b> / <b>'+data.m15_all.cnt+'</b>单，成功率：<b>'+data.m15_percent+'</b></td>';
+				html+='<td colspan="1"><b>'+data.m30_ok.money+'</b> / <b>'+data.m30_all.money+'</b>，<b>'+data.m30_ok.cnt+'</b> / <b>'+data.m30_all.cnt+'</b>单，成功率：<b>'+data.m30_percent+'</b></td>';
+				html+='<td colspan="5"><b>'+data.m60_ok.money+'</b> / <b>'+data.m60_all.money+'</b>，<b>'+data.m60_ok.cnt+'</b> / <b>'+data.m60_all.cnt+'</b>单，成功率：<b>'+data.m60_percent+'</b></td>';
 			html+='</tr>';
 			
 			$('#tjBox').html(html);

@@ -263,9 +263,9 @@ class SkmaController extends BaseController{
 				jReturn('-1','抱歉，您没有权限操作该收款码');
 			}
 			if($sk_ma['status']==2){
-//				if(NOW_TIME<$item['fz_time']){
-//					jReturn('-1','请测试回调之后再上线');
-//				}
+				if(NOW_TIME<$item['fz_time']){
+					jReturn('-1','请先在首页开启抢单');
+				}
 			}
 			$res=$this->mysql->update($sk_ma,"id={$item_id}",'sk_ma');
 		}
@@ -316,9 +316,9 @@ class SkmaController extends BaseController{
 		}
 		$sk_ma=[];
 		if($skma['status']==1){
-//			if(NOW_TIME<$skma['fz_time']){
-//				jReturn('-1','请测试回调之后再上线');
-//			}
+			if(NOW_TIME<$skma['fz_time']){
+				jReturn('-1','请先在首页开启抢单');
+			}
 			$sk_ma['status']=2;
 			
 			$user=$this->mysql->fetchRow("select * from sys_user where id={$skma['uid']}");

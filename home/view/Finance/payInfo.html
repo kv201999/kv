@@ -19,9 +19,11 @@
 		<p>下单时间：[[$paylog.create_time]]</p>
 		<p>订单状态：<b>[[$paylog.pay_status_flag]]</b></p>
 		<p>收款姓名：[[$paylog['skbank'].bank_realname]]</p>
-		<p style="font-weight:bold;color: red">订单金额：￥[[$paylog.money]]</p>
-		<p style="font-weight:bold;">收款卡号：[[$paylog['skbank'].bank_account]]</p>
-
+		<p style="font-weight:bold;color: red">订单金额：[[$paylog.money]]</p>
+		<p style="font-weight:bold;">充值钱包地址：[[$paylog['skbank'].bank_account]]</p>
+		<p>----------</p>
+		<h3>充值教程：</h3>
+		<p>1.火币网注册实名 2.OTC购买USDT 3.选择提币到上面地址</p>
 		[[if $paylog.pay_status eq 1]]
 		<a href="javascript:;" class="fillCashBtn" style="margin-top:1rem;">我已付款</a>
 		[[/if]]

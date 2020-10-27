@@ -1,10 +1,4 @@
 <?php
-define('ACCOUNT_ID', '14917665'); // your account ID
-define('ACCESS_KEY','75450f5c-3ed1a1a8-bewr5drtmh-82c1e'); // your ACCESS_KEY
-define('SECRET_KEY', '99003dd5-ed5f058d-6948a56f-44010'); // your SECRET_KEY
-include "global/lib.php";
-$req = new req();
-$usdtprice = $req->get_otcbuy();
 !defined('ROOT_PATH') && exit;
 class FinanceController extends BaseController{
 	

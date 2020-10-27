@@ -10,17 +10,17 @@
 	<div class="cashOutCon">
 		<p class="txtline">账号：[[$user.phone]]</p>
 		[[if 'cnf_xyhk_model'|getConfig eq '是']]
-		<p class="txtline">可提余额：￥[[$user.balance]]</p>
+		<p class="txtline">可提余额：[[$user.balance]]</p>
 		[[else]]
-		<p class="txtline">可提余额：￥[[$user.balance]] <a href="javascript:;" class="editBtn transToBalance" style="width:6rem;" data-type="1">可提⇄接单</a></p>
-		<p class="txtline">接单余额：￥[[$user.sx_balance]] <a href="javascript:;" class="editBtn transToBalance" style="width:6rem;" data-type="2">接单⇄可提</a></p>
-		<p class="txtline">接单冻结：￥[[$user.fz_balance]]</p>
+		<p class="txtline">可提余额：[[$user.balance]] <a href="javascript:;" class="editBtn transToBalance" style="width:6rem;" data-type="1">可提⇄接单</a></p>
+		<p class="txtline">接单余额：[[$user.sx_balance]] <a href="javascript:;" class="editBtn transToBalance" style="width:6rem;" data-type="2">接单⇄可提</a></p>
+		<p class="txtline">接单冻结：[[$user.fz_balance]]</p>
 		[[/if]]
 		<p class="txtline">收款账号：[[$banklog.bank_name]]，[[$banklog.bank_realname]]，[[$banklog.bank_account]]<a href="/?c=User&a=bcard" class="editBtn">修改</a></p>
 		<div class="OutNum">提现额度：<div class="inbox"><input type="text" id="money"></div></div>
 		<a href="javascript:;" class="cashOutBtn" style="margin-top:1.5rem;">提现</a>
 		<div style="padding:1rem 2rem 0;">
-			<div style="color:#f60;">单笔提现：￥[['min_cash_money'|getConfig]] ~ ￥[['max_cash_money'|getConfig]]</div>
+			<div style="color:#f60;">单笔提现：[['min_cash_money'|getConfig]] ~ [['max_cash_money'|getConfig]]</div>
 			<div style="color:#f60;">[[$cash_time_str]]</div>
 			<div style="color:#f30;">手续费 = [[$fee_str]]</div>
 			<div style="color:#f60;">注意：直接提现需要扣除手续费，系统派单收款不收取手续费</div>

@@ -158,6 +158,6 @@ class __TwigTemplate_a6fa1e69439413be8f33617e483eb77890b75b182efb2eed93a5909828a
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "display/results/options_block.twig", "D:\\phpstudy_pro\\WWW\\phpMyAdmin4.8.5\\templates\\display\\results\\options_block.twig");
+        return new Twig_Source("", "display/results/options_block.twig", "D:\\phpstudy_pro\\WWW\\kv\\phpMyAdmin4.8.5\\templates\\display\\results\\options_block.twig");
     }
 }

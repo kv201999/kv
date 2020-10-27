@@ -2,7 +2,7 @@
 <div class="robOrder">
 	<div class="robOrderBox">
 		<!-- 立即抢单 -->
-		<a href="javascript:;" class="robNowBtn" style="[[if $user.is_online eq 1]]display:none;[[/if]]">立即抢单</a>
+		<a href="javascript:;" class="robNowBtn" style="[[if $user.is_online eq 1]]display:none;[[/if]]">开启抢单</a>
 		<!-- 停止抢单 -->
 		<div class="stopRob" style="[[if $user.is_online eq 0]]display:none;[[/if]]">
 			<p class="countDown">00:00</p>
@@ -26,11 +26,12 @@
 			<li><p>[[$yong_money]]</p><p>提成</p></li>
 		</ul>
 	</div>
-	
+
 	<div class="warmTips">
-		<b>温馨提示：</b>
-		1.保持在线状态才会派发订单；源码来自：WWW.GAIYM.COM<br>
-		2.收到款后请及时点击确认收款，恶意不确认可能会被禁止接单；<br>
+		火币最新卖出价格：[[$otcbuy]]（实时价格）<br>
+		<b>平台最新卖出价格，支付宝：[[$zfbbuy]]，银行卡：[[$yhkbuy]]</b><br>
+		1.保持在线状态才会派发订单<br>
+		2.收到款后请及时点击确认收款，恶意不确认可能会被禁止接单<br>
 		3.有新订单会语音提醒，部分手机要保持屏幕常亮才有语音提提醒把这个放在订单列表里面
 	</div>
 

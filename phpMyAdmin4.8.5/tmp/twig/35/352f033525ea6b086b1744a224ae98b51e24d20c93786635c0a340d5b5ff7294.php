@@ -79,6 +79,6 @@ class __TwigTemplate_3e20b2f19e014e709aef9159201ad1123b09f11856e888c176101ae0845
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "radio_fields.twig", "D:\\phpstudy_pro\\WWW\\phpMyAdmin4.8.5\\templates\\radio_fields.twig");
+        return new Twig_Source("", "radio_fields.twig", "D:\\phpstudy_pro\\WWW\\kv\\phpMyAdmin4.8.5\\templates\\radio_fields.twig");
     }
 }

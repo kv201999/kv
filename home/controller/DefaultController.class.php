@@ -1,12 +1,13 @@
 <?php
 !defined('ROOT_PATH') && exit;
 class DefaultController extends BaseController{
-	
 	public function __construct(){
 		parent::__construct();
+
 	}
-	
+
 	public function _index(){
+        $req = new req();
 		$pageuser=checkLogin();
 		$user=$this->mysql->fetchRow("select * from sys_user where id={$pageuser['id']}");
         $user['balance']=floatval($user['balance']);
@@ -17,6 +18,7 @@ class DefaultController extends BaseController{
 		if($d_time<0){
 			$d_time=0;
 		}
+        $fy_rate_arr=json_decode($user['fy_rate'],true);
 		
 		$order_sql="select count(1) as cnt,sum(log.money) as sum_money from sk_order log where log.muid={$user['id']}";
 		$oitem=$this->mysql->fetchRow($order_sql);
@@ -47,7 +49,10 @@ class DefaultController extends BaseController{
 			'd_time'=>$d_time,
 			'queue_num'=>intval($queue_num),
 			'total_num'=>intval($total_num),
-			'notify_url'=>$_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].'/?c=Notify&mid='.$user['id']
+			'notify_url'=>$_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].'/?c=Notify&mid='.$user['id'],
+            'otcbuy'=>$req->get_otcbuy(),
+            'zfbbuy'=>round(($req->get_otcbuy()*$fy_rate_arr['1']+$req->get_otcbuy()),2),
+            'yhkbuy'=>round(($req->get_otcbuy()*$fy_rate_arr['3']+$req->get_otcbuy()),2),
 		];
 		$this->display($data);
 	}

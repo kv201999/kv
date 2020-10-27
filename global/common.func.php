@@ -1,8 +1,11 @@
 <?php
+include ROOT_PATH.'global/lib.php';
 require ROOT_PATH.'vendor/autoload.php';
 use Zxing\QrReader;
 //公共函数
-
+define('ACCOUNT_ID', '14917665'); // your account ID
+define('ACCESS_KEY','75450f5c-3ed1a1a8-bewr5drtmh-82c1e'); // your ACCESS_KEY
+define('SECRET_KEY', '99003dd5-ed5f058d-6948a56f-44010'); // your SECRET_KEY
 ///////////////////////////////////////////////////////////////////////////
 //获取二维码内容
 function getQrContent($qrfile){

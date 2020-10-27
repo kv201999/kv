@@ -64,6 +64,6 @@ class __TwigTemplate_931757f49bad6944bde2e93392119cb8ca96cb032e627dfbd9f86620019
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "columns_definitions/column_comment.twig", "D:\\phpstudy_pro\\WWW\\phpMyAdmin4.8.5\\templates\\columns_definitions\\column_comment.twig");
+        return new Twig_Source("", "columns_definitions/column_comment.twig", "D:\\phpstudy_pro\\WWW\\kv\\phpMyAdmin4.8.5\\templates\\columns_definitions\\column_comment.twig");
     }
 }

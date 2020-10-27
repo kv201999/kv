@@ -14,26 +14,26 @@
 		<div class="layui-form-item" style="margin-bottom:2px;">
 			<label class="layui-form-label">可提余额：</label>
 			<div class="layui-input-block" style="line-height:38px;">
-				￥[[$user.balance]] [[if 'cnf_xyhk_model'|getConfig neq '是']]<span class="layui-btn layui-btn-xs layui-btn-warm transToBalance" style="margin-left:10px;" data-type="1">可提⇄接单</span>[[/if]]
+				[[$user.balance]] [[if 'cnf_xyhk_model'|getConfig neq '是']]<span class="layui-btn layui-btn-xs layui-btn-warm transToBalance" style="margin-left:10px;" data-type="1">可提⇄接单</span>[[/if]]
 			</div>
 		</div>
 		<div class="layui-form-item" style="margin-bottom:2px;">
 			<label class="layui-form-label">接单余额：</label>
 			<div class="layui-input-block" style="line-height:38px;">
-				￥[[$user.sx_balance]] [[if 'cnf_xyhk_model'|getConfig neq '是']]<span class="layui-btn layui-btn-xs layui-btn-warm transToBalance" style="margin-left:10px;" data-type="2">接单⇄可提</span>[[/if]]
+				[[$user.sx_balance]] [[if 'cnf_xyhk_model'|getConfig neq '是']]<span class="layui-btn layui-btn-xs layui-btn-warm transToBalance" style="margin-left:10px;" data-type="2">接单⇄可提</span>[[/if]]
 			</div>
 		</div>
 		<div class="layui-form-item" style="margin-bottom:2px;">
 			<label class="layui-form-label">冻结金额：</label>
 			<div class="layui-input-block" style="line-height:38px;">
-				￥[[$user.fz_balance]]
+				[[$user.fz_balance]]
 			</div>
 		</div>
 		[[if 'cnf_xyhk_model'|getConfig eq '是']]
 		<div class="layui-form-item" style="margin-bottom:2px;">
 			<label class="layui-form-label">应回款：</label>
 			<div class="layui-input-block" style="line-height:38px;">
-				￥[[$user.kb_balance]]
+				[[$user.kb_balance]]
 			</div>
 		</div>
 		[[/if]]
@@ -43,19 +43,19 @@
 		<div class="layui-form-item" style="margin-bottom:2px;">
 			<label class="layui-form-label">可提余额：</label>
 			<div class="layui-input-block" style="line-height:38px;">
-				￥[[$user.balance]]
+				[[$user.balance]]
 			</div>
 		</div>
 		<div class="layui-form-item" style="margin-bottom:2px;">
 			<label class="layui-form-label">冻结金额：</label>
 			<div class="layui-input-block" style="line-height:38px;">
-				￥[[$user.fz_balance]]
+				[[$user.fz_balance]]
 			</div>
 		</div>
 		<div class="layui-form-item" style="margin-bottom:2px;">
 			<label class="layui-form-label">待结算：</label>
 			<div class="layui-input-block" style="line-height:38px;">
-				￥[[$djs_balance]]
+				[[$djs_balance]]
 			</div>
 		</div>
 		[[/if]]
@@ -75,7 +75,7 @@
 			<label class="layui-form-label">提现金额：</label>
 			<div class="layui-input-block" style="width:60%;">
 				<input type="text" id="money" autocomplete="off" placeholder="" class="layui-input">
-				<div style="color:#f60;">单笔最小：￥[['min_cash_money'|getConfig]] ，单笔最大：￥[['max_cash_money'|getConfig]] ，单日累计：￥[['max_day_cash_money'|getConfig]]</div>
+				<div style="color:#f60;">单笔最小：[['min_cash_money'|getConfig]] ，单笔最大：[['max_cash_money'|getConfig]] ，单日累计：[['max_day_cash_money'|getConfig]]</div>
 				<div style="color:#f60;">[[$cash_time_str]]</div>
 				<div style="color:#f30;">提现手续费 = [[$fee_str]]</div>
 			</div>
