@@ -1,0 +1,71 @@
+[[include file="head.html"]]
+<style>
+.CommissionCon .detailBox tr td{line-height:2rem;padding:4px 8px;}
+.viewBtn{padding:2px 8px;border:1px solid #fc744d;color:#fc744d;border-radius:3px;}
+</style>
+
+<div class="Commission">
+	<div class="HeadTop">
+		<p class="Tit">分成记录</p>
+		<a href="/?c=User" class="backBtn"></a>
+	</div>
+	<div class="CommissionCon">
+		<div class="detailBox">
+			<table cellpadding="0" cellspacing="0">
+				<thead>
+					<tr>
+						<th>时间</th>
+						<th>支付方式</th>
+						<th>订单金额</th>
+						<th>收益率</th>
+						<th>分成</th>
+					</tr>
+				</thead>
+				<tbody id="listBox">
+					<!--
+					<tr>
+						<td>DD</td>
+						<td>268</td>
+						<td>268</td>
+						<td>2019-7-18</td>
+					</tr>
+					-->
+				</tbody>
+			</table>
+			<div class="moreBtn" style="text-align:center;">点击加载更多</div>
+		</div>
+	</div>
+</div>
+
+[[include file="js.html"]]
+<script>
+
+$(function(){
+	
+	//获取充值记录
+    $('.moreBtn').on('click',function(){
+        dataPage({
+            url:global.appurl+'c=Finance&a=yong_list',
+            data:{},
+            success:function(json){
+                var html='';
+                for(var i in json.data.list){
+                    var item=json.data.list[i];
+                    html+='<tr>';
+                        html+='<td>'+item.create_time+'</td>';
+                        html+='<td>'+item.mtype_name+'</td>';
+                        html+='<td>'+item.order_money+'</td>';
+                        html+='<td>'+item.rate+'</td>';
+                        html+='<td>'+item.money+'</td>';
+                    html+='</tr>';
+                }
+                $('#listBox').append(html);
+            }
+        });
+    });
+
+    $('.moreBtn').trigger('click');
+	
+});
+</script>
+[[include file="foot.html"]]

@@ -1,0 +1,30 @@
+[[include file="head.html"]]
+<div class="inviteFriend" style="height:100%;overflow;hidden;">
+	<div class="HeadTop" style="background:rgba(1,154,255,0.2);">
+		<p class="Tit">推荐二维码</p>
+		<a href="/?c=User" class="backBtn"></a>
+	</div>
+    <img id="shareImg" src="[[$tg_img]]?v=1.1" style="height:100%;width:100%;" />
+	
+	<div data-clipboard-text="[[$tg_url]]" id="tgUrl" style="width:60%;line-height:38px;text-align:center;background-color:#fff;color:#019aff;position:fixed;bottom:12.5rem;left:20%;font-weight:bold;">复制推荐链接</div>
+</div>
+[[include file="js.html"]]
+<script src="/public/js/clipboard.min.js"></script>
+<script>
+preventDefault();
+$(function(){
+	var clipboard = new ClipboardJS('#tgUrl');
+
+	clipboard.on('success', function(e) {
+		/*
+		console.info('Action:', e.action);
+		console.info('Text:', e.text);
+		console.info('Trigger:', e.trigger);
+		e.clearSelection();
+		*/
+		_alert('复制成功');
+	});
+
+});
+</script>
+[[include file="foot.html"]]

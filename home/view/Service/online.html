@@ -1,0 +1,49 @@
+[[include file="head.html"]]
+<script id="__init-script-inline-widget__">
+//(function(d,t,u,s,e){e=d.getElementsByTagName(t)[0];s=d.createElement(t);s.src=u;s.async=1;e.parentNode.insertBefore(s,e);})(document,'script','//103.80.27.20/php/app.php?widget-init-inline.js');
+</script>
+<style>
+.kefuOnline{position: relative;width: 100%;color: #333333;background: #fff;}
+.kefuOnlineCon{position: relative;width: 100%;padding-top:4rem;}
+.kefuOnlineCon .txtbox{padding: 0 3%;font-size: 1.1rem;line-height: 1.8rem;}
+.kefuOnlineCon .txtbox h3{color: #019aff;padding: 1.5rem 0 0.5rem;font-size: 1.3rem;}
+.kefuOnlineCon .txtbox p{margin-bottom: 0.4rem;}
+.kefuOnlineCon .qrcode{width: 45%;margin: 2rem auto;}
+.kefuOnlineCon .welcomeTxt{text-align: center;}
+.kefuOnlineCon .welcomeTxt p{background: #eef2f5;display: inline-block;padding: 0.3rem 0.8rem;border-radius: 0.2rem;}
+</style>
+<div style="height:4rem;"></div>
+<div class="kefuOnline">
+	<!--
+	<div class="HeadTop">
+		<p class="Tit">在线客服</p>
+		<a href="/?c=Service" class="backBtn"></a>
+	</div>
+	-->
+	<div class="kefuOnlineCon">
+		<div class="txtbox">
+			<h3>温馨提示：</h3>
+			[[$info.content]]
+		</div>
+
+		<div class="qrcode" style="width:66%;margin-bottom:0;">
+			<img src="[[$info.cover]]">
+		</div>
+		<div style="color:#019aff;font-size:18px;text-align:center;padding:10px;padding-top:0;">截图保存图片，打开微信扫一扫添加客服</div>
+		
+		<div class="welcomeTxt">
+			<p>欢迎您的咨询，期待为您服务！</p>
+		</div>
+	</div>
+	
+	<!-- 底部导航 -->
+	[[include file="menu.html"]]
+</div>
+
+[[include file="js.html"]]
+<script>
+$(function(){
+	preventDefault();
+});
+</script>
+[[include file="foot.html"]]

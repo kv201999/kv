@@ -1,0 +1,102 @@
+[[include file="head.html"]]
+<style>
+select{padding:10px 5px;}
+.myTeamList table td{line-height:1.4rem;}
+</style>
+<div class="myTeam">
+	<div class="HeadTop">
+		<p class="Tit">我的团队</p>
+		<a href="/?c=User" class="backBtn"></a>
+	</div>
+	<div class="myTeamTop">
+		<div class="cengji">
+			<select id="level">
+				<option value="0">选择层级</option>
+				[[foreach from=$level_arr item=vo]]
+				<option value="[[$vo]]">[[$vo]]层</option>
+				[[/foreach]]
+			</select>
+		</div>
+		<div class="searchbox" style="width:60%;">
+			<input type="text" id="keyword" value="[[$s.keyword]]" style="width:10rem;" placeholder="请输入关键词">
+			<a href="javascript:;" class="serachBtn">查询</a>
+		</div>
+	</div>
+	<div class="myTeamList" style="top:9rem;">
+		<table cellspacing="0" cellpadding="0">
+			<thead>
+				<tr>
+					<th>账号/昵称</th>
+					<th>层级</th>
+					<th>注册时间</th>
+					<th>状态</th>
+					<th>收益率</th>
+				</tr>
+			</thead>
+			<tbody id="listBox">
+				<!--
+				<tr>
+					<td>13536920159</td>
+					<td>1层</td>
+					<td>7-19 16:08</td>
+					<td>在线</td>
+					<td><a href="javascript:;" class="setBtn">设置</a></td>
+				</tr>
+				-->
+			</tbody>
+		</table>
+		<div class="moreBtn" style="text-align:center;">点击加载更多</div>
+	</div>
+	
+</div>
+[[include file="js.html"]]
+<script>
+$(function(){
+
+	$('#level').val('[[$s.level]]');
+	
+	$('.serachBtn').on('click',function(){
+		var keyword=$.trim($('#keyword').val());
+		var level=$('#level').val();
+		var url='/?c=User&a=team';
+		if(level>0){
+			url+='&level='+level;
+		}
+		if(keyword){
+			url+='&keyword='+keyword;
+		}
+		location.href=url;
+	});
+
+    $('.moreBtn').on('click',function(){
+        var level='[[$s.level]]';
+        var keyword='[[$s.keyword]]';
+        dataPage({
+            url:global.appurl+'c=User&a=team_list',
+            data:{level:level,keyword:keyword},
+            success:function(json){
+                var html='';
+                for(var i in json.data.list){
+                    var item=json.data.list[i];
+                    html+='<tr>';
+                        html+='<td>'+item.account+'<br>'+item.nickname+'</td>';
+                        html+='<td>'+item.agent_level+'</td>';
+                        html+='<td>'+item.reg_time+'</td>';
+                        html+='<td>'+item.is_online_flag+'</td>';
+						if(item.agent_level==1){
+							html+='<td><a href="/?c=User&a=teamInfo&uid='+item.id+'&level='+item.agent_level+'" class="setBtn">查看</a></td>';
+						}else{
+							html+='<td>/</td>';
+						}
+                    html+='</tr>';
+                }
+                $('#listBox').append(html);
+            }
+        });
+    });
+
+    $('.moreBtn').trigger('click');
+    
+});
+</script>
+[[include file="foot.html"]]

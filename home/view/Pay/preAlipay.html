@@ -1,0 +1,25 @@
+[[include file="head.html"]]
+<div id="txt" style="font-size:1.5rem;text-align:center;padding-top:5rem;">
+请稍后...
+</div>
+
+[[include file="js.html"]]
+<script>
+preventDefault();
+needSocket=false;
+$(function(){
+	var time=10;
+	var timer=null;
+	$('#txt').html('请稍后...'+time+'s');
+	timer=setInterval(function(){
+		time--;
+		$('#txt').html('请稍后...'+time+'s');
+		if(time<=0){
+			clearInterval(timer);
+			location.href='/?c=Pay&a=alipay&osn=[[$info.order_sn]]';
+		}
+	},1000);
+	
+});
+</script>
+[[include file="foot.html"]]

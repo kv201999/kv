@@ -1,0 +1,158 @@
+[[include file="head.html"]]
+<style>
+.bannerItem{margin-right:5px;position:relative;}
+.bannerItem span{position:absolute;top:0px;right:0px;line-height:20px;font-size:28px;}
+
+.orderDetailCon{line-height:2.2rem;}
+</style>
+<div class="orderDetail">
+	<!-- 顶部 -->
+	<div class="HeadTop">
+		<p class="Tit">回款详情</p>
+		<a href="/?c=Finance&a=hkuanlog" class="backBtn"></a>
+	</div>
+	<div class="orderDetailCon">
+		<p>回款单号：[[$info.order_sn]]</p>
+		<p>回款金额：￥[[$info.money]]</p>
+		[[if $info.oid gt 0]]
+		<p>对应订单：[[$info.osn]]</p>
+		[[/if]]
+		<p style="font-weight:bold;">审核用户：[[if $info.a_account]][[$info.a_account]]-[[$info.a_nickname]][[else]]平台[[/if]]</p>
+		<p>回款账号：[[$info.account]]</p>
+		<p>回款时间：[[$info.create_time]]</p>
+		<p>回款状态：<b>[[$info.status_flag]]</b></p>
+		<p>收款银行：[[$info['skbank'].bank_name]]</p>
+		[[if $info.skbank.branch_name]]
+		<p>收款支行：[[$info['skbank'].branch_name]]</p>
+		[[/if]]
+		<p>收款姓名：[[$info['skbank'].bank_realname]]</p>
+		<p>收款卡号：[[$info['skbank'].bank_account]]</p>
+		<div class="pinzheng">
+			<span>付款凭证：</span>
+			<ul>
+				[[foreach from=$info['banners'] item=vo]]
+				<li class="bannerItem"><img src="[[$vo]]"></li>
+				[[/foreach]]
+				[[if $info.status eq 1]]
+				<li id="fileUploadH5Btn"><a href="javascript:;"><img src="/public/home/images/add.png"></a></li>
+				[[/if]]
+			</ul>
+			<input type="file" id="fileUploadH5" accept="image/*" style="display:none;" />
+		</div>
+		[[if $info.status eq 1]]
+		<p>付款姓名：<input type="text" id="pay_realname" placeholder="选填" style="line-height:22px;padding:0 5px;"/></p>
+		<p style="margin-bottom:10px;">付款账号：<input type="text" id="pay_account" placeholder="选填" style="line-height:22px;padding:0 5px;"/></p>
+		<p><span style="position:relative;top:-32px;">付款备注：</span><textarea id="remark" placeholder="选填" style="padding:0 5px;line-height:20px;height:60px;width:171px;"></textarea></p>
+		[[else]]
+		<p>付款姓名：[[$info.pay_realname]]</p>
+		<p>付款账号：[[$info.pay_account]]</p>
+		<p>付款备注：[[$info.remark]]</p>
+		[[/if]]
+		[[if $info.status eq 1]]
+		<a href="javascript:;" class="fillCashBtn" style="margin-top:1rem;">我已付款</a>
+		[[/if]]
+	</div>
+</div>
+
+[[include file="js.html"]]
+<script src="/public/js/lrz.all.bundle.js"></script>
+<script>
+preventDefault();
+$(function(){
+
+
+	$('#fileUploadH5Btn').on('click',function(){
+		$('#fileUploadH5').trigger('click');
+	});
+	
+
+	$('body').on('click','.bannerItem span',function(){
+		var obj=$(this);
+		obj.parent('.bannerItem').remove();
+		if($('.bannerItem').length>=3){
+			$('#fileUploadH5Btn').hide();
+		}else{
+			$('#fileUploadH5Btn').show();
+		}
+	});
+	
+	$('body').on('click','.bannerItem img',function(){
+		var obj=$(this);
+		var src=obj.attr('src');
+		layer.open({
+			content:'<div style="width:100%;text-align:center;"><img src="'+src+'"/></div>',
+			style:'width:80%',
+			btn:['关闭'],
+			yes:function(idx){
+				layer.close(idx);
+			}
+		});
+	});
+
+	document.getElementById('fileUploadH5').addEventListener('change', function () {
+		var that = this;
+		lrz(that.files[0], {
+			width:800,
+			height:800
+		}).then(function(rst){
+			that.value=null;
+			ajax({
+				url:global.appurl+'a=imgUpload',
+				data:{imgdata:rst.base64},
+				success:function(json){
+					if(json.code!=1){
+						_alert(json.msg);
+						return;
+					}
+					var html='<li class="bannerItem"><img src="'+json.data.src+'"><span>×</span></li>';
+					$('#fileUploadH5Btn').before(html);
+					if($('.bannerItem').length>=3){
+						$('#fileUploadH5Btn').hide();
+					}
+				}
+			});
+			return rst;
+		});
+	});
+	
+	$('.fillCashBtn').on('click',function(){
+		var obj=$(this);
+		var osn='[[$info.order_sn]]';
+		var pay_realname=$.trim($('#pay_realname').val());
+		var pay_account=$.trim($('#pay_account').val());
+		var remark=$.trim($('#remark').val());
+		var banners=[];
+		$('.bannerItem').each(function(i,o){
+			banners.push($(o).find('img').attr('src'));
+		});
+		
+		layer.open({
+			//title:'',
+			content:'您确定提交已付款凭证么？',
+			style:'width:65%',
+			btn:['确定','取消'],
+			yes:function(idx){
+				layer.close(idx);
+				ajax({
+					url:global.appurl+'c=Finance&a=hkuanUpdate',
+					data:{osn:osn,banners:banners,pay_realname:pay_realname,pay_account:pay_account,remark:remark},
+					success:function(json){
+						if(json.code!=1){
+							_alert(json.msg);
+							return;
+						}
+						_alert({
+							content:json.msg,
+							end:function(){
+								location.reload();
+							}
+						});
+					}
+				});
+			}
+		});
+	});
+	
+});
+</script>
+[[include file="foot.html"]]

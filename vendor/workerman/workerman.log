@@ -1,0 +1,387 @@
+2019-06-21 16:03:13 pid:1 Worker process terminated with ERROR: E_ERROR "Class 'PHPSocketIO\Parser\BinaryReconstructor' not found in D:\www\demo\vendor\workerman\phpsocket.io\src\Parser\Decoder.php on line 26"
+2019-06-21 16:03:22 pid:1 Worker process terminated with ERROR: E_ERROR "Class 'PHPSocketIO\Parser\BinaryReconstructor' not found in D:\www\demo\vendor\workerman\phpsocket.io\src\Parser\Decoder.php on line 26"
+2019-06-21 16:03:26 pid:1 Worker process terminated with ERROR: E_ERROR "Class 'PHPSocketIO\Parser\BinaryReconstructor' not found in D:\www\demo\vendor\workerman\phpsocket.io\src\Parser\Decoder.php on line 26"
+2019-06-21 16:09:26 pid:1 Worker process terminated with ERROR: E_ERROR "Class 'PHPSocketIO\Parser\BinaryReconstructor' not found in D:\www\demo\vendor\workerman\phpsocket.io\src\Parser\Decoder.php on line 26"
+2019-06-21 16:10:38 pid:1 Worker process terminated with ERROR: E_ERROR "Class 'PHPSocketIO\Parser\BinaryReconstructor' not found in D:\www\demo\vendor\workerman\phpsocket.io\src\Parser\Decoder.php on line 26"
+2019-06-24 14:29:28 pid:1 Worker process terminated with ERROR: E_ERROR "Uncaught exception 'Exception' with message '由于目标计算机积极拒绝，无法连接。
+' in D:\www\demo\vendor\workerman\GlobalData\src\Client.php:69
+Stack trace:
+#0 D:\www\demo\vendor\workerman\GlobalData\src\Client.php(138): GlobalData\Client->getConnection('last_mtime')
+#1 D:\www\demo\socket.php(24): GlobalData\Client->__get('last_mtime')
+#2 [internal function]: check_files_change('D:\\www\\demo\\glo...')
+#3 D:\www\demo\vendor\workerman\workerman\Events\Select.php(239): call_user_func_array('check_files_cha...', Array)
+#4 D:\www\demo\vendor\workerman\workerman\Events\Select.php(282): Workerman\Events\Select->tick()
+#5 D:\www\demo\vendor\workerman\workerman\Worker.php(2357): Workerman\Events\Select->loop()
+#6 D:\www\demo\vendor\workerman\workerman\Worker.php(1351): Workerman\Worker->run()
+#7 D:\www\demo\vendor\workerman\workerman\Worker.php(1294): Workerman\Worker::forkWorkersForWindows()
+#8 D:\www\demo\vendor\workerman\workerman\Worker.php(509): Workerman\Worker::forkWorkers()
+#9 D:\www\demo\socket.php(167): Wor in D:\www\demo\vendor\workerman\GlobalData\src\Client.php on line 69"
+2019-06-24 14:37:08 pid:1 Worker process terminated with ERROR: E_ERROR "Uncaught exception 'Exception' with message '由于目标计算机积极拒绝，无法连接。
+' in D:\www\demo\vendor\workerman\GlobalData\src\Client.php:69
+Stack trace:
+#0 D:\www\demo\vendor\workerman\GlobalData\src\Client.php(138): GlobalData\Client->getConnection('last_mtime')
+#1 D:\www\demo\socket.php(24): GlobalData\Client->__get('last_mtime')
+#2 [internal function]: check_files_change('D:\\www\\demo\\glo...')
+#3 D:\www\demo\vendor\workerman\workerman\Events\Select.php(239): call_user_func_array('check_files_cha...', Array)
+#4 D:\www\demo\vendor\workerman\workerman\Events\Select.php(282): Workerman\Events\Select->tick()
+#5 D:\www\demo\vendor\workerman\workerman\Worker.php(2357): Workerman\Events\Select->loop()
+#6 D:\www\demo\vendor\workerman\workerman\Worker.php(1351): Workerman\Worker->run()
+#7 D:\www\demo\vendor\workerman\workerman\Worker.php(1294): Workerman\Worker::forkWorkersForWindows()
+#8 D:\www\demo\vendor\workerman\workerman\Worker.php(509): Workerman\Worker::forkWorkers()
+#9 D:\www\demo\socket.php(167): Wor in D:\www\demo\vendor\workerman\GlobalData\src\Client.php on line 69"
+2019-06-24 14:38:39 pid:1 Worker process terminated with ERROR: E_ERROR "Uncaught exception 'Exception' with message '由于目标计算机积极拒绝，无法连接。
+' in D:\www\demo\vendor\workerman\GlobalData\src\Client.php:69
+Stack trace:
+#0 D:\www\demo\vendor\workerman\GlobalData\src\Client.php(138): GlobalData\Client->getConnection('last_mtime')
+#1 D:\www\demo\socket.php(24): GlobalData\Client->__get('last_mtime')
+#2 [internal function]: check_files_change('D:\\www\\demo\\glo...')
+#3 D:\www\demo\vendor\workerman\workerman\Events\Select.php(239): call_user_func_array('check_files_cha...', Array)
+#4 D:\www\demo\vendor\workerman\workerman\Events\Select.php(282): Workerman\Events\Select->tick()
+#5 D:\www\demo\vendor\workerman\workerman\Worker.php(2357): Workerman\Events\Select->loop()
+#6 D:\www\demo\vendor\workerman\workerman\Worker.php(1351): Workerman\Worker->run()
+#7 D:\www\demo\vendor\workerman\workerman\Worker.php(1294): Workerman\Worker::forkWorkersForWindows()
+#8 D:\www\demo\vendor\workerman\workerman\Worker.php(509): Workerman\Worker::forkWorkers()
+#9 D:\www\demo\socket.php(167): Wor in D:\www\demo\vendor\workerman\GlobalData\src\Client.php on line 69"
+2019-07-24 19:03:39 pid:44694 Workerman[./socket.php] start in DEBUG mode
+2019-07-24 19:04:33 pid:44916 Workerman[./socket.php] start in DEBUG mode
+2019-07-24 20:41:34 pid:44916 Workerman[socket.php] stopping ...
+2019-07-24 20:41:34 pid:44916 Workerman[socket.php] has been stopped
+2019-07-24 20:41:34 pid:45775 Workerman[./socket.php] start in DEBUG mode
+2019-07-26 11:21:34 pid:61018 Workerman[./socket.php] start in DEBUG mode
+2019-07-26 11:25:28 pid:61018 Workerman[socket.php] stopping ...
+2019-07-26 11:25:28 pid:61018 Workerman[socket.php] has been stopped
+2019-07-26 11:25:29 pid:61102 Workerman[./socket.php] start in DEBUG mode
+2019-07-26 14:06:18 pid:61102 Workerman[socket.php] stopping ...
+2019-07-26 14:06:19 pid:61102 Workerman[socket.php] has been stopped
+2019-07-26 14:06:19 pid:63370 Workerman[./socket.php] start in DEBUG mode
+2019-07-26 14:25:29 pid:63370 Workerman[socket.php] stopping ...
+2019-07-26 14:25:29 pid:63370 Workerman[socket.php] has been stopped
+2019-07-26 14:25:30 pid:63568 Workerman[./socket.php] start in DEBUG mode
+2019-07-26 14:33:34 pid:63568 Workerman[socket.php] stopping ...
+2019-07-26 14:33:34 pid:63568 Workerman[socket.php] has been stopped
+2019-07-26 14:33:35 pid:63656 Workerman[./socket.php] start in DEBUG mode
+2019-07-26 14:59:15 pid:63656 Workerman[socket.php] stopping ...
+2019-07-26 14:59:15 pid:63656 Workerman[socket.php] has been stopped
+2019-07-26 14:59:15 pid:63944 Workerman[./socket.php] start in DEBUG mode
+2019-07-26 15:01:04 pid:63944 Workerman[socket.php] stopping ...
+2019-07-26 15:01:04 pid:63944 Workerman[socket.php] has been stopped
+2019-07-26 15:01:04 pid:64017 Workerman[./socket.php] start in DEBUG mode
+2019-07-30 18:38:18 pid:48325 Workerman[./socket.php] start in DEBUG mode
+2019-08-05 10:33:40 pid:3848 Workerman[./socket.php] start in DEBUG mode
+2019-08-08 09:47:32 pid:4313 Workerman[./socket.php] start in DEBUG mode
+2019-08-10 18:55:48 pid:3782 Workerman[./socket.php] start in DEBUG mode
+2019-08-10 19:23:46 pid:3782 Workerman[socket.php] stopping ...
+2019-08-10 19:23:46 pid:3782 Workerman[socket.php] has been stopped
+2019-08-10 19:23:47 pid:5075 Workerman[./socket.php] start in DEBUG mode
+2019-08-10 19:26:14 pid:5075 Workerman[socket.php] stopping ...
+2019-08-10 19:26:14 pid:5075 Workerman[socket.php] has been stopped
+2019-08-10 19:26:15 pid:5206 Workerman[./socket.php] start in DEBUG mode
+2019-08-10 19:28:04 pid:5206 Workerman[socket.php] stopping ...
+2019-08-10 19:28:04 pid:5206 Workerman[socket.php] has been stopped
+2019-08-10 19:28:05 pid:5291 Workerman[./socket.php] start in DEBUG mode
+2019-08-10 19:30:59 pid:5291 Workerman[socket.php] stopping ...
+2019-08-10 19:30:59 pid:5291 Workerman[socket.php] has been stopped
+2019-08-10 19:31:00 pid:5360 Workerman[./socket.php] start in DEBUG mode
+2019-08-10 19:40:22 pid:5360 Workerman[socket.php] stopping ...
+2019-08-10 19:40:22 pid:5360 Workerman[socket.php] has been stopped
+2019-08-10 19:40:23 pid:5508 Workerman[./socket.php] start in DEBUG mode
+2019-08-10 19:54:08 pid:5508 Workerman[socket.php] stopping ...
+2019-08-10 19:54:08 pid:5508 Workerman[socket.php] has been stopped
+2019-08-10 19:54:08 pid:5701 Workerman[./socket.php] start in DEBUG mode
+2019-08-10 20:07:35 pid:5701 Workerman[socket.php] stopping ...
+2019-08-10 20:07:36 pid:5701 Workerman[socket.php] has been stopped
+2019-08-10 20:07:37 pid:5955 Workerman[./socket.php] start in DEBUG mode
+2019-08-10 20:31:17 pid:5955 Workerman[socket.php] stopping ...
+2019-08-10 20:31:17 pid:5955 Workerman[socket.php] has been stopped
+2019-08-10 20:31:18 pid:6653 Workerman[./socket.php] start in DEBUG mode
+2019-08-10 20:32:42 pid:6653 Workerman[socket.php] stopping ...
+2019-08-10 20:32:42 pid:6653 Workerman[socket.php] has been stopped
+2019-08-10 20:32:43 pid:6686 Workerman[./socket.php] start in DEBUG mode
+2019-08-10 20:35:30 pid:6686 Workerman[socket.php] stopping ...
+2019-08-10 20:35:30 pid:6686 Workerman[socket.php] has been stopped
+2019-08-10 20:35:31 pid:6786 Workerman[./socket.php] start in DEBUG mode
+2019-09-10 11:14:05 pid:3538 Workerman[./socket.php] start in DEBUG mode
+2019-09-16 18:11:30 pid:19072 Workerman[./socket.php] start in DEBUG mode
+2019-09-16 18:12:29 pid:19363 Workerman[./socket.php] start in DEBUG mode
+2019-10-10 09:48:23 pid:19363 Workerman[socket.php] stopping ...
+2019-10-10 10:08:05 pid:12367 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 13:49:27 pid:12367 Workerman[socket.php] stopping ...
+2019-10-12 13:49:27 pid:12367 Workerman[socket.php] has been stopped
+2019-10-12 13:49:29 pid:10961 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 13:50:39 pid:10961 Workerman[socket.php] stopping ...
+2019-10-12 13:50:39 pid:10961 Workerman[socket.php] has been stopped
+2019-10-12 13:50:50 pid:11007 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 14:10:31 pid:11007 Workerman[socket.php] stopping ...
+2019-10-12 14:10:31 pid:11007 Workerman[socket.php] has been stopped
+2019-10-12 14:10:32 pid:11557 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 14:11:12 pid:11557 Workerman[socket.php] stopping ...
+2019-10-12 14:11:12 pid:11557 Workerman[socket.php] has been stopped
+2019-10-12 14:11:13 pid:11611 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 14:13:11 pid:11611 Workerman[socket.php] stopping ...
+2019-10-12 14:13:11 pid:11611 Workerman[socket.php] has been stopped
+2019-10-12 14:13:12 pid:11667 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 14:15:18 pid:11667 Workerman[socket.php] stopping ...
+2019-10-12 14:15:18 pid:11667 Workerman[socket.php] has been stopped
+2019-10-12 14:15:26 pid:11742 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 14:21:33 pid:11742 Workerman[socket.php] stopping ...
+2019-10-12 14:21:33 pid:11742 Workerman[socket.php] has been stopped
+2019-10-12 14:21:35 pid:11940 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 14:21:41 pid:11940 Workerman[socket.php] stopping ...
+2019-10-12 14:21:41 pid:11940 Workerman[socket.php] has been stopped
+2019-10-12 14:21:42 pid:11955 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 14:21:47 pid:11955 Workerman[socket.php] stopping ...
+2019-10-12 14:21:47 pid:11955 Workerman[socket.php] has been stopped
+2019-10-12 14:21:48 pid:11995 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 14:21:54 pid:11995 Workerman[socket.php] stopping ...
+2019-10-12 14:21:54 pid:11995 Workerman[socket.php] has been stopped
+2019-10-12 14:21:55 pid:12010 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 14:22:06 pid:12010 Workerman[socket.php] stopping ...
+2019-10-12 14:22:06 pid:12010 Workerman[socket.php] has been stopped
+2019-10-12 14:22:10 pid:12056 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 14:22:15 pid:12056 Workerman[socket.php] stopping ...
+2019-10-12 14:22:15 pid:12056 Workerman[socket.php] has been stopped
+2019-10-12 14:22:16 pid:12069 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 14:22:20 pid:12069 Workerman[socket.php] stopping ...
+2019-10-12 14:22:20 pid:12069 Workerman[socket.php] has been stopped
+2019-10-12 14:22:21 pid:12080 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 14:22:25 pid:12080 Workerman[socket.php] stopping ...
+2019-10-12 14:22:25 pid:12080 Workerman[socket.php] has been stopped
+2019-10-12 14:22:26 pid:12093 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 14:30:03 pid:12093 Workerman[socket.php] stopping ...
+2019-10-12 14:30:03 pid:12093 Workerman[socket.php] has been stopped
+2019-10-12 14:30:04 pid:12284 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 14:30:07 pid:12284 Workerman[socket.php] stopping ...
+2019-10-12 14:30:07 pid:12284 Workerman[socket.php] has been stopped
+2019-10-12 14:30:09 pid:12299 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 14:30:33 pid:12299 Workerman[socket.php] stopping ...
+2019-10-12 14:30:33 pid:12299 Workerman[socket.php] has been stopped
+2019-10-12 14:30:34 pid:12318 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 14:30:44 pid:12318 Workerman[socket.php] stopping ...
+2019-10-12 14:30:44 pid:12318 Workerman[socket.php] has been stopped
+2019-10-12 14:30:45 pid:12333 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 14:30:55 pid:12333 Workerman[socket.php] stopping ...
+2019-10-12 14:30:55 pid:12333 Workerman[socket.php] has been stopped
+2019-10-12 14:30:56 pid:12354 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 14:31:00 pid:12354 Workerman[socket.php] stopping ...
+2019-10-12 14:31:00 pid:12354 Workerman[socket.php] has been stopped
+2019-10-12 14:31:00 pid:12365 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 14:31:07 pid:12365 Workerman[socket.php] stopping ...
+2019-10-12 14:31:07 pid:12365 Workerman[socket.php] has been stopped
+2019-10-12 14:31:12 pid:12386 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 14:31:17 pid:12386 Workerman[socket.php] stopping ...
+2019-10-12 14:31:17 pid:12386 Workerman[socket.php] has been stopped
+2019-10-12 14:31:18 pid:12397 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 14:31:21 pid:12397 Workerman[socket.php] stopping ...
+2019-10-12 14:31:21 pid:12397 Workerman[socket.php] has been stopped
+2019-10-12 14:31:22 pid:12438 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 14:31:26 pid:12438 Workerman[socket.php] stopping ...
+2019-10-12 14:31:26 pid:12438 Workerman[socket.php] has been stopped
+2019-10-12 14:31:27 pid:12451 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 14:31:31 pid:12451 Workerman[socket.php] stopping ...
+2019-10-12 14:31:31 pid:12451 Workerman[socket.php] has been stopped
+2019-10-12 14:31:32 pid:12507 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 14:32:50 pid:12507 Workerman[socket.php] stopping ...
+2019-10-12 14:32:50 pid:12507 Workerman[socket.php] has been stopped
+2019-10-12 14:32:51 pid:12592 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 14:32:57 pid:12592 Workerman[socket.php] stopping ...
+2019-10-12 14:32:57 pid:12592 Workerman[socket.php] has been stopped
+2019-10-12 14:32:58 pid:12607 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 14:33:21 pid:12607 Workerman[socket.php] stopping ...
+2019-10-12 14:33:21 pid:12607 Workerman[socket.php] has been stopped
+2019-10-12 14:33:21 pid:12626 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 14:34:24 pid:12626 Workerman[socket.php] stopping ...
+2019-10-12 14:34:24 pid:12626 Workerman[socket.php] has been stopped
+2019-10-12 14:34:26 pid:12682 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 14:34:30 pid:12682 Workerman[socket.php] stopping ...
+2019-10-12 14:34:30 pid:12682 Workerman[socket.php] has been stopped
+2019-10-12 14:34:34 pid:12724 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 14:35:01 pid:12724 Workerman[socket.php] stopping ...
+2019-10-12 14:35:01 pid:12724 Workerman[socket.php] has been stopped
+2019-10-12 14:35:02 pid:12772 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 14:35:10 pid:12772 Workerman[socket.php] stopping ...
+2019-10-12 14:35:10 pid:12772 Workerman[socket.php] has been stopped
+2019-10-12 14:35:10 pid:12785 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 14:35:16 pid:12785 Workerman[socket.php] stopping ...
+2019-10-12 14:35:16 pid:12785 Workerman[socket.php] has been stopped
+2019-10-12 14:35:17 pid:12802 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 14:35:20 pid:12802 Workerman[socket.php] stopping ...
+2019-10-12 14:35:20 pid:12802 Workerman[socket.php] has been stopped
+2019-10-12 14:35:21 pid:12833 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 14:37:07 pid:12833 Workerman[socket.php] stopping ...
+2019-10-12 14:37:07 pid:12833 Workerman[socket.php] has been stopped
+2019-10-12 14:37:08 pid:12924 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 14:37:13 pid:12924 Workerman[socket.php] stopping ...
+2019-10-12 14:37:13 pid:12924 Workerman[socket.php] has been stopped
+2019-10-12 14:37:14 pid:12964 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 15:13:39 pid:12964 Workerman[socket.php] stopping ...
+2019-10-12 15:13:39 pid:12964 Workerman[socket.php] has been stopped
+2019-10-12 15:13:40 pid:13894 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 15:13:55 pid:13894 Workerman[socket.php] stopping ...
+2019-10-12 15:13:55 pid:13894 Workerman[socket.php] has been stopped
+2019-10-12 15:13:56 pid:13954 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 15:14:03 pid:13954 Workerman[socket.php] stopping ...
+2019-10-12 15:14:03 pid:13954 Workerman[socket.php] has been stopped
+2019-10-12 15:14:04 pid:13967 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 15:14:48 pid:13967 Workerman[socket.php] stopping ...
+2019-10-12 15:14:48 pid:13967 Workerman[socket.php] has been stopped
+2019-10-12 15:14:50 pid:14030 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 15:14:56 pid:14030 Workerman[socket.php] stopping ...
+2019-10-12 15:14:56 pid:14030 Workerman[socket.php] has been stopped
+2019-10-12 15:14:57 pid:14059 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 15:15:04 pid:14059 Workerman[socket.php] stopping ...
+2019-10-12 15:15:04 pid:14059 Workerman[socket.php] has been stopped
+2019-10-12 15:15:06 pid:14103 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 15:15:24 pid:14103 Workerman[socket.php] stopping ...
+2019-10-12 15:15:24 pid:14103 Workerman[socket.php] has been stopped
+2019-10-12 15:15:26 pid:14122 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 15:15:39 pid:14122 Workerman[socket.php] stopping ...
+2019-10-12 15:15:39 pid:14122 Workerman[socket.php] has been stopped
+2019-10-12 15:15:49 pid:14179 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 15:17:11 pid:14179 Workerman[socket.php] stopping ...
+2019-10-12 15:17:11 pid:14179 Workerman[socket.php] has been stopped
+2019-10-12 15:17:13 pid:14270 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 15:17:17 pid:14270 Workerman[socket.php] stopping ...
+2019-10-12 15:17:17 pid:14270 Workerman[socket.php] has been stopped
+2019-10-12 15:17:18 pid:14283 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 15:17:24 pid:14283 Workerman[socket.php] stopping ...
+2019-10-12 15:17:24 pid:14283 Workerman[socket.php] has been stopped
+2019-10-12 15:17:25 pid:14338 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 15:17:29 pid:14338 Workerman[socket.php] stopping ...
+2019-10-12 15:17:29 pid:14338 Workerman[socket.php] has been stopped
+2019-10-12 15:17:36 pid:14349 Workerman[./socket.php] start in DEBUG mode
+2019-10-12 15:27:10 pid:14349 Workerman[socket.php] stopping ...
+2019-10-12 15:27:10 pid:14349 Workerman[socket.php] has been stopped
+2019-10-12 15:27:11 pid:14582 Workerman[./socket.php] start in DEBUG mode
+2019-10-17 21:02:29 pid:14582 Workerman[socket.php] stopping ...
+2019-10-17 21:02:29 pid:14582 Workerman[socket.php] has been stopped
+2019-10-17 21:02:30 pid:40464 Workerman[./socket.php] start in DEBUG mode
+2019-10-17 21:03:41 pid:40464 Workerman[socket.php] stopping ...
+2019-10-17 21:03:41 pid:40464 Workerman[socket.php] has been stopped
+2019-10-17 21:03:42 pid:40504 Workerman[./socket.php] start in DEBUG mode
+2019-10-17 21:04:36 pid:40504 Workerman[socket.php] stopping ...
+2019-10-17 21:04:36 pid:40504 Workerman[socket.php] has been stopped
+2019-10-17 21:04:37 pid:40535 Workerman[./socket.php] start in DEBUG mode
+2019-10-17 21:06:14 pid:40535 Workerman[socket.php] stopping ...
+2019-10-17 21:06:14 pid:40535 Workerman[socket.php] has been stopped
+2019-10-17 21:06:15 pid:40600 Workerman[./socket.php] start in DEBUG mode
+2019-10-17 21:10:12 pid:40600 Workerman[socket.php] stopping ...
+2019-10-17 21:10:12 pid:40600 Workerman[socket.php] has been stopped
+2019-10-17 21:10:13 pid:40723 Workerman[./socket.php] start in DEBUG mode
+2019-10-17 21:10:36 pid:40724 Worker[40724] process terminated
+2019-10-17 21:11:12 pid:40723 Workerman[socket.php] stopping ...
+2019-10-17 21:11:12 pid:40723 Workerman[socket.php] has been stopped
+2019-10-17 21:11:14 pid:40791 Workerman[./socket.php] start in DEBUG mode
+2019-10-17 21:16:18 pid:40791 Workerman[socket.php] stopping ...
+2019-10-17 21:16:18 pid:40791 Workerman[socket.php] has been stopped
+2019-10-17 21:16:19 pid:40933 Workerman[./socket.php] start in DEBUG mode
+2019-10-17 21:20:13 pid:40933 Workerman[socket.php] stopping ...
+2019-10-17 21:20:13 pid:40933 Workerman[socket.php] has been stopped
+2019-10-17 21:20:14 pid:41060 Workerman[./socket.php] start in DEBUG mode
+2019-10-17 21:21:42 pid:41060 Workerman[socket.php] stopping ...
+2019-10-17 21:21:42 pid:41060 Workerman[socket.php] has been stopped
+2019-10-17 21:21:44 pid:41133 Workerman[./socket.php] start in DEBUG mode
+2019-10-17 21:31:12 pid:41133 Workerman[socket.php] stopping ...
+2019-10-17 21:31:12 pid:41133 Workerman[socket.php] has been stopped
+2019-10-17 21:31:13 pid:41366 Workerman[./socket.php] start in DEBUG mode
+2019-10-22 11:44:56 pid:4100 Workerman[./socket.php] start in DEBUG mode
+2019-10-22 14:53:04 pid:3604 Workerman[./socket.php] start in DEBUG mode
+2019-10-30 17:07:54 pid:3604 Workerman[socket.php] stopping ...
+2019-10-30 17:07:54 pid:3604 Workerman[socket.php] has been stopped
+2019-10-30 17:07:55 pid:8983 Workerman[./socket.php] start in DEBUG mode
+2019-10-30 17:09:26 pid:8983 Workerman[socket.php] stopping ...
+2019-10-30 17:09:26 pid:8983 Workerman[socket.php] has been stopped
+2019-10-30 17:09:26 pid:9015 Workerman[./socket.php] start in DEBUG mode
+2019-10-30 19:40:26 pid:9015 Workerman[socket.php] stopping ...
+2019-10-30 19:40:26 pid:9015 Workerman[socket.php] has been stopped
+2019-10-30 19:40:27 pid:10566 Workerman[./socket.php] start in DEBUG mode
+2019-10-31 09:15:44 pid:3536 Workerman[./socket.php] start in DEBUG mode
+2019-10-31 16:26:36 pid:3683 Workerman[./socket.php] start in DEBUG mode
+2019-10-31 16:59:15 pid:3683 Workerman[socket.php] stopping ...
+2019-10-31 16:59:16 pid:3683 Workerman[socket.php] has been stopped
+2019-10-31 16:59:16 pid:4441 Workerman[./socket.php] start in DEBUG mode
+2019-10-31 17:00:51 pid:4441 Workerman[socket.php] stopping ...
+2019-10-31 17:00:51 pid:4441 Workerman[socket.php] has been stopped
+2019-10-31 17:00:52 pid:4485 Workerman[./socket.php] start in DEBUG mode
+2019-11-02 09:05:44 pid:4187 Workerman[./socket.php] start in DEBUG mode
+2019-11-04 00:58:22 pid:4187 Workerman[socket.php] stopping ...
+2019-11-04 09:09:29 pid:5785 Workerman[./socket.php] start in DEBUG mode
+2019-11-05 11:32:26 pid:3451 Workerman[./socket.php] start in DEBUG mode
+2019-11-06 16:38:44 pid:3451 Workerman[socket.php] stopping ...
+2019-11-06 16:38:44 pid:3451 Workerman[socket.php] has been stopped
+2019-11-06 16:38:45 pid:52174 Workerman[./socket.php] start in DEBUG mode
+2019-11-13 10:16:39 pid:3488 Workerman[./socket.php] start in DEBUG mode
+2019-11-13 11:42:10 pid:3891 Workerman[./socket.php] start in DEBUG mode
+2019-11-14 15:37:58 pid:24056 Workerman[./socket.php] status 
+2019-11-23 19:30:22 pid:3422 Workerman[./socket.php] start in DEBUG mode
+2019-11-23 19:30:24 pid:3422 Workerman[socket.php] stopping ...
+2019-11-23 19:30:24 pid:3422 Workerman[socket.php] has been stopped
+2019-11-23 19:32:14 pid:3467 Workerman[./socket.php] start in DEBUG mode
+2019-11-26 16:16:42 pid:39401 Workerman[./socket.php] start in DEBUG mode
+2019-12-03 10:06:59 pid:39401 Workerman[socket.php] stopping ...
+2019-12-03 10:06:59 pid:39401 Workerman[socket.php] has been stopped
+2019-12-05 10:46:41 pid:62446 Workerman[./socket.php] start in DEBUG mode
+2019-12-05 10:51:15 pid:62446 Workerman[socket.php] stopping ...
+2019-12-05 10:51:15 pid:62446 Workerman[socket.php] has been stopped
+2019-12-05 10:59:52 pid:63351 Workerman[./socket.php] start in DEBUG mode
+2019-12-05 11:04:20 pid:63351 Workerman[socket.php] stopping ...
+2019-12-05 11:04:20 pid:63351 Workerman[socket.php] has been stopped
+2019-12-05 11:04:21 pid:63862 Workerman[./socket.php] start in DEBUG mode
+2019-12-05 11:05:04 pid:63862 Workerman[socket.php] stopping ...
+2019-12-05 11:05:04 pid:63862 Workerman[socket.php] has been stopped
+2019-12-05 11:05:05 pid:63890 Workerman[./socket.php] start in DEBUG mode
+2019-12-05 16:38:34 pid:63890 Workerman[socket.php] stopping ...
+2019-12-05 16:38:34 pid:63890 Workerman[socket.php] has been stopped
+2019-12-05 16:38:34 pid:5061 Workerman[./socket.php] start in DEBUG mode
+2019-12-16 14:39:22 pid:12021 Workerman[/www/wwwroot/xuri/socket.php] stop 
+2019-12-16 14:39:22 pid:12021 Workerman[/www/wwwroot/xuri/socket.php] not run
+2019-12-16 14:40:36 pid:12028 Workerman[./socket.php] start in DAEMON mode
+2019-12-16 14:42:56 pid:12030 Workerman[socket.php] stopping ...
+2019-12-16 06:47:30 pid:3762 Workerman[./socket.php] start in DEBUG mode
+2019-12-16 16:22:03 pid:3762 Workerman[socket.php] stopping ...
+2019-12-16 16:22:03 pid:3762 Workerman[socket.php] has been stopped
+2019-12-16 16:22:15 pid:4506 Workerman[./socket.php] start in DEBUG mode
+2019-12-16 16:23:28 pid:4506 Workerman[socket.php] stopping ...
+2019-12-16 16:23:28 pid:4506 Workerman[socket.php] has been stopped
+2019-12-16 16:24:54 pid:4568 Workerman[./socket.php] start in DAEMON mode
+2019-12-16 16:33:01 pid:4616 Workerman[./socket.php] stop 
+2019-12-16 16:33:01 pid:4616 Workerman[./socket.php] is stopping ...
+2019-12-16 16:33:01 pid:4570 Workerman[socket.php] stopping ...
+2019-12-16 16:33:01 pid:4570 Workerman[socket.php] has been stopped
+2019-12-16 16:33:01 pid:4616 Workerman[./socket.php] stop success
+2019-12-16 16:33:05 pid:4617 Workerman[./socket.php] start in DAEMON mode
+2019-12-16 16:34:34 pid:4622 Workerman[./socket.php] stop 
+2019-12-16 16:34:34 pid:4622 Workerman[./socket.php] is stopping ...
+2019-12-16 16:34:34 pid:4619 Workerman[socket.php] stopping ...
+2019-12-16 16:34:34 pid:4619 Workerman[socket.php] has been stopped
+2019-12-16 16:34:34 pid:4622 Workerman[./socket.php] stop success
+2019-12-16 16:34:38 pid:4623 Workerman[./socket.php] start in DEBUG mode
+2019-12-16 16:38:11 pid:4623 Workerman[socket.php] stopping ...
+2019-12-16 16:38:11 pid:4623 Workerman[socket.php] has been stopped
+2019-12-16 16:38:12 pid:4666 Workerman[./socket.php] start in DEBUG mode
+2019-12-16 16:39:09 pid:4666 Workerman[socket.php] stopping ...
+2019-12-16 16:39:09 pid:4666 Workerman[socket.php] has been stopped
+2019-12-16 16:39:14 pid:4689 Workerman[./socket.php] start in DAEMON mode
+2019-12-17 11:05:20 pid:5322 Workerman[./socket.php] start in DEBUG mode
+2019-12-30 10:46:50 pid:3480 Workerman[./socket.php] start in DAEMON mode
+2020-01-08 18:22:15 pid:21438 Workerman[./socket.php] start in DAEMON mode
+2020-01-08 18:37:44 pid:3105 Workerman[./socket.php] stop 
+2020-01-08 18:37:44 pid:3105 Workerman[./socket.php] is stopping ...
+2020-01-08 18:37:44 pid:21441 Workerman[socket.php] stopping ...
+2020-01-08 18:37:44 pid:21441 Workerman[socket.php] has been stopped
+2020-01-08 18:37:44 pid:3105 Workerman[./socket.php] stop success
+2020-01-08 18:43:15 pid:8237 Workerman[./socket.php] start in DAEMON mode
+2020-01-12 16:16:47 pid:11107 Workerman[./socket.php] start in DAEMON mode
+2020-01-12 16:38:43 pid:3462 Workerman[./socket.php] start in DAEMON mode
+2020-01-12 16:55:18 pid:3397 Workerman[./socket.php] start in DAEMON mode
+2020-01-12 16:55:24 pid:3479 Workerman[./socket.php] stop 
+2020-01-12 16:55:24 pid:3479 Workerman[./socket.php] is stopping ...
+2020-01-12 16:55:24 pid:3399 Workerman[socket.php] stopping ...
+2020-01-12 16:55:24 pid:3399 Workerman[socket.php] has been stopped
+2020-01-12 16:55:24 pid:3479 Workerman[./socket.php] stop success
+2020-01-12 16:55:27 pid:3532 Workerman[./socket.php] start in DEBUG mode
+2020-01-12 16:55:40 pid:3532 Workerman[socket.php] stopping ...
+2020-01-12 16:55:40 pid:3532 Workerman[socket.php] has been stopped
+2020-01-12 16:55:42 pid:3740 Workerman[./socket.php] start in DAEMON mode
+2020-10-26 23:41:52 pid:3078 Workerman[./socket.php] start in DEBUG mode
+2020-10-26 23:42:31 pid:3078 Workerman[socket.php] stopping ...
+2020-10-26 23:42:32 pid:3078 Workerman[socket.php] has been stopped

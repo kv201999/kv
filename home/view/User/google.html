@@ -1,0 +1,68 @@
+[[include file="head.html"]]
+<style>
+.inputbox{padding:0.6rem 0.5rem;}
+</style>
+<div class="setPassword3">
+	<div class="HeadTop">
+		<p class="Tit">设置谷歌验证</p>
+		<a href="/?c=User&a=setting" class="backBtn"></a>
+	</div>
+	<div class="setPasswordCon">
+		<div class="inputbox">账号：<span class="cpBtn" data-clipboard-text="[[$user.account]]">[[$user.account]] <span style="color:#fc744d;">复制</span></span></div>
+		<div class="inputbox">密钥：<span class="cpBtn" data-clipboard-text="[[$user.google_secret]]">[[$user.google_secret]] <span style="color:#fc744d;">复制</span></span></div>
+		<div class="inputbox">二维码：<br><div style="padding:0.5rem;min-height:220px;"><img src="[[$google_qrcode]]" style="width:80%;margin:0 auto;"/></div></div>
+		<div class="inputbox">状态：
+			<label><input type="radio" name="is_google" value="1" style="height:1.2rem;position:relative;top:3px;"/> 开启</label>&nbsp;&nbsp;
+			<label><input type="radio" name="is_google" value="0" style="height:1.2rem;position:relative;top:3px;"/> 关闭</label>
+		</div>
+		<a href="javascript:;" class="confirmBtn">保存</a>
+	</div>
+</div>
+
+[[include file="js.html"]]
+<script src="public/js/clipboard.min.js"></script>
+<script>
+preventDefault();
+$(function(){
+
+	var clipboard = new ClipboardJS('.cpBtn');
+    clipboard.on('success', function (e) {
+        _alert("复制成功");
+    });
+
+	var isGoogle='[[$user.is_google]]';
+	$('input[name="is_google"][value="'+isGoogle+'"]').prop('checked',true);
+
+    $('.confirmBtn').on('click',function(){
+        var obj=$(this);
+        var is_google=$.trim($('input[name="is_google"]:checked').val());
+        var has_click=obj.attr('has-click');
+        if(has_click=='1'){
+            return;
+        }else{
+            obj.attr('has-click','1');
+        }
+        ajax({
+            url:global.appurl+'c=User&a=googleAct',
+            data:{is_google:is_google},
+            success:function(json){
+                if(json.code!=1){
+                    obj.attr('has-click','0');
+                    _alert(json.msg);
+                    return false;
+                }
+                _alert({
+                    content:json.msg,
+                    end:function(){
+                       location.href='/?c=User&a=setting';
+                    }
+                });
+            }
+        });
+    });
+
+});
+
+
+</script>
+[[include file="foot.html"]]

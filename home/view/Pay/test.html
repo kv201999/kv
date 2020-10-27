@@ -1,0 +1,75 @@
+[[include file="head.html"]]
+<div class="yingyong">
+	<div class="HeadTop">
+		<p class="Tit">测试通道</p>
+		<!--<a href="javacript:;" class="backBtn"></a>-->
+	</div>
+	<div class="yingyongCon">
+		<div class="fillCashNum">金额：<div class="inputbox"><input type="text" id="money" value="10"></div></div>
+		<h1>请选择支付方式</h1>
+		<div class="paywayList">
+			[[foreach from=$mtype_arr item=vo]]
+			<a href="javascript:;" data-id="[[$vo.id]]" class="[[if in_array($vo.id,[1,11,12])]]alipay[[elseif in_array($vo.id,[2,4,5])]]wxpay[[elseif $vo.id eq 3]]bankCardpay[[else]]bankCardpay[[/if]] [[if $vo.id eq 1]]on[[/if]]"><p>[[$vo.name]]</p></a>
+			[[/foreach]]
+		</div>
+		<a href="javascript:;" class="fillCashBtn">充值</a>
+		<div class="warmTips" style="color:#fc744d;">
+			<p class="title" style="color:#fc744d;">温馨提示：</p>
+			1、本页面为应用测试页面<br>
+			2、请使用小额进行测试<br>
+		</div>
+	</div>
+</div>
+
+[[include file="js.html"]]
+<script>
+preventDefault();
+needSocket=false;
+$(function(){
+
+	$('.paywayList a').on('click',function(){
+		var obj=$(this);
+		$('.paywayList a').removeClass('on');
+		obj.addClass('on');
+	});
+	
+	$('.fillCashBtn').on('click',function(){
+		var obj=$(this);
+		var money=$.trim($('#money').val());
+		if(!money||money<0.01){
+			_alert('充值金额不正确');
+			return;
+		}
+		var ptype=$('.paywayList .on').attr('data-id');
+		var has_click=obj.attr('has-click');
+		if(has_click=='1'){
+			return;
+		}else{
+			obj.attr('has-click','1');
+		}
+		ajax({
+			url:global.appurl+'c=Pay&a=testAct',
+			data:{ptype:ptype,money:money},
+			beforeSend:function(){
+				layer.open({type:2});
+			},
+			success:function(json){
+				setTimeout(function(){
+					layer.closeAll();
+					if(json.code!=1){
+						obj.attr('has-click','0');
+						if(json.code=='-2'){
+							_alert({content:json.msg,time:6});
+						}else{
+							_alert(json.msg);
+						}
+						return;
+					}
+					location.href=json.data.url;
+				},1200);
+			}
+		});
+	});
+});
+</script>
+[[include file="foot.html"]]

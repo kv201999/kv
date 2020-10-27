@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>[[$title]]</title>
+<meta name="apple-touch-fullscreen" content="YES" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+<meta content="email=no" name="format-detection" />
+<meta http-equiv="Expires" content="-1" />
+<meta http-equiv="pragram" content="no-cache" />
+<link rel="stylesheet" type="text/css" href="public/layer/need/layer.css">
+<link rel="stylesheet" type="text/css" href="public/home/css/mainStyle.css?v=1.9">
+<script type="text/javascript" src="public/home/js/init.js?v=1.7"></script>
+<style>
+.moreBtn{font-size: 1.3rem;padding: 1rem 0;color: #666;}
+</style>
+</head>
+<body>
+<style>
+body{
+	word-wrap: break-word;
+    word-break:break-all;
+ }
+</style>
+测试：
+<a target="_blank" href="https://www.alipay.com/">测试</a>
+<div class="myVideo" id="myVideo" style="height: 210.938px;">
+	<div class="sk-circle1 sk-circle"></div>
+	<!--<canvas width="480" height="270"></canvas>-->
+</div>
+
+<script type="text/javascript" src="public/js/jquery2.1.js"></script>
+<script type="text/javascript" src="public/layer/layer.js"></script>
+<script type="text/javascript" src="public/js/md5.js"></script>
+<script type="text/javascript" src="public/js/socket.io.js"></script>
+<script type="text/javascript" src="public/js/func.js"></script>
+<script type="text/javascript" src="public/home/js/func.js"></script>
+<script type="text/javascript" src="public/js/global.js"></script>
+
+<script type="text/javascript" src="home/view/Test/hotaPlayer.js"></script>
+<script type="text/javascript" src="home/view/Test/Decoder.js"></script>
+<script type="text/javascript" src="home/view/Test/YUVCanvas.js"></script>
+
+<script>
+var scope={
+
+};
+var circle = $(".sk-fading-circle");
+scope.wsavc = new hotaPlayer({
+  div: document.getElementById("myVideo"),
+  spinner: function(status) {
+	if (status) {
+	  circle.show();
+	} else {
+	  circle.hide();
+	}
+  },
+  size: function(data) {
+	console.log(data);
+  },
+  workerFile: "home/view/Test/Decoder.js"
+});
+
+//scope.wsavc.connect('wss://video.kkw200.com/p1/');
+
+
+
+
+/*
+var ws = new WebSocket("wss://video.kkw200.com/p1/");        
+ws.onopen = function(){
+	// Web Socket 已连接上，使用 send() 方法发送数据
+	//ws.send("发送数据");
+	//alert("数据发送中...");
+};
+
+ws.onmessage = function (evt){
+	var dt=decode(evt.data);
+	console.log(dt); 
+};
+
+ws.onclose = function(){
+	// 关闭 websocket
+	alert("连接已关闭...");
+};
+
+*/
+
+var user=JSON.parse('[[$user|json_encode]]');//用户信息
+user.token=getToken();
+
+//console.log(user);
+
+var app={
+	debug:true,
+	ws:null,
+	wsUrl:'ws://localhost:9502',
+	func:null,//公共函数库
+	user:user,
+	params:{},//参数
+	module:function(){},//动作处理模块
+	send:function(act,data){
+		if(!this.ws){
+			return;
+		}
+		var json={emit:'sendFromClient',act:act,data:data};
+		if(this.debug){
+			console.log(json);
+		}
+		var _this=this;
+		/*
+		//phpsocket.io不支持二进制
+		strToBuffer(JSON.stringify(json),function(buffer){
+			_this.ws.emit('sendFromClient',buffer);
+		});*/
+		_this.ws.emit('sendFromClient',JSON.stringify(json));
+	},
+	login:function(){
+		var LoginModule=new this.module.Login();
+		LoginModule.loginAct();
+	},
+	init:function(){
+		let _this=this;
+		this.ws=io(this.wsUrl);
+
+		this.ws.on('connect',function(){
+
+			_this.login();//发送登录
+
+			_this.ws.on('sendFromServer',function(buffer){
+				var json={act:'',data:{}};
+				try{
+					json=JSON.parse(buffer);
+				}catch(e){
+					//console.log('数据格式不正确');
+				}
+				if(_this.debug){
+					console.log(json);
+				}
+				if(!json.act){
+					return;
+				}
+				if(!json.data){
+					json.data={};
+				}else if(typeof json.data=='string'){
+					json.data={_string:json.data};
+				}
+
+				let r_params={c:'Default',a:'index'};
+				let act_arr=trim(trim(json.act),'/').split('/');
+				if(act_arr.length==2){
+					r_params.c=ucfirst(trim(act_arr[0]));
+					r_params.a=trim(act_arr[1]);
+				}else if(act_arr.length==1){
+					r_params.a=trim(act_arr[0]);
+				}
+
+				_this.params=extend(json.data,r_params);
+
+				var moduleName=_this.params.c;
+				if(typeof _this.module[moduleName]!='function'){
+					if(_this.debug){
+						console.log('缺少模块:'+moduleName);
+					}
+					return;
+				}
+				var moduleObj=new _this.module[moduleName]();
+				if(typeof moduleObj[_this.params.a]!='function'){
+					if(_this.debug){
+						console.log('缺少方法:'+_this.params.a);
+					}
+					return;
+				}
+				//模块处理
+				moduleObj[_this.params.a]();
+			});
+
+		});
+
+		this.ws.on('disconnect',function(res){
+			//console.log(res);
+		});
+
+		this.ws.on('error',function(res){
+			console.log(res);
+		});
+
+	},
+
+	start:function(){
+		this.init();
+	}
+};
+
+///////////////////////////模块//////////////////////////////////
+
+app.module.Base=function(){
+	app.module.call(this);
+
+	this.params=app.params;
+	this.user=app.user;//引用
+
+	this.send=function(act,data){
+		app.send(act,data);
+	}
+
+	this.index=function(){
+		console.log('client bindex');
+	}
+
+}
+
+app.module.Error=function(){
+	app.module.Base.call(this);
+
+	//统一报错消息
+	this.msg=function(){
+		console.log(this.params);
+	}
+}
+
+app.module.Login=function(){
+	app.module.Base.call(this);
+	
+	//发起登录
+	this.loginAct=function(){
+		this.send('Login/loginAct',{uid:this.user.id,token:this.user.token});
+	}
+
+	//登录成功
+	this.loginOk=function(){
+		var game=new app.module.Game();
+		game.init();
+	}
+
+}
+
+app.module.Default=function(){
+	app.module.Base.call(this);
+
+	this.index=function(){
+		console.log('default index');
+	}
+
+}
+
+app.module.Game=function(){
+	app.module.Base.call(this);
+
+	//游戏初始化
+	this.init=function(){
+		this.send('Game/init','游戏初始化请求');
+	}
+
+	this.initOk=function(){
+		console.log(this.params);
+	}
+
+	this.sendTest=function(){
+		app.send('Game/test','这是一个测试按钮的事件！');
+	}
+
+	this.testOk=function(){
+		console.log(this.params);
+	}
+
+}
+
+//app.start();//开始
+
+$('#testBtn').on('click',function(){
+	alert('点击测试按钮');
+	var gameModule=new app.module.Game();
+	gameModule.sendTest();
+});
+
+</script>
+
+</body>
+</html>

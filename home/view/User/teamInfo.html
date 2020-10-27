@@ -1,0 +1,80 @@
+[[include file="head.html"]]
+<style>
+.HeadTop{z-index:2;}
+.myTeamSetCon .insertBox p{width:30%;}
+.myTeamSetCon .insertBox .inp input{width:5rem;padding:0 5px;}
+</style>
+
+<div class="myTeamSet">
+	<div class="HeadTop">
+		<p class="Tit">收益率</p>
+		<a href="/?c=User&a=team" class="backBtn"></a>
+	</div>
+	<div class="myTeamSetCon">
+		<div class="infoBox">
+			<p>下级账号：[[$user.account]]</p>
+			<p>推荐层级：[[$s.level]]层</p>
+			<p>注册时间：[[$user.reg_time]]</p>
+			<p>抢单状态：[[$user.is_online_flag]]</p>
+		</div>
+		<div class="insertBox">
+			[[foreach from=$mtype_arr item=vo]]
+			[[if $up_td_switch[$vo.id] gt 0]]
+			<div class="Row">
+				<p>[[$vo.name]]</p>
+				<div class="inp"><input type="text" class="mtypeItem" value="[[$user.fy_rate[$vo.id]*100 ]]" data-id="[[$vo.id]]">%</div>
+				<div style="display:inline-block;">上级：[[$up_user.fy_rate[$vo.id]*100 ]]%</div>
+			</div>
+			[[/if]]
+			[[/foreach]]
+		</div>
+		<a href="javascript:;" class="setBtn">设置</a>
+	</div>
+
+</div>
+[[include file="js.html"]]
+<script>
+preventDefault();
+$(function(){
+    
+	$('.setBtn').on('click',function(){
+		var obj=$(this);
+		var uid='[[$user.id]]';
+		var fy_rate=[];
+		$('.mtypeItem').each(function(i,o){
+			var fobj=$(o);
+			fy_rate[fobj.attr('data-id')]=formatFloat(fobj.val()/100,3);
+		});
+		var has_click=obj.attr('has-click');
+		if(has_click=='1'){
+			return;
+		}else{
+			obj.attr('has-click','1');
+		}
+		ajax({
+			url:global.appurl+'c=User&a=teamSet',
+			data:{uid:uid,fy_rate:fy_rate},
+			success:function(json){
+				obj.attr('has-click','0');
+				if(json.code!=1){
+					_alert(json.msg);
+					return;
+				}
+				_alert({
+					content:json.msg,
+					end:function(){
+						//
+					}
+				});
+			}
+		});
+	});
+	
+	
+	function formatFloat(src, pos){
+	   return Math.round(src*Math.pow(10, pos))/Math.pow(10, pos);
+	}
+	
+});
+</script>
+[[include file="foot.html"]]

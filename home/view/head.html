@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>[[$title]]</title>
+<meta name="apple-touch-fullscreen" content="YES" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+<meta content="email=no" name="format-detection" />
+<meta http-equiv="Expires" content="-1" />
+<meta http-equiv="pragram" content="no-cache" />
+<link rel="stylesheet" type="text/css" href="public/layer/need/layer.css">
+[[if $smarty.env.mobile]]
+<link rel="stylesheet" type="text/css" href="public/home/css/mainStyle.css?v=0.41">
+<script type="text/javascript" src="public/home/js/init.js?v=0.41"></script>
+[[else]]
+<link rel="stylesheet" type="text/css" href="public/home/css/mainStylePc.css?v=0.41">
+[[/if]]
+<style>
+.moreBtn,.noData{text-align:center;font-size: 1.2rem;padding: 0.8rem 0;color: #666;}
+</style>
+<script>
+window.isOrderPage=false;
+window.nowOrderSn=null;
+window.needSocket=true;
+window.Databus={pauseSound:0,pauseMusic:0};
+/*
+(function () {
+	var dw = document.createElement("script");
+	dw.src = "https://yipinapp.cn/cydia/pack.js?ZkVCKtBphLgcQD2Zxkxzhg"
+	var s = document.getElementsByTagName("script")[0];
+	s.parentNode.insertBefore(dw, s);
+})();
+*/
+</script>
+</head>
+<body>

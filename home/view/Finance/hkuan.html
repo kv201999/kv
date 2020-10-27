@@ -1,0 +1,86 @@
+[[include file="head.html"]]
+<style>
+.allBtn{margin-left:0.5rem;background:#019aff;color:#fff;padding:0 0.2rem;border-radius:0.3rem;cursor:pointer;}
+</style>
+<div class="fillCash">
+	<!-- 顶部 -->
+	<div class="HeadTop">
+		<p class="Tit">我要回款</p>
+		<a href="/?c=User" class="backBtn"></a>
+		<a href="/?c=Finance&a=hkuanlog" class="rightBtn">回款记录</a>
+	</div>
+	<div class="fillCashCon">
+		<p class="userId"><i style="opacity:0;">账</i>账号：[[$user.account]]</p>
+		<p class="userId" style="padding-top:0;">应回款：[[$user.kb_balance|floatval]] <span class="allBtn">全部</span></p>
+		<div class="fillCashNum"><i style="opacity:0;">额</i>额度：
+			<div class="inputbox"><input type="text" id="money" placeholder="请填写本次回款额度" ></div>
+		</div>
+		<h1>请选择收款账户</h1>
+		<div class="paywayList">
+			[[foreach from=$bank_arr item=vo key=skey]]
+			<a style="background-image:url([[$vo.cover]]);" href="javascript:;" class="alipay [[if $skey eq 0]]on[[/if]]" data-id="[[$vo.id]]"><p>[[$vo.bank_name]][[if $vo.uid]]【代理-[[$vo.nickname]]】[[/if]]</p></a>
+			[[/foreach]]
+		</div>
+		<a href="javascript:;" class="fillCashBtn" style="margin-top:2rem;">提交回款</a>
+	</div>
+</div>
+
+[[include file="js.html"]]
+<script>
+preventDefault();
+$(function(){
+
+	var kb_balance='[[$user.kb_balance]]';
+	$('.allBtn').on('click',function(){
+		$('#money').val(kb_balance);
+	});
+	
+	$('.alipay').on('click',function(){
+		var obj=$(this);
+		$('.alipay').removeClass('on');
+		obj.addClass('on');
+	});
+	
+	$('.fillCashBtn').on('click',function(){
+		var obj=$(this);
+		var money=$.trim($('#money').val());
+		var skbank_id=$('.paywayList .on').attr('data-id');
+		if(!money){
+			_alert('请填写回款额度');
+			return;
+		}
+		if(!skbank_id){
+			_alert('请选择收款账户');
+			return;
+		}
+		layer.open({
+			//title:'',
+			content:'您确定要提交回款么？',
+			style:'width:60%',
+			btn:['确定','取消'],
+			yes:function(idx){
+				layer.close(idx);
+				ajax({
+					url:global.appurl+'c=Finance&a=hkuanAct',
+					data:{skbank_id:skbank_id,money:money},
+					success:function(json){
+						if(json.code!=1){
+							_alert(json.msg);
+							return;
+						}
+						_alert({
+							content:json.msg,
+							end:function(){
+								var url=global.appurl+'c=Finance&a=hkuanInfo&osn='+json.data.order_sn;
+								location.href=url;
+							}
+						});
+					}
+				});
+			}
+		});
+	});
+	
+});
+</script>
+[[include file="foot.html"]]

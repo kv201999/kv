@@ -1,0 +1,160 @@
+[[include file="head.html"]]
+<style type="text/css">
+
+body,div,p,table,tr,th,td,form,input,textarea,fieldset,blockquote,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd{margin:0;padding:0;list-style-type:none;}
+*{list-style-type:none;-webkit-tap-highlight-color: rgba(255,0,0,0);}
+body,html{position: relative;width: 100%;height: 100%;font-size: 1rem;font-family: "微软雅黑","宋体","Arial";-webkit-overflow-scrolling: touch;}
+a{text-decoration: none;}	
+ .HeadTop{height: 4rem;position: fixed;width: 100%;top: 0;left: 0;max-width: 640px;right: 0;margin: 0 auto;z-index: 999;background: #0aabf1;}
+.HeadTop .Tit{text-align: center;color: #fff;font-size: 1.3rem;line-height: normal;padding: 1.15rem 0;}
+.HeadTop .signInruleBtn{position: absolute;display: block;top: 0;right: 0;height: 4rem;line-height: 4rem;color: #fff;font-size: 1.2rem;padding: 0 0.8rem;}
+
+
+.ZHI{position: relative;width: 100%;height: 100%;color: #333333;}
+.ZHICon{position: absolute;width: 100%;top: 4rem;bottom: 0rem;overflow-y: scroll;}
+.ZHICon .pricebox{text-align: center;padding: 1.5rem 0;}
+.ZHICon .price{display: inline-block;color: #fd0200;font-size: 2.6rem;}
+.ZHICon .copyPriceBtn{display: inline-block;color: #f58807;border: 1px solid #f58807;border-radius: 0.3rem;padding: 0 0.2rem;}
+.ZHICon .passwordbox{text-align: center;font-size: 0rem;}
+.ZHICon .passwordbox span{display: inline-block;vertical-align: middle;font-size: 1.2rem;}
+.ZHICon .passwordbox .password{display: inline-block;vertical-align: middle;font-size: 1rem;width: 46%;border: 1px solid #d7d7d7;text-align: left;padding: 0 0.5rem;height: 4.2rem;overflow-y: scroll;color: #808080;}
+.ZHICon .passwordbox .copyPassBtn{display: inline-block;vertical-align: middle;background: #f58807;color: #fff;height: 4.2rem;line-height: 4.2rem;font-size: 1.2rem;padding: 0 1.2rem;border: 1px solid #f58807;}
+.ZHICon .ZHI_name{font-size: 1.2rem;text-align: center;margin-top: 0.6rem;}
+.ZHICon .stepbox{text-align: center;margin-top: 1.2rem;}
+.ZHICon .stepbox p{display: inline-block;color: #fff;background: #0aabf1;margin-bottom: 0.6rem;padding: 0.5rem 1rem;border-radius: 2rem;font-size: 1rem;}
+.ZHICon .payOverBtn{display: block;width: 14rem;background: #f58807;color: #fff;text-align: center;margin: 0 auto;font-size: 1rem;padding: 0.5rem 0;border-radius: 0.3rem;margin-top: 1rem;}
+.ZHICon .copyOpenBtn{display: block;width: 14rem;background: #0aabf1;color: #fff;text-align: center;margin: 0 auto;font-size: 1rem;padding: 0.5rem 0;border-radius: 0.3rem;margin-top: 0.6rem;}
+.ZHICon .tipstxt{color: #f58807;text-align: center;margin-top: 1.2rem;}
+.ZHICon .warmTips{color: #f58807;border-top: 1px solid #f2f2f2;margin-top: 1.2rem;padding: 0 4%;line-height: 1.7rem;}
+.ZHICon .warmTips h3{padding: 1rem 0 0.5rem;}
+.ZHICon .warmTips p{}
+
+.klTip{font-size:1.6rem;color:#f30;padding:1rem;text-align:center;}
+</style>
+
+<div class="ZHI">
+	<div class="HeadTop">
+		<p class="Tit">支付宝吱口令</p>
+	</div>
+	<div class="ZHICon">
+		<div class="pricebox">
+			<p class="price">￥[[$info.money|floatval]]</p>
+			<a href="javascript:;" class="copyPriceBtn cpBtn" data-clipboard-text="[[$info.money|floatval]]">复制</a>
+		</div>
+		<div class="passwordbox">
+			<span>吱口令：</span>
+			<div class="password">[[$info.ma_zkling]]</div>
+			<a href="javascript:;" class="copyPassBtn cpBtn2" data-clipboard-text="[[$info.ma_zkling]]">复制</a>
+		</div>
+		<p class="ZHI_name">收款姓名：[[$info.ma_realname2]]</p>
+		<div class="stepbox">
+			<p>第一步：复制口令打开支付宝</p><br>
+			<p>第二步：支付宝首页搜索栏粘贴</p><br>
+			<p>第三步:点击搜索结果完成支付</p>
+		</div>
+		[[if $info.pay_status eq 9]]
+		<div class="klTip">订单已支付</div>
+		[[elseif $info.pay_status eq 2]]
+		<div class="klTip">订单已提交</div>
+		[[elseif $info.pay_status eq 3]]
+		<div class="klTip">订单已超时</div>
+		[[elseif $info.pay_status eq 4]]
+		<div class="klTip">订单已取消</div>
+		[[else]]
+		<a href="javascript:;" class="payOverBtn time">
+			<span class="timeBox"><!--剩余07:80，点我已付款--></span>
+		</a>
+		[[/if]]
+
+		<a href="javascript:;" class="copyOpenBtn cpBtn3" data-clipboard-text="[[$info.ma_zkling]]">复制口令并打开支付宝</a>
+		<!--<p class="tipstxt">请非在QQ浏览器中打开</p>-->
+		<div class="warmTips">
+			<h3>温馨提示：</h3>
+			<p>1、请在订单有效期内进行付款</p>
+			<p>2、不可重复支付，务必支付以上金额，否则会不到账</p>
+			<p>3、点击复制金额，扫码支付，在金额一栏粘贴，完成付款</p>
+			<p>4、付款15分钟内未到账，请联系在线客服</p>
+		</div>
+	</div>
+</div>
+
+[[include file="js.html"]]
+<script src="public/js/clipboard.min.js"></script>
+<script>
+$(function(){
+	var clipboard = new ClipboardJS('.cpBtn');
+    clipboard.on('success', function (e) {
+        _alert({
+			content:"金额复制成功！"
+		});
+    });
+	
+	var clipboard2 = new ClipboardJS('.cpBtn2');
+    clipboard2.on('success', function (e) {
+        _alert({
+			content:"复制口令成功",
+			end:function(){
+			
+			}
+		});
+    });
+	
+	var clipboard3 = new ClipboardJS('.cpBtn3');
+    clipboard3.on('success', function (e) {
+        _alert({
+			content:"复制口令成功，即将跳转支付宝",
+			end:function(){
+				window.open('https://www.alipay.com','_blank');
+			}
+		});
+    });
+	
+	/////////////////////////////////////////////
+	var d_time='[[$info.d_time]]'*1;
+	var timer=null;
+	if(d_time>0){
+		setTimer();
+	}else{
+		$('.time').hide().after('<div class="klTip">订单已超时</div>');
+		$('.cpBtn3').hide();
+	}
+	
+	function setTimer(){
+		if(timer){
+			clearInterval(timer);
+		}
+		var d_time_flag=secTrans(d_time);
+		$('.timeBox').html('剩余'+d_time_flag+'，点我已付款').css({opacity:1});
+		timer=setInterval(function(){
+			d_time--;
+			if(d_time<0){
+				location.reload();
+				clearInterval(timer);
+			}
+			var d_time_flag=secTrans(d_time);
+			$('.timeBox').html('剩余'+d_time_flag+'，点我已付款').css({opacity:1});
+		},1000);
+	}
+	
+	function secTrans(sec){
+		var d_min=Math.floor(sec/60);
+		var d_sec=sec%60;
+		if(d_min<0){
+			d_min=0;
+		}
+		if(d_min<10){
+			d_min='0'+d_min;
+		}
+		if(d_sec<0){
+			d_sec=0;
+		}
+		if(d_sec<10){
+			d_sec='0'+d_sec;
+		}
+		var d_time_flag=d_min+':'+d_sec;
+		return d_time_flag;
+	}
+	
+});
+</script>
+[[include file="foot.html"]]

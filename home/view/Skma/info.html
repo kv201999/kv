@@ -1,0 +1,77 @@
+[[include file="head.html"]]
+<div class="cashOut">
+	<div class="HeadTop">
+		<p class="Tit">自动回调助手</p>
+		<a href="/?c=Skma" class="backBtn"></a>
+	</div>
+	<div class="cashOutCon">
+		<p class="txtline" style="line-height:1.5rem;"><b>收款姓名：</b>[[$info.ma_realname]]</p>
+		<p class="txtline" style="line-height:3.5rem;"><b>收款账号：</b>[[$info.ma_account]]</p>
+		<p class="txtline" style="line-height:1.5rem;word-break:break-all;margin-bottom:1rem;"><b>回调地址：</b>[[$notify_url]] <span class="editBtn" id="notifyUrl" data-clipboard-text="[[$notify_url]]" >复制</span></p>
+		<p class="txtline" style="line-height:1.5rem;word-break:break-all;margin-bottom:1rem;"><b>签名密钥：</b>[[if $info.apikey]][[$info.apikey]] <span class="editBtn" id="apikey" data-clipboard-text="[[$info.apikey]]" >复制</span>[[else]]/[[/if]]</p>
+		<div class="OutNum"><b>二级密码：</b><div class="inbox"><input type="password" id="password2"></div></div>
+		<a href="javascript:;" class="cashOutBtn" style="margin-top:1.5rem;">更新密钥</a>
+		<div style="padding:1rem 2rem 0;">
+			<div style="color:#f60;">注意：请妥善保管您的密钥，切勿转发或泄漏给其他人，若别人已知道密钥，请及时更新！</div>
+		</div>
+	</div>
+</div>
+
+[[include file="js.html"]]
+<script src="/public/js/clipboard.min.js"></script>
+<script>
+
+$(function(){
+
+	var clipboard = new ClipboardJS('#notifyUrl');
+
+	clipboard.on('success', function(e) {
+		_alert('复制回调地址成功');
+	});
+	
+	var clipboard2 = new ClipboardJS('#apikey');
+
+	clipboard2.on('success', function(e) {
+		_alert('复制签名密钥成功');
+	});
+	
+	$('.cashOutBtn').on('click',function(){
+		var obj=$(this);
+		var item_id='[[$info.id]]';
+		var password2=$.trim($('#password2').val());
+		if(!password2){
+			_alert('请填写二级密码');
+			return;
+		}
+		password2=md5(password2);
+		layer.open({
+			//title:'',
+			content:'您确定要更新签名密钥么？',
+			style:'width:65%',
+			btn:['确定','取消'],
+			yes:function(idx){
+				layer.close(idx);
+				ajax({
+					url:global.appurl+'c=Skma&a=apikeyUpdate',
+					data:{item_id:item_id,password2:password2},
+					success:function(json){
+						if(json.code!=1){
+							_alert(json.msg);
+							return;
+						}
+						_alert({
+							content:json.msg,
+							end:function(){
+								location.reload();
+							}
+						});
+					}
+				});
+			}
+		});
+	});
+
+	
+});
+</script>
+[[include file="foot.html"]]

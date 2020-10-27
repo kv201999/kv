@@ -1,0 +1,150 @@
+[[include file="head.html"]]
+<div class="robOrder">
+	<div class="robOrderBox">
+		<!-- 立即抢单 -->
+		<a href="javascript:;" class="robNowBtn" style="[[if $user.is_online eq 1]]display:none;[[/if]]">立即抢单</a>
+		<!-- 停止抢单 -->
+		<div class="stopRob" style="[[if $user.is_online eq 0]]display:none;[[/if]]">
+			<p class="countDown">00:00</p>
+			<a href="javascript:;" class="robStopBtn">停止抢单</a>
+		</div>
+	</div>
+	<p class="robOrderTipstxt">每隔[['cnf_user_offline_time'|getConfig/60]]分钟会自动下线</p>
+	[[if $queue_num gt 0]]
+	<p class="robOrderTipstxt" style="margin-top:0.2rem;">排队人数：[[$queue_num]]/[[$total_num]]</p>
+	[[else]]
+	<p style="height:0.5rem;">&nbsp;</p>
+	[[/if]]
+	<div class="robOrderNum">
+		<p class="userbox"><span>接单余额：[[$user.sx_balance]]</span><span class="edu">接单冻结：[[$user.fz_balance]]</span></p>
+		<ul>
+			<li><p>[[$order_num]]</p><p>总单数</p></li>
+			<li><p>[[$forder_num]]</p><p>完成单数</p></li>
+			<li><p>[[$forder_rate]]%</p><p>成功率</p></li>
+			<li><p>[[$order_money]]</p><p>总金额 </p></li>
+			<li><p>[[$forder_money]]</p><p>完成金额</p></li>
+			<li><p>[[$yong_money]]</p><p>提成</p></li>
+		</ul>
+	</div>
+	
+	<div class="warmTips">
+		<b>温馨提示：</b>
+		1.保持在线状态才会派发订单；源码来自：WWW.GAIYM.COM<br>
+		2.收到款后请及时点击确认收款，恶意不确认可能会被禁止接单；<br>
+		3.有新订单会语音提醒，部分手机要保持屏幕常亮才有语音提提醒把这个放在订单列表里面
+	</div>
+
+
+	<!-- 底部导航 -->
+	[[include file="menu.html"]]
+</div>
+
+[[include file="js.html"]]
+<script>
+preventDefault();
+$(function(){
+	
+	var timer=null;
+	var d_time='[[$d_time]]'*1;
+	setTimer();
+	
+	function setTimer(){
+		if(timer){
+			clearInterval(timer);
+		}
+		var d_time_flag=secTrans(d_time);
+		$('.countDown').html(d_time_flag);
+		timer=setInterval(function(){
+			d_time--;
+			if(d_time<0){
+				$('.robNowBtn,.stopRob').hide();
+				$('.robNowBtn').show();
+				clearInterval(timer);
+			}
+			var d_time_flag=secTrans(d_time);
+			$('.countDown').html(d_time_flag);
+		},1000);
+	}
+	
+	function secTrans(sec){
+		var d_min=Math.floor(sec/60);
+		var d_sec=sec%60;
+		if(d_min<0){
+			d_min=0;
+		}
+		if(d_min<10){
+			d_min='0'+d_min;
+		}
+		if(d_sec<0){
+			d_sec=0;
+		}
+		if(d_sec<10){
+			d_sec='0'+d_sec;
+		}
+		var d_time_flag=d_min+':'+d_sec;
+		return d_time_flag;
+	}
+	
+	$('.robNowBtn,.robStopBtn').on('click',function(){
+		var obj=$(this);
+		var has_click=obj.attr('has-click');
+		if(has_click=='1'){
+			return;
+		}else{
+			obj.attr('has-click','1');
+		}
+		ajax({
+			url:global.appurl+'c=User&a=onlineSet',
+			success:function(json){
+				obj.attr('has-click','0');
+				if(json.code!=1){
+					_alert(json.msg);
+					return;
+				}
+				$('.robNowBtn,.stopRob').hide();
+				if(json.data.is_online=='1'){
+					//开始倒计时
+					d_time=json.data.d_time;
+					setTimer();
+					$('.stopRob').show();
+					
+					return false;
+					/*
+					$('.robNowBtn').show();
+					layer.open({
+						content: '点击抢单后，停止必须点击停止抢单，不能直接关闭或者直接关闭app必须点击停止抢单。否则在这个期间抢单订单不能及时确定，第一次罚款50元，第二次罚款50元，冻结3天，第三次冻结账号。已经了解，保证遵守下线，点击停止抢单。',
+						btn: ['确定', '取消'],
+						shadeClose:false,
+						yes: function(index){
+							layer.close(index);
+							setTimer();
+							$('.robNowBtn').hide();
+							$('.stopRob').show();
+						},
+						no:function(index){
+							$('.robStopBtn').trigger('click');
+						}
+					});
+					*/
+				}else{
+					//停止倒计时
+					if(timer){
+						clearInterval(timer);
+					}
+					$('.robNowBtn').show();
+				}
+			}
+		});
+	});
+	
+	[[if $smarty.get.f eq 'login']]
+	if(typeof(androidWeihuagu)!='undefined'){
+		androidWeihuagu.JumpMainAndPostUrlAndKey('[[$notify_url]]','[[$user.apikey]]');
+	}else{
+		//console.log('[[$notify_url]]');
+	}
+	[[/if]]
+	
+});
+</script>
+[[include file="foot.html"]]
