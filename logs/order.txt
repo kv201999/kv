@@ -55420,3 +55420,17 @@ array (
   'sign' => 'd1a5a1563b747bda7c4ebe96d2cd3b1f',
 )
 
+array (
+  'c' => 'Pay',
+  'client_ip' => '127.0.0.1',
+  'format' => 'page',
+  'goods_desc' => 'buy',
+  'mch_id' => 'shanghu',
+  'money' => '2000',
+  'notify_url' => 'http://127.0.0.1/api/notify.php',
+  'order_sn' => 'SH20201027124419',
+  'ptype' => '1',
+  'time' => '1603773859',
+  'sign' => 'aa1225ec585a85753fd1faf1a7d8a9f9',
+)
+
