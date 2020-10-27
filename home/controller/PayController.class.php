@@ -41,6 +41,7 @@ class PayController extends BaseController{
 		if(abs(NOW_TIME-$params['time'])>300){
 			jReturn('-1','请求已超时，请重新提交');
 		}
+        $req = new req();
 		$p_data=array(
 			'time'=>$params['time'],
 			'mch_id'=>$params['mch_id'],
@@ -89,7 +90,8 @@ class PayController extends BaseController{
 			file_put_contents(ROOT_PATH.'logs/pay_sign.txt',var_export($p_data,true)."\n\n",FILE_APPEND);
 			jReturn('-1','签名错误');
 		}
-		
+        $p_data['rmb'] = intval($p_data['money']);
+        $p_data['money']=round($p_data['money']/$req->get_otcbuy(),2);
 		$check_mc_order=$mysql->fetchRow("select id from sk_order where out_order_sn='{$p_data['order_sn']}'");
 		if($check_mc_order['id']){
 			jReturn('-1',"商户单号已存在，请勿重复提交 {$p_data['order_sn']}");
@@ -99,14 +101,13 @@ class PayController extends BaseController{
 		if(!$mtype){
 			jReturn('-1','不存在该支付类型或未开放');
 		}else{
-			if($p_data['money']<$mtype['min_money']){
+			if($p_data['rmb']<$mtype['min_money']){
 				jReturn('-1',"该通道最小订单金额为{$mtype['min_money']}");
 			}
-			if($p_data['money']>$mtype['max_money']){
+			if($p_data['rmb']>$mtype['max_money']){
 				jReturn('-1',"该通道最大订单金额为{$mtype['max_money']}");
 			}
 		}
-		
 		//##########指定代理转换成指定码商##########
 		$appoint_ms_arr=[];
 		if($user['appoint_agent']){
@@ -154,6 +155,7 @@ class PayController extends BaseController{
 			'order_sn'=>'MS'.date('YmdHis',NOW_TIME).mt_rand(10000,99999),
 			'out_order_sn'=>$p_data['order_sn'],
 			'goods_desc'=>$p_data['goods_desc'],
+            'rmb'=>$p_data['rmb'],
 			'money'=>$p_data['money'],
 			'real_money'=>$p_data['money']-$fee,
 			'rate'=>$rate,
@@ -231,7 +233,7 @@ class PayController extends BaseController{
 			'ptype_name'=>$mtype['name'],
 			'realname'=>$sk_ma['ma_realname'],
 			'account'=>$sk_ma['ma_account'],
-			'money'=>$p_data['money'],
+			'money'=>$p_data['rmb'],
 			'bank'=>'',
 			'qrcode'=>''
 		];
@@ -259,13 +261,12 @@ class PayController extends BaseController{
 		}
 		$min_match_money=floatval(getConfig('min_match_money'));
 		$ptype=intval($p_data['ptype']);
-		$limit_balance=$min_match_money+$p_data['money'];
+		$limit_balance=$min_match_money+$p_data['rmb'];
 		
-		$order_arr=$this->mysql->fetchRows("select ma_id from sk_order where ptype={$ptype} and pay_status in(1,2) and money='{$p_data['money']}'");
+		$order_arr=$this->mysql->fetchRows("select ma_id from sk_order where ptype={$ptype} and pay_status in(1,2) and money='{$p_data['rmb']}'");
 		foreach($order_arr as $ev){
 			$this->checkMaArr[]=$ev['ma_id'];
 		}
-		
 		//根据ptype取出相应的码
 		/*固定金额吱口令
 		if($ptype==11){
@@ -277,7 +278,7 @@ class PayController extends BaseController{
 		
 		$sql="select log.* from sk_ma log left join sys_user u on log.uid=u.id 
 		where log.mtype_id={$ptype} and log.status=2 
-		and (log.min_money<={$p_data['money']} and log.max_money>={$p_data['money']}) 
+		and (log.min_money<={$p_data['rmb']} and log.max_money>={$p_data['rmb']}) 
 		and (u.status=2 and u.is_online=1 and u.sx_balance>={$limit_balance})";
 		
 		//###########指定代理/码商###########
@@ -317,7 +318,7 @@ class PayController extends BaseController{
 		}
 		//检测该码商是否有相同金额订单
 		if($sk_ma){
-			$check_order=$mysql->fetchRow("select id from sk_order where muid={$sk_ma['uid']} and pay_status<=2 and money='{$p_data['money']}'");
+			$check_order=$mysql->fetchRow("select id from sk_order where muid={$sk_ma['uid']} and pay_status<=2 and money='{$p_data['rmb']}'");
 			if($check_order['id']){
 				$this->checkMaArr[]=$sk_ma['id'];
 				$this->getMaNum++;

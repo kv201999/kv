@@ -199,7 +199,7 @@ function iniOrder(item){
 		html+='<p>下单时间：'+item.create_time+'</p>';
 		html+='<p>支付时间：<span class="payTime">'+item.pay_time+'</span></p>';
 		html+='<div class="paystatebox">';
-			html+='<p class="amount">'+item.money+'</p>';
+			html+='<p class="amount">'+item.money+'≈'+item.rmb+'</p>';
 			if(item.pay_status==1||item.pay_status==2){
 				html+='<a href="javascript:;"  class="payConfirmBtn">确认收款</a>';
 			}else if(item.pay_status==3){
