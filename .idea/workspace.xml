@@ -26,18 +26,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="72f60046-69c8-472f-827d-b75a76e1ff38" name="Default Changelist" comment="修复bug">
+      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/24a750c339ca510cd299192ae89eb74073291993.file.index.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/24a750c339ca510cd299192ae89eb74073291993.file.index.html.cache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/24a750c339ca510cd299192ae89eb74073291993.index.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/24a750c339ca510cd299192ae89eb74073291993.index.html.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/416b4067c7c2c842fe3af5df22702406aac4690b.file.foot.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/416b4067c7c2c842fe3af5df22702406aac4690b.file.foot.html.cache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/62651e17443ce947922d89d039f336b7e390c474.file.online.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/62651e17443ce947922d89d039f336b7e390c474.file.online.html.cache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/62651e17443ce947922d89d039f336b7e390c474.online.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/62651e17443ce947922d89d039f336b7e390c474.online.html.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/a3515b0e87ff414f380510cf11ea81547edf9234.file.menu.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/a3515b0e87ff414f380510cf11ea81547edf9234.file.menu.html.cache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/cfb654ce50c2064ecd000c5c405f8f854a49b36c.file.head.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/cfb654ce50c2064ecd000c5c405f8f854a49b36c.file.head.html.cache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/e51002ab56deb05102d7b150d0e80ae4f8be73c4.file.js.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/e51002ab56deb05102d7b150d0e80ae4f8be73c4.file.js.html.cache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/ea269881345f4f58427c7090d8607319ba6ec877.file.index.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/ea269881345f4f58427c7090d8607319ba6ec877.file.index.html.cache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/ea269881345f4f58427c7090d8607319ba6ec877.index.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/ea269881345f4f58427c7090d8607319ba6ec877.index.html.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/view/Default/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/view/Default/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/view/Pay/order.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/view/Pay/order.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/pay.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/pay.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/daemon/queue_balance.log" beforeDir="false" afterPath="$PROJECT_DIR$/daemon/queue_balance.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/daemon/queue_checkma.log" beforeDir="false" afterPath="$PROJECT_DIR$/daemon/queue_checkma.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/daemon/queue_checkonline.log" beforeDir="false" afterPath="$PROJECT_DIR$/daemon/queue_checkonline.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/daemon/queue_checkorder.log" beforeDir="false" afterPath="$PROJECT_DIR$/daemon/queue_checkorder.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/daemon/queue_notice.log" beforeDir="false" afterPath="$PROJECT_DIR$/daemon/queue_notice.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/global/db.conf.php" beforeDir="false" afterPath="$PROJECT_DIR$/global/db.conf.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/controller/FinanceController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/home/controller/FinanceController.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/controller/OrderController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/home/controller/OrderController.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/controller/UserController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/home/controller/UserController.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/view/Finance/cash.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/view/Finance/cash.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/view/User/bcard.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/view/User/bcard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ma_sql.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ma_sql.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/order.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/order.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/workerman/workerman.log" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/workerman/workerman.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +90,10 @@
       <recent name="D:\phpstudy_pro\WWW\api" />
     </key>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="72f60046-69c8-472f-827d-b75a76e1ff38" name="Default Changelist" comment="" />
@@ -183,9 +192,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1603882159154" />
-    <state x="55" y="75" width="1419" height="648" key="find.popup" timestamp="1603875751408">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="52" y="98" width="1331" height="649" key="find.popup" timestamp="1603909210107">
+      <screen x="0" y="23" width="1440" height="825" />
     </state>
     <state x="55" y="75" width="1419" height="648" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1603875751408" />
+    <state x="52" y="98" width="1331" height="649" key="find.popup/0.23.1440.825@0.23.1440.825" timestamp="1603909210107" />
   </component>
 </project>

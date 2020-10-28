@@ -56400,3 +56400,87 @@ array (
   'sign' => 'd54158816673a9569ffc6c8fedbeda21',
 )
 
+array (
+  'c' => 'Pay',
+  'client_ip' => '127.0.0.1',
+  'format' => 'page',
+  'goods_desc' => 'buy',
+  'mch_id' => 'shanghu',
+  'money' => '2000',
+  'notify_url' => 'http://127.0.0.1/api/notify.php',
+  'order_sn' => 'SH20201029003917',
+  'ptype' => '1',
+  'time' => '1603903157',
+  'sign' => 'dd8377f77ebf7a61d64e8a53e086e013',
+)
+
+array (
+  'c' => 'Pay',
+  'client_ip' => '127.0.0.1',
+  'format' => 'page',
+  'goods_desc' => 'buy',
+  'mch_id' => 'shanghu',
+  'money' => '2000',
+  'notify_url' => 'http://127.0.0.1/api/notify.php',
+  'order_sn' => 'SH20201029004313',
+  'ptype' => '3',
+  'time' => '1603903393',
+  'sign' => '38b208d5f8915de6a18c3a9994f1bba8',
+)
+
+array (
+  'c' => 'Pay',
+  'client_ip' => '127.0.0.1',
+  'format' => 'page',
+  'goods_desc' => 'buy',
+  'mch_id' => 'shanghu',
+  'money' => '2000',
+  'notify_url' => 'http://127.0.0.1/api/notify.php',
+  'order_sn' => 'SH20201029004315',
+  'ptype' => '3',
+  'time' => '1603903395',
+  'sign' => '98096d302426e89e35a2027570f24f91',
+)
+
+array (
+  'c' => 'Pay',
+  'client_ip' => '127.0.0.1',
+  'format' => 'page',
+  'goods_desc' => 'buy',
+  'mch_id' => 'shanghu',
+  'money' => '2000',
+  'notify_url' => 'http://127.0.0.1/api/notify.php',
+  'order_sn' => 'SH20201029015945',
+  'ptype' => '3',
+  'time' => '1603907985',
+  'sign' => '41333859b9165a282e8d25bf8f88fdea',
+)
+
+array (
+  'c' => 'Pay',
+  'client_ip' => '127.0.0.1',
+  'format' => 'page',
+  'goods_desc' => 'buy',
+  'mch_id' => 'shanghu',
+  'money' => '2000',
+  'notify_url' => 'http://127.0.0.1/api/notify.php',
+  'order_sn' => 'SH20201029015945',
+  'ptype' => '3',
+  'time' => '1603907985',
+  'sign' => '41333859b9165a282e8d25bf8f88fdea',
+)
+
+array (
+  'c' => 'Pay',
+  'client_ip' => '127.0.0.1',
+  'format' => 'page',
+  'goods_desc' => 'buy',
+  'mch_id' => 'shanghu',
+  'money' => '2000',
+  'notify_url' => 'http://127.0.0.1/api/notify.php',
+  'order_sn' => 'SH20201029021058',
+  'ptype' => '3',
+  'time' => '1603908658',
+  'sign' => '98a542431a15e7b4532fc945a4186ca8',
+)
+

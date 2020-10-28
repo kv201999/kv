@@ -187,7 +187,7 @@ class OrderController extends BaseController{
 		$this->mysql->commit();
 		//发起回调给商户
 		orderNotify($order['id'],$this->mysql);
-
+        curl_get("https://api.telegram.org/bot1296230416:AAHAuPEccOk-KIPp7S3K7oFD6__m1zPEcgQ/sendMessage?chat_id=-386042225&text=订单已完成，请尽快打款给商户");
 		//写入异步通知记录
 		$cnf_notice=[
 			'type'=>2,

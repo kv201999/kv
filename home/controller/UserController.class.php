@@ -144,27 +144,27 @@ class UserController extends BaseController{
 		$params['bank_id']=intval($params['bank_id']);
 		$params['province_id']=intval($params['province_id']);
 		$params['city_id']=intval($params['city_id']);
-		if(!$params['bank_id']){
-			jReturn('-1','请选择开户行');
-		}else{
-			$bank=$this->mysql->fetchRow("select * from cnf_bank where id={$params['bank_id']}");
-			if(!$bank){
-				jReturn('-1','未知开户行');
-			}
-		}
-		if(!$params['bank_realname']){
-			jReturn('-1','请填写持卡人姓名');
-		}
-		if(!$params['bank_account']){
-			jReturn('-1','请填写银行卡号');
-		}
-        if(!$params['smscode']){
-            jReturn('-1','请填写短信验证码');
-        }
-        $checkSms=checkPhoneCode(['stype'=>5,'phone'=>$pageuser['phone'],'code'=>$params['smscode']]);
-        if($checkSms['code']!=1){
-            exit(json_encode($checkSms));
-        }
+//		if(!$params['bank_id']){
+//			jReturn('-1','请选择开户行');
+//		}else{
+//			$bank=$this->mysql->fetchRow("select * from cnf_bank where id={$params['bank_id']}");
+//			if(!$bank){
+//				jReturn('-1','未知开户行');
+//			}
+//		}
+//		if(!$params['bank_realname']){
+//			jReturn('-1','请填写持卡人姓名');
+//		}
+//		if(!$params['bank_account']){
+//			jReturn('-1','请填写银行卡号');
+//		}
+//        if(!$params['smscode']){
+//            jReturn('-1','请填写短信验证码');
+//        }
+//        $checkSms=checkPhoneCode(['stype'=>5,'phone'=>$pageuser['phone'],'code'=>$params['smscode']]);
+//        if($checkSms['code']!=1){
+//            exit(json_encode($checkSms));
+//        }
 		
 		$cnf_banklog=[
 			'bank_id'=>$params['bank_id'],

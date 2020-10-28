@@ -187,14 +187,9 @@ class FinanceController extends BaseController{
 		$pageuser=checkLogin();
 		$user=$this->mysql->fetchRow("select * from sys_user where id={$pageuser['id']}");
 		$banklog=$this->mysql->fetchRow("select log.*,bk.bank_name from cnf_banklog log left join cnf_bank bk on log.bank_id=bk.id where log.uid={$user['id']}");
-		if($banklog){
-			$banklog['bank_account']='***'.substr($banklog['bank_account'],-4);
-		}
 		$user['balance']=floatval($user['balance']);
 		$user['fz_balance']=floatval($user['fz_balance']);
 		$user['sx_balance']=floatval($user['sx_balance']);
-		$user['phone']=substr($user['phone'],0,3).'***'.substr($user['phone'],-4);
-		
 		$cash_cnf=getConfig('cash_cnf');
 		$day_time_arr=explode('-',$cash_cnf['day_time']);
 		if(!$cash_cnf['weekend']){
