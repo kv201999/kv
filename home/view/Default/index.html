@@ -1,4 +1,10 @@
 [[include file="head.html"]]
+<style>
+	.robOrderNum li p:nth-child(1){
+		font-size: 1.5rem;
+		font-weight: bold;
+	}
+</style>
 <div class="robOrder">
 	<div class="robOrderBox">
 		<!-- 立即抢单 -->
@@ -16,7 +22,7 @@
 	<p style="height:0.5rem;">&nbsp;</p>
 	[[/if]]
 	<div class="robOrderNum">
-		<p class="userbox"><span>接单余额：[[$user.sx_balance]]</span><span class="edu">接单冻结：[[$user.fz_balance]]</span></p>
+		<p class="userbox"><span>余额：[[$user.sx_balance]] USDT</span><span class="edu">冻结：[[$user.fz_balance]] USDT</span></p>
 		<ul>
 			<li><p>[[$order_num]]</p><p>总单数</p></li>
 			<li><p>[[$forder_num]]</p><p>完成单数</p></li>
@@ -28,8 +34,6 @@
 	</div>
 
 	<div class="warmTips">
-		火币最新卖出价格：[[$otcbuy]]（实时价格）<br>
-		<b>平台最新卖出价格，支付宝：[[$zfbbuy]]，银行卡：[[$yhkbuy]]</b><br>
 		1.保持在线状态才会派发订单<br>
 		2.收到款后请及时点击确认收款，恶意不确认可能会被禁止接单<br>
 		3.有新订单会语音提醒，部分手机要保持屏幕常亮才有语音提提醒把这个放在订单列表里面

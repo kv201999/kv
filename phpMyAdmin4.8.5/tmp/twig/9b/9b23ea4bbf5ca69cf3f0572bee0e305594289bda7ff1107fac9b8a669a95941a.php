@@ -123,6 +123,6 @@ class __TwigTemplate_fba811cb31d2da83764f14e1cdecb76ddb31f15d02eb3c8ce222bcc3d01
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "export/alias_add.twig", "D:\\phpstudy_pro\\WWW\\phpMyAdmin4.8.5\\templates\\export\\alias_add.twig");
+        return new Twig_Source("", "export/alias_add.twig", "D:\\phpstudy_pro\\WWW\\kv\\phpMyAdmin4.8.5\\templates\\export\\alias_add.twig");
     }
 }

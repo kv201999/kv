@@ -46,6 +46,13 @@ select{padding:0.75rem 0.5rem;width:8rem;border:1px solid #d2d2d2;appearance:non
     font-size: 1.2rem;
     border-radius: 0.5rem;
 }
+.orderListCon li{
+	font-size: 1.0rem;
+}
+.orderListCon .nunbox .orderId{
+	font-size: 1.0rem;
+	color: #999;
+}
 </style>
 <div class="orderList">
 	<div class="orderListTop">
@@ -188,24 +195,23 @@ function iniOrder(item){
 	var html='';
 	html+='<li data-osn="'+item.order_sn+'">';
 		html+='<div class="nunbox">';
-			html+='<p class="orderId" style="'+color+'">'+item.order_sn+'</p>';
-			
+			html+='<p class="orderId" style="'+color+'">'+item.order_sn+' ('+item.mtype_name+')</p>';
 			html+='<p class="paystate" style="background-image:url(/public/home/images/pstatus'+item.pay_status+'.png);">'+item.pay_status_flag+'</p>';
 		html+='</div>';
-		html+='<p>商户单号：'+item.out_order_sn+'</p>';
-		html+='<p>支付方式：'+item.mtype_name+'</p>';
 		html+='<p>收款姓名：'+item.ma_realname+'</p>';
-		html+='<p>收款账号：'+item.ma_account+'</p>';
-		html+='<p>下单时间：'+item.create_time+'</p>';
-		html+='<p>支付时间：<span class="payTime">'+item.pay_time+'</span></p>';
+		if(item.mtype_type==3){
+		html+='<p>银行账号：'+item.ma_account+'</p>';
+		}
+		html+='<p>兑换价格：1USDT兑'+item.otcbuy+'元</p>';
+		html+='<p>下单时间： '+item.create_time+'</p>';
+	//	html+='<p>支付时间：<span class="payTime">'+item.pay_time+'</span></p>';
 		html+='<div class="paystatebox">';
-			html+='<p class="amount">'+item.money+'≈'+item.rmb+'</p>';
+			html+='<p class="amount">'+item.rmb+'<span style="color: #333;font-size: 16px">元 ≈ '+item.money+' USDT</span></p>';
 			if(item.pay_status==1||item.pay_status==2){
 				html+='<a href="javascript:;"  class="payConfirmBtn">确认收款</a>';
 			}else if(item.pay_status==3){
 				html+='<a href="javascript:;"  class="payConfirmBtn">超时补单</a>';
 			}else if(item.pay_status==9){
-
 				if(item.js_status==2){
 					//已经结算才有回款
 					if(is_msdbhk==1){

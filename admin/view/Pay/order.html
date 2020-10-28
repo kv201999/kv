@@ -181,7 +181,7 @@ $('#searchBtn').on('click',function(){
         where:pdata,
         url:global.appurl+'c=Pay&a=order_list',
         cols:[[
-            {field:'id', width:80, title: 'ID'},
+           // {field:'id', width:80, title: 'ID'},
 			{field:'order_sn',width:200,style:'text-align:left;',title: '类型/系统/商户单号',templet:function(d){
 				var html=d.mtype_name;
 				html+='<br>'+d.order_sn+'<br>'+d.out_order_sn;
@@ -191,7 +191,9 @@ $('#searchBtn').on('click',function(){
 				return html;
 			}},
 			//{field:'out_order_sn', title: '商户单号'},
-			{field:'money', title: '金额'},
+			{field:'rmb', title: '订单金额'},
+			{field:'otcbuy', title: '兑换价格'},
+			{field:'money', title: 'USDT'},
 			//{field:'goods_desc', title: '商品描述'},
 			[[if $user.gid lt 42 or in_array($user.gid,[61,81])]]
 			{field:'fee', title: '手续费'},
@@ -230,21 +232,20 @@ $('#searchBtn').on('click',function(){
 					html+='<div>账号：'+d.ma_account+'</div>';
 					html+='<div>姓名：'+d.ma_realname+'</div>';
 				}else{
-
 				}
 				return html;
             }},*/
-			{field:'up_user',width:130,title: '上级代理',templet:function(d){
-				var html='';
-				if(!d.up_arr||d.up_arr.length<1){
-					return html;
-				}
-				for(var i in d.up_arr){
-					var it=d.up_arr[i];
-					html+='<div style="text-align:left;">'+it.account+'</div>';
-				}
-				return html;
-			}},
+			// {field:'up_user',width:130,title: '上级代理',templet:function(d){
+			// 	var html='';
+			// 	if(!d.up_arr||d.up_arr.length<1){
+			// 		return html;
+			// 	}
+			// 	for(var i in d.up_arr){
+			// 		var it=d.up_arr[i];
+			// 		html+='<div style="text-align:left;">'+it.account+'</div>';
+			// 	}
+			// 	return html;
+			// }},
 			[[/if]]
             {field:'check_id', title: '确认者',templet:function(d){
 				if(!d.check_id||d.check_id==0){
@@ -317,7 +318,6 @@ layui.table.on('tool(dataTable)', function(obj){
     var item = obj.data;
     var layEvent = obj.event;
     var tr = obj.tr;
-    
     if(layEvent === 'notice'){
         layer.confirm('确定要进行回调么？',{title:'系统提示',icon: 3},function(index){
             ajax({
@@ -403,7 +403,9 @@ layui.table.on('tool(dataTable)', function(obj){
 	}else if(layEvent=='match'){
 		var con='<div>';
 			con+='<div>订单号：'+item.order_sn+'</div>';
-			con+='<div>订单金额：'+item.money+'</div>';
+			con+='<div>订单金额：'+item.rmb+'</div>';
+			con+='<div>兑换价格：'+item.otcbuy+'</div>';
+			con+='<div>USDT金额：'+item.money+'</div>';
 			con+='<div>支付状态：'+item.pay_status_flag+'</div>';
 			con+='<div>当前码商：'+item.mu_account+' / '+item.mu_nickname+'</div>';
 			con+='<div>支付方式：'+item.mtype_name+'</div>';

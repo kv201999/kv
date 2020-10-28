@@ -90,8 +90,9 @@ class PayController extends BaseController{
 			file_put_contents(ROOT_PATH.'logs/pay_sign.txt',var_export($p_data,true)."\n\n",FILE_APPEND);
 			jReturn('-1','签名错误');
 		}
-        $p_data['rmb'] = intval($p_data['money']);
-        $p_data['money']=round($p_data['money']/$req->get_otcbuy(),2);
+            $p_data['rmb'] = intval($p_data['money']);
+            $p_data['money']=round($p_data['money']/$req->get_otcbuy(),2);
+            $p_data['otcbuy']=$req->get_otcbuy();
 		$check_mc_order=$mysql->fetchRow("select id from sk_order where out_order_sn='{$p_data['order_sn']}'");
 		if($check_mc_order['id']){
 			jReturn('-1',"商户单号已存在，请勿重复提交 {$p_data['order_sn']}");
@@ -129,7 +130,6 @@ class PayController extends BaseController{
 		}
 		$p_data['appoint_ms']=$appoint_ms_arr;
 		//##########指定代理转换成指定码商##########
-		
 		$sk_ma=$this->getSkma($p_data,$mysql);
 		if(!$sk_ma){
 			/*
@@ -156,6 +156,7 @@ class PayController extends BaseController{
 			'out_order_sn'=>$p_data['order_sn'],
 			'goods_desc'=>$p_data['goods_desc'],
             'rmb'=>$p_data['rmb'],
+            'otcbuy'=>$p_data['otcbuy'],
 			'money'=>$p_data['money'],
 			'real_money'=>$p_data['money']-$fee,
 			'rate'=>$rate,
@@ -201,7 +202,7 @@ class PayController extends BaseController{
 		$sk_ma_data=[
 			'queue_time'=>NOW_TIME
 		];
-		
+
 		$res=$mysql->insert($sk_order,'sk_order');
 		$res2=$mysql->update($ma_sys_user,"id={$ma_user['id']}",'sys_user');
 		$res3=balanceLog($ma_user,3,13,-$p_data['money'],$res,$sk_order['order_sn'],$mysql);
@@ -234,6 +235,8 @@ class PayController extends BaseController{
 			'realname'=>$sk_ma['ma_realname'],
 			'account'=>$sk_ma['ma_account'],
 			'money'=>$p_data['rmb'],
+            'otcbuy'=>$p_data['otcbuy'],
+            'usdt'=>$p_data['money'],
 			'bank'=>'',
 			'qrcode'=>''
 		];
@@ -262,7 +265,7 @@ class PayController extends BaseController{
 		$min_match_money=floatval(getConfig('min_match_money'));
 		$ptype=intval($p_data['ptype']);
 		$limit_balance=$min_match_money+$p_data['rmb'];
-		
+
 		$order_arr=$this->mysql->fetchRows("select ma_id from sk_order where ptype={$ptype} and pay_status in(1,2) and money='{$p_data['rmb']}'");
 		foreach($order_arr as $ev){
 			$this->checkMaArr[]=$ev['ma_id'];
@@ -292,7 +295,6 @@ class PayController extends BaseController{
 			$exp_skmids=implode(',',$this->checkMaArr);
 			$sql.=" and log.id not in ({$exp_skmids})";
 		}
-
 		$sk_ma=[];
 		//根据ip匹配一个合适的
 		/*
@@ -316,6 +318,7 @@ class PayController extends BaseController{
 			$sk_ma=$mysql->fetchRow($ma_sql);
 			file_put_contents(ROOT_PATH.'logs/ma_sql.txt',$ma_sql."\n\n",FILE_APPEND);
 		}
+
 		//检测该码商是否有相同金额订单
 		if($sk_ma){
 			$check_order=$mysql->fetchRow("select id from sk_order where muid={$sk_ma['uid']} and pay_status<=2 and money='{$p_data['rmb']}'");
@@ -397,7 +400,9 @@ class PayController extends BaseController{
 			'mch_id'=>$p_data['mch_id'],
 			'order_sn'=>$order['order_sn'],
 			'out_order_sn'=>$order['out_order_sn'],
-			'money'=>$order['money'],
+            'money'=>$p_data['rmb'],
+            'otcbuy'=>$p_data['otcbuy'],
+            'usdt'=>$p_data['money'],
 			'order_time'=>$order['create_time'],
 			'pay_time'=>$order['pay_time'],
 			'status'=>$order['pay_status'],
@@ -430,10 +435,8 @@ class PayController extends BaseController{
 		$order['mtype_id']=$order['ptype'];
 		$order['ma_account2']=substr($order['ma_account'],0,3).'***'.substr($order['ma_account'],-3);
 		$order['ma_realname2']=msubstr($order['ma_realname'],0,1,'utf-8','').'**';
-		
 		$order['ma_account2']=$order['ma_account'];
 		$order['ma_realname2']=$order['ma_realname'];
-		
 		$skorder_over_time=intval(getConfig('skorder_over_time'));
 		$order['d_time']=$skorder_over_time-(NOW_TIME-$order['create_time']);
 		if($order['d_time']<0){

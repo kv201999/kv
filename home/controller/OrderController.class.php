@@ -69,7 +69,7 @@ class OrderController extends BaseController{
 		left join sk_mtype mt on log.ptype=mt.id 
 		{$where}";
 		$count_item=$this->mysql->fetchRow($sql_cnt);
-		$sql="select log.id,log.order_sn,log.out_order_sn,log.money,log.pay_status,log.js_status,
+		$sql="select log.id,log.order_sn,log.out_order_sn,log.money,log.rmb,log.otcbuy,log.pay_status,log.js_status,
 		log.hk_money,log.hk_status,log.notice_status,log.create_time,log.pay_time,log.ma_account,log.ma_realname,
 		mt.name as mtype_name,mt.type as mtype_type 	
 		from sk_order log 
@@ -90,7 +90,7 @@ class OrderController extends BaseController{
 			if($item['pay_time']){
 				$item['pay_time']=date('Y-m-d H:i',$item['pay_time']);
 			}else{
-				$item['pay_time']='/';
+				$item['pay_time']='--';
 			}
 			$item['money']=floatval($item['money']);
 		}
