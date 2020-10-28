@@ -1,11 +1,11 @@
-<?php /*%%SmartyHeaderCode:35155f993bc0e0b319-84837067%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:308815f995162b5f5e9-06476765%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '24a750c339ca510cd299192ae89eb74073291993' => 
     array (
       0 => 'D:\\phpstudy_pro\\WWW\\kv\\home\\view\\Default\\index.html',
-      1 => 1603874955,
+      1 => 1603883356,
       2 => 'file',
     ),
     'cfb654ce50c2064ecd000c5c405f8f854a49b36c' => 
@@ -33,7 +33,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '35155f993bc0e0b319-84837067',
+  'nocache_hash' => '308815f995162b5f5e9-06476765',
   'variables' => 
   array (
     'user' => 0,
@@ -50,10 +50,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_5f993bc10b7eb6_52308418',
+  'unifunc' => 'content_5f995162d98790_43960823',
   'cache_lifetime' => 300,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5f993bc10b7eb6_52308418')) {function content_5f993bc10b7eb6_52308418($_smarty_tpl) {?><!doctype html>
+<?php if ($_valid && !is_callable('content_5f995162d98790_43960823')) {function content_5f995162d98790_43960823($_smarty_tpl) {?><!doctype html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -93,6 +93,16 @@ window.Databus={pauseSound:0,pauseMusic:0};
 		font-size: 1.5rem;
 		font-weight: bold;
 	}
+	.robOrderBox .robNowBtn{
+		background-image: linear-gradient(to bottom, #019aff, #019aff);
+	}
+	.robOrderTipstxt,.robOrder .warmTips{
+		color: #333;
+	}
+	.robOrderBox .stopRob .countDown{
+		font-size: 1.8rem;
+		font-weight: bold;
+	}
 </style>
 <div class="robOrder">
 	<div class="robOrderBox">
@@ -109,10 +119,10 @@ window.Databus={pauseSound:0,pauseMusic:0};
 		<div class="robOrderNum">
 		<p class="userbox"><span>余额：11254.57 USDT</span><span class="edu">冻结：0 USDT</span></p>
 		<ul>
-			<li><p>40</p><p>总单数</p></li>
+			<li><p>41</p><p>总单数</p></li>
 			<li><p>16</p><p>完成单数</p></li>
-			<li><p>40%</p><p>成功率</p></li>
-			<li><p>16164.57</p><p>总金额 </p></li>
+			<li><p>39.02%</p><p>成功率</p></li>
+			<li><p>16428.12</p><p>总金额 </p></li>
 			<li><p>10280.53</p><p>完成金额</p></li>
 			<li><p>83.94</p><p>提成</p></li>
 		</ul>
@@ -167,7 +177,7 @@ preventDefault();
 $(function(){
 	
 	var timer=null;
-	var d_time='1262'*1;
+	var d_time='11964'*1;
 	setTimer();
 	
 	function setTimer(){

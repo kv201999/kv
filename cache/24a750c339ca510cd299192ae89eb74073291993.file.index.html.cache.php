@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2020-10-28 09:37:04
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2020-10-28 11:09:22
          compiled from "D:\phpstudy_pro\WWW\kv\home\view\Default\index.html" */ ?>
-<?php /*%%SmartyHeaderCode:35155f993bc0e0b319-84837067%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:308815f995162b5f5e9-06476765%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '24a750c339ca510cd299192ae89eb74073291993' => 
     array (
       0 => 'D:\\phpstudy_pro\\WWW\\kv\\home\\view\\Default\\index.html',
-      1 => 1603874955,
+      1 => 1603883356,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '35155f993bc0e0b319-84837067',
+  'nocache_hash' => '308815f995162b5f5e9-06476765',
   'function' => 
   array (
   ),
@@ -31,13 +31,23 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_5f993bc0e3fcb9_69064678',
+  'unifunc' => 'content_5f995162b95b88_67523770',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5f993bc0e3fcb9_69064678')) {function content_5f993bc0e3fcb9_69064678($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ("head.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, null, array(), 0);?>
+<?php if ($_valid && !is_callable('content_5f995162b95b88_67523770')) {function content_5f995162b95b88_67523770($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ("head.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, null, array(), 0);?>
 
 <style>
 	.robOrderNum li p:nth-child(1){
 		font-size: 1.5rem;
+		font-weight: bold;
+	}
+	.robOrderBox .robNowBtn{
+		background-image: linear-gradient(to bottom, #019aff, #019aff);
+	}
+	.robOrderTipstxt,.robOrder .warmTips{
+		color: #333;
+	}
+	.robOrderBox .stopRob .countDown{
+		font-size: 1.8rem;
 		font-weight: bold;
 	}
 </style>

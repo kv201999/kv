@@ -4,6 +4,16 @@
 		font-size: 1.5rem;
 		font-weight: bold;
 	}
+	.robOrderBox .robNowBtn{
+		background-image: linear-gradient(to bottom, #019aff, #019aff);
+	}
+	.robOrderTipstxt,.robOrder .warmTips{
+		color: #333;
+	}
+	.robOrderBox .stopRob .countDown{
+		font-size: 1.8rem;
+		font-weight: bold;
+	}
 </style>
 <div class="robOrder">
 	<div class="robOrderBox">
@@ -48,7 +58,6 @@
 <script>
 preventDefault();
 $(function(){
-	
 	var timer=null;
 	var d_time='[[$d_time]]'*1;
 	setTimer();
