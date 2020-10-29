@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2020-10-29 03:54:37
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2020-10-29 16:25:01
          compiled from "D:\phpstudy_pro\WWW\kv\home\view\menu.html" */ ?>
-<?php /*%%SmartyHeaderCode:307535f9a3cfd107da4-16717362%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:133905f9a7c5db0e423-74665485%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,15 +11,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '307535f9a3cfd107da4-16717362',
+  'nocache_hash' => '133905f9a7c5db0e423-74665485',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_5f9a3cfd112b34_72954343',
+  'unifunc' => 'content_5f9a7c5db190e5_23508298',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5f9a3cfd112b34_72954343')) {function content_5f9a3cfd112b34_72954343($_smarty_tpl) {?><!-- 底部导航栏 -->
+<?php if ($_valid && !is_callable('content_5f9a7c5db190e5_23508298')) {function content_5f9a7c5db190e5_23508298($_smarty_tpl) {?><!-- 底部导航栏 -->
 <div class="BotMenu">
 	<div class="wrap">
 		<a href="/?c=Order" class="Link_1 <?php if (@constant('CONTROLLER_NAME')=='Order') {?>on<?php }?>">

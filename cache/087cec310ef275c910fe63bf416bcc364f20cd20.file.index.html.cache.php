@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2020-10-29 11:27:40
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2020-10-29 13:44:30
          compiled from "D:\phpstudy_pro\WWW\kv\home\view\Order\index.html" */ ?>
-<?php /*%%SmartyHeaderCode:227125f9a36aceecfb7-85306541%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:61355f9a56bedb5756-29348108%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '087cec310ef275c910fe63bf416bcc364f20cd20' => 
     array (
       0 => 'D:\\phpstudy_pro\\WWW\\kv\\home\\view\\Order\\index.html',
-      1 => 1603875606,
+      1 => 1603946058,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '227125f9a36aceecfb7-85306541',
+  'nocache_hash' => '61355f9a56bedb5756-29348108',
   'function' => 
   array (
   ),
@@ -26,9 +26,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_5f9a36ad62a928_31624200',
+  'unifunc' => 'content_5f9a56bedf3437_31090534',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5f9a36ad62a928_31624200')) {function content_5f9a36ad62a928_31624200($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ("head.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, null, array(), 0);?>
+<?php if ($_valid && !is_callable('content_5f9a56bedf3437_31090534')) {function content_5f9a56bedf3437_31090534($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ("head.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, null, array(), 0);?>
 
 <style>
 .userState{cursor:pointer;}
@@ -364,7 +364,7 @@ $(function(){
 		var liObj=obj.parents('li');
 		var osn=liObj.attr('data-osn');
 		var item=nowlist[osn];
-		var con='确定已收到<b style="color:#fc744d;font-size:20px;">'+item.money+'</b>';
+		var con='确定已收到<b style="color:#fc744d;font-size:20px;">'+item.rmb+'</b>元<br />'+'系统将扣除你的账户<strong style="line-height: 30px">'+item.money+'</strong>USDT';
 		if(cnf_mscheck_needpwd=='是'){
 			con+='<div style="font-weight:bold;">请输入二级密码：<br><input type="password" id="password2" style="display:inline-block;line-height:26px;padding:2px 5px;border:1px solid #dedede;;border-radius:3px;" /></div>';
 		}

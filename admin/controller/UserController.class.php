@@ -173,14 +173,14 @@ class UserController extends BaseController{
 		$pageuser=checkPower();
 		$params=$this->_param();
 		$item_id=intval($params['item_id']);
-		if(!$params['realname']){
-			jReturn('-1','请填写姓名');
+		if(!$params['address']){
+			jReturn('-1','请填写钱包地址');
 		}
 		if(!$params['nickname']){
 			jReturn('-1','请填写昵称');
 		}
 		$data=array(
-			'realname'=>$params['realname'],
+			'address'=>$params['address'],
 			'nickname'=>$params['nickname']
 		);
 

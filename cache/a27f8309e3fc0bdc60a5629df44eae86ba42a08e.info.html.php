@@ -1,4 +1,4 @@
-<?php /*%%SmartyHeaderCode:194435f9a3c79d5d1a6-20183911%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:19435f9a9b09ce9948-06744930%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -27,17 +27,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '194435f9a3c79d5d1a6-20183911',
+  'nocache_hash' => '19435f9a9b09ce9948-06744930',
   'variables' => 
   array (
     'info' => 0,
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_5f9a3c7a153058_78559394',
+  'unifunc' => 'content_5f9a9b0a0e78d2_28639592',
   'cache_lifetime' => 300,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5f9a3c7a153058_78559394')) {function content_5f9a3c7a153058_78559394($_smarty_tpl) {?><!doctype html>
+<?php if ($_valid && !is_callable('content_5f9a9b0a0e78d2_28639592')) {function content_5f9a9b0a0e78d2_28639592($_smarty_tpl) {?><!doctype html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -92,8 +92,8 @@ window.Databus={pauseSound:0,pauseMusic:0};
 		<!--<a href="javascript:;" class="backBtn"></a>-->
 	</div>
 	<div class="PaymentCon">	
-		<div class="amount cpBtn" data-clipboard-text="1000.00">1000.00<span class="copyBtn">复制</span></div>
-		<div style="font-size: 18px;margin-top:5px;color: #333" data-clipboard-text="149.48">≈149.48USDT</div>
+		<div class="amount cpBtn" data-clipboard-text="2900.00">2900.00<span class="copyBtn">复制</span></div>
+		<div style="font-size: 18px;margin-top:5px;color: #333" data-clipboard-text="432.84">≈432.84USDT</div>
 				<div class="uname" style="text-align:left;">
 											开户银行：中国工商银行<br>
 												<div style="clear:both;height:0.5rem;"></div>
@@ -103,9 +103,8 @@ window.Databus={pauseSound:0,pauseMusic:0};
 				<div style="clear:both;height:0.8rem;"></div>
 									</div>
 		<div class="time">
-						<!--倒计时-->
-			<span class="timeBox"></span>
-											</div>
+						订单已支付
+					</div>
 		<div class="warmTips" >
 			<b>温馨提示：</b><br>
 			1、请在订单有效期内进行付款<br>
@@ -207,7 +206,7 @@ $(function(){
 	
 	$('.timeBox').on('click',function(){
 		var obj=$(this);
-		var osn='MS2020102903462368619';
+		var osn='MS2020102910295141390';
 		layer.open({
 			//title:'',
 			content:'如果您已支付请确定提交',
@@ -242,7 +241,7 @@ $(function(){
 <script>
 $(function(){
 
-	nowOrderSn='MS2020102903462368619';
+	nowOrderSn='MS2020102910295141390';
 	
 	var music=new Music();
 	

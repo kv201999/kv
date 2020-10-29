@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2020-10-27 19:20:42
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2020-10-29 13:49:15
          compiled from "D:\phpstudy_pro\WWW\kv\admin\view\Sys\bset.html" */ ?>
-<?php /*%%SmartyHeaderCode:45705f98028a1612c8-27368620%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:69015f9a57db443378-76174633%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,15 +11,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '45705f98028a1612c8-27368620',
+  'nocache_hash' => '69015f9a57db443378-76174633',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_5f98028a17a742_83804717',
+  'unifunc' => 'content_5f9a57db5b7143_69502574',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5f98028a17a742_83804717')) {function content_5f98028a17a742_83804717($_smarty_tpl) {?><div class="layui-col-md12">
+<?php if ($_valid && !is_callable('content_5f9a57db5b7143_69502574')) {function content_5f9a57db5b7143_69502574($_smarty_tpl) {?><div class="layui-col-md12">
 <div class="layui-card">
 <div class="layui-card-header"><span>基础配置</span><span class="layui-btn layui-btn-sm layui-btn-normal addBtn">+添加配置</span></div>
 <div class="layui-card-body">

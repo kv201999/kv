@@ -234,9 +234,9 @@ class PayController extends BaseController{
 			'ptype_name'=>$mtype['name'],
 			'realname'=>$sk_ma['ma_realname'],
 			'account'=>$sk_ma['ma_account'],
-			'money'=>$p_data['rmb'],
-            'otcbuy'=>$p_data['otcbuy'],
-            'usdt'=>$p_data['money'],
+			'money'=>$sk_order['rmb'],
+            'otcbuy'=>$sk_order['otcbuy'],
+            'usdt'=>$sk_order['money'],
 			'bank'=>'',
 			'qrcode'=>''
 		];
@@ -351,6 +351,7 @@ class PayController extends BaseController{
 				jReturn('-1',$resultArr['msg']);
 			}
 			$params=$resultArr['data'];
+			var_dump($params);
 		}
 		
 		$p_data=array(
@@ -400,9 +401,9 @@ class PayController extends BaseController{
 			'mch_id'=>$p_data['mch_id'],
 			'order_sn'=>$order['order_sn'],
 			'out_order_sn'=>$order['out_order_sn'],
-            'money'=>$p_data['rmb'],
-            'otcbuy'=>$p_data['otcbuy'],
-            'usdt'=>$p_data['money'],
+            'money'=>$order['rmb'],
+            'otcbuy'=>$order['otcbuy'],
+            'usdt'=>$order['money'],
 			'order_time'=>$order['create_time'],
 			'pay_time'=>$order['pay_time'],
 			'status'=>$order['pay_status'],

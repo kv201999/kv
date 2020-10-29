@@ -751,7 +751,6 @@ class FinanceController extends BaseController{
 		//检测最低最高提现金额，可提现时间
 		$cash_cnf=getConfig('cash_cnf');
 		$day_time_arr=explode('-',$cash_cnf['day_time']);
-		
 		$min_cash_money=getConfig('min_cash_money');
 		$max_cash_money=getConfig('max_cash_money');
 		$max_day_cash_money=getConfig('max_day_cash_money');

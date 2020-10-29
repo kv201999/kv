@@ -4,7 +4,7 @@ include './conf.php';
 $params=$_REQUEST;
 $ptype=intval($params['ptype']);//支付类型
 if(!$ptype){
-	$ptype=3;
+	$ptype=1;
 }
 $money=floatval($params['money']);
 $usdtaddress=$params['usdtaddress'];

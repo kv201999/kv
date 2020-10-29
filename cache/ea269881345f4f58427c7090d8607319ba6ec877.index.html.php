@@ -1,4 +1,4 @@
-<?php /*%%SmartyHeaderCode:36115f99512ea068d9-10887114%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:27985f9a7c5d9a7068-89841693%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -33,7 +33,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '36115f99512ea068d9-10887114',
+  'nocache_hash' => '27985f9a7c5d9a7068-89841693',
   'variables' => 
   array (
     'user' => 0,
@@ -44,10 +44,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_5f99512ec1f039_78070843',
+  'unifunc' => 'content_5f9a7c5dbe24a9_82057248',
   'cache_lifetime' => 300,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5f99512ec1f039_78070843')) {function content_5f99512ec1f039_78070843($_smarty_tpl) {?><!doctype html>
+<?php if ($_valid && !is_callable('content_5f9a7c5dbe24a9_82057248')) {function content_5f9a7c5dbe24a9_82057248($_smarty_tpl) {?><!doctype html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -103,13 +103,13 @@ window.Databus={pauseSound:0,pauseMusic:0};
 	</div>
 	<div class="HomeCen">
 		<ul>
-						<li><p>11254.57</p><p>接单余额</p></li>
-			<li><p>48.84</p><p>可提余额</p></li>
+						<li><p>9679.75</p><p>接单余额</p></li>
+			<li><p>1054.33</p><p>可提余额</p></li>
 			<li><p>0</p><p>冻结余额</p></li>
 						
-			<li><p>16</p><p>订单数</p></li>
-			<li><p>10280.53</p><p>订单总额</p></li>
-			<li><p>83.94</p><p>提成</p></li>
+			<li><p>18</p><p>订单数</p></li>
+			<li><p>10855.35</p><p>订单总额</p></li>
+			<li><p>89.43</p><p>提成</p></li>
 		</ul>
 	</div>
 	<div class="HomeList">

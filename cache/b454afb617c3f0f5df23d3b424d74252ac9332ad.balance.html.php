@@ -1,4 +1,4 @@
-<?php /*%%SmartyHeaderCode:309785f9a3d48076f84-58798825%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:301335f9a89036a9b81-31632393%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -9,7 +9,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '309785f9a3d48076f84-58798825',
+  'nocache_hash' => '301335f9a89036a9b81-31632393',
   'variables' => 
   array (
     'user' => 0,
@@ -21,10 +21,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_5f9a3d4831b1c0_96068732',
+  'unifunc' => 'content_5f9a89038f4244_76257691',
   'cache_lifetime' => 300,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5f9a3d4831b1c0_96068732')) {function content_5f9a3d4831b1c0_96068732($_smarty_tpl) {?><div class="layui-col-md12">
+<?php if ($_valid && !is_callable('content_5f9a89038f4244_76257691')) {function content_5f9a89038f4244_76257691($_smarty_tpl) {?><div class="layui-col-md12">
 <div class="layui-card">
 <div class="layui-card-header"><span>账户余额</span></div>
 <div class="layui-card-body">
@@ -40,7 +40,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<div class="layui-form-item" style="margin-bottom:2px;">
 			<label class="layui-form-label">可提余额：</label>
 			<div class="layui-input-block" style="line-height:38px;">
-				0
+				9600
 			</div>
 		</div>
 		<div class="layui-form-item" style="margin-bottom:2px;">
@@ -61,6 +61,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			<div class="layui-input-block" style="width:60%;">
 				<select id="blog_id">
 					<option value="0">请选择银行卡</option>
+										<option value="1">【中国工商银行】dddd - ddddd</option>
 									</select>
 			</div>
 		</div>
@@ -131,7 +132,7 @@ $('.transToBalance').on('click',function(){
 	if(ptype==1){
 		title='可提现余额->接单余额';
 		item.title='可提余额：';
-		item.balance='0';
+		item.balance='9600';
 	}else if(ptype==2){
 		title='接单余额->可提现余额';
 		item.title='接单余额：';
@@ -191,7 +192,7 @@ function saveTrans(ts){
 
 $('.saveBtn').on('click',function(){
 	var obj=$(this);
-	var has_money='0'*1;
+	var has_money='9600'*1;
 	var blog_id=$.trim($('#blog_id').val());
 	var money=$.trim($('#money').val())*1;
 	var password2=$.trim($('#password2').val());

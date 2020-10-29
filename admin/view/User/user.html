@@ -118,15 +118,15 @@
 			</div>
 		</div>
 		<div class="layui-form-item">
-			<label class="layui-form-label">姓名：</label>
-			<div class="layui-input-block">
-				<input type="text" id="realname" placeholder="" autocomplete="off" class="layui-input" value="{{d.item.realname||''}}" />
-			</div>
-		</div>
-		<div class="layui-form-item">
 			<label class="layui-form-label">昵称：</label>
 			<div class="layui-input-block">
 				<input type="text" id="nickname" placeholder="" autocomplete="off" class="layui-input" value="{{d.item.nickname||''}}" />
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">钱包地址：</label>
+			<div class="layui-input-block">
+				<input type="text" id="address" placeholder="" autocomplete="off" class="layui-input" value="{{d.item.address||''}}" />
 			</div>
 		</div>
 		[[if $user.gid eq 1]]
@@ -405,7 +405,7 @@ function saveBtn(ts){
 	var password=$.trim($('#password').val());
 	var password2=$.trim($('#password2').val());
 	var phone=$.trim($('#phone').val());
-	var realname=$.trim($('#realname').val());
+	var address=$.trim($('#address').val());
 	var nickname=$.trim($('#nickname').val());
 	var gid=$.trim($('#gid').val());
 	var is_google=$('input[name="is_google"]:checked').val();
@@ -423,8 +423,8 @@ function saveBtn(ts){
 		_alert('请选择用户分组');
 		return false;
 	}
-	if(!realname){
-		_alert('请填写姓名');
+	if(!address){
+		_alert('请填写钱包地址');
 		return false;
 	}
 	if(!nickname){
@@ -447,7 +447,7 @@ function saveBtn(ts){
 		url:global.appurl+'c=User&a=user_update',
 		data:{
 			item_id:item_id,gid:gid,status:status,account:account,paccount:paccount,
-			realname:realname,nickname:nickname,phone:phone,password:password,password2:password2,
+			address:address,nickname:nickname,phone:phone,password:password,password2:password2,
 			is_google:is_google
 		},
 		success:function(json){
@@ -463,7 +463,7 @@ function saveBtn(ts){
 			}else{
                 //同步更新
                 var uitem={
-                    realname:realname,
+                    address:address,
                     nickname:nickname,
                     gid:gid,
                     gname: $('#gid').find('option[value="'+gid+'"]').text()

@@ -1,4 +1,4 @@
-<?php /*%%SmartyHeaderCode:124825f99138c67f5d7-69406340%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:116875f9a5798419213-63660385%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -9,7 +9,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '124825f99138c67f5d7-69406340',
+  'nocache_hash' => '116875f9a5798419213-63660385',
   'variables' => 
   array (
     'mtype_arr' => 0,
@@ -18,10 +18,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_5f99138c722670_68260306',
+  'unifunc' => 'content_5f9a5798597d06_67928990',
   'cache_lifetime' => 300,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5f99138c722670_68260306')) {function content_5f99138c722670_68260306($_smarty_tpl) {?><style>
+<?php if ($_valid && !is_callable('content_5f9a5798597d06_67928990')) {function content_5f9a5798597d06_67928990($_smarty_tpl) {?><style>
 .imgItemBtn{cursor:pointer;}
 .banner_it{width:80px;height:80px;background-size:cover;border:1px solid #dedede;
 line-height:80px;margin-right:5px;display:inline-block;float:left;text-align:center;font-size:4rem;cursor:pointer;
@@ -42,8 +42,8 @@ position:relative;}
                 <div class="layui-input-inline" style="width:140px;">
                     <select id="s_mtype_id" name="s_mtype_id">
                         <option value="0">全部</option>
-                                                <option value="1">支付宝(闲鱼)</option>
-                                                <option value="3">银行卡(转账)</option>
+                                                <option value="1">闲鱼固码</option>
+                                                <option value="3">银行卡</option>
                                             </select>
                 </div>
             </div>

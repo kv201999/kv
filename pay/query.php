@@ -5,7 +5,7 @@ $now_time=time();
 $p_data=array(
 	'time'=>$now_time,
 	'mch_id'=>'shanghu',
-	'out_order_sn'=>'SH20201021181035'
+	'out_order_sn'=>'SH20201029124355'
 );
 ksort($p_data);
 $sign_str='';

@@ -305,7 +305,7 @@ $(function(){
 		var liObj=obj.parents('li');
 		var osn=liObj.attr('data-osn');
 		var item=nowlist[osn];
-		var con='确定已收到<b style="color:#fc744d;font-size:20px;">'+item.money+'</b>';
+		var con='确定已收到<b style="color:#fc744d;font-size:20px;">'+item.rmb+'</b>元<br />'+'系统将扣除你的账户<strong style="line-height: 30px">'+item.money+'</strong>USDT';
 		if(cnf_mscheck_needpwd=='是'){
 			con+='<div style="font-weight:bold;">请输入二级密码：<br><input type="password" id="password2" style="display:inline-block;line-height:26px;padding:2px 5px;border:1px solid #dedede;;border-radius:3px;" /></div>';
 		}

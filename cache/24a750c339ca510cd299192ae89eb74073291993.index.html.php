@@ -1,4 +1,4 @@
-<?php /*%%SmartyHeaderCode:107305f9a3cfcef90f6-66162486%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:317065f9a56a31c30c7-30722524%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -33,7 +33,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '107305f9a3cfcef90f6-66162486',
+  'nocache_hash' => '317065f9a56a31c30c7-30722524',
   'variables' => 
   array (
     'user' => 0,
@@ -50,10 +50,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_5f9a3cfd1e3321_14271464',
+  'unifunc' => 'content_5f9a56a33e6600_64869903',
   'cache_lifetime' => 300,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5f9a3cfd1e3321_14271464')) {function content_5f9a3cfd1e3321_14271464($_smarty_tpl) {?><!doctype html>
+<?php if ($_valid && !is_callable('content_5f9a56a33e6600_64869903')) {function content_5f9a56a33e6600_64869903($_smarty_tpl) {?><!doctype html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -67,7 +67,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <meta http-equiv="Expires" content="-1" />
 <meta http-equiv="pragram" content="no-cache" />
 <link rel="stylesheet" type="text/css" href="public/layer/need/layer.css">
-<link rel="stylesheet" type="text/css" href="public/home/css/mainStylePc.css?v=0.41">
+<link rel="stylesheet" type="text/css" href="public/home/css/mainStyle.css?v=0.41">
+<script type="text/javascript" src="public/home/js/init.js?v=0.41"></script>
 <style>
 .moreBtn,.noData{text-align:center;font-size: 1.2rem;padding: 0.8rem 0;color: #666;}
 </style>
@@ -116,14 +117,14 @@ window.Databus={pauseSound:0,pauseMusic:0};
 	<p class="robOrderTipstxt">每隔200分钟会自动下线</p>
 		<p style="height:0.5rem;">&nbsp;</p>
 		<div class="robOrderNum">
-		<p class="userbox"><span>余额：10806.14 USDT</span><span class="edu">冻结：448.43 USDT</span></p>
+		<p class="userbox"><span>余额：10679.75 USDT</span><span class="edu">冻结：0 USDT</span></p>
 		<ul>
-			<li><p>43</p><p>总单数</p></li>
-			<li><p>16</p><p>完成单数</p></li>
-			<li><p>37.21%</p><p>成功率</p></li>
-			<li><p>16876.55</p><p>总金额 </p></li>
-			<li><p>10280.53</p><p>完成金额</p></li>
-			<li><p>83.94</p><p>提成</p></li>
+			<li><p>45</p><p>总单数</p></li>
+			<li><p>18</p><p>完成单数</p></li>
+			<li><p>40%</p><p>成功率</p></li>
+			<li><p>17451.37</p><p>总金额 </p></li>
+			<li><p>10855.35</p><p>完成金额</p></li>
+			<li><p>89.43</p><p>提成</p></li>
 		</ul>
 	</div>
 
@@ -175,7 +176,7 @@ global.appurl='/?';
 preventDefault();
 $(function(){
 	var timer=null;
-	var d_time='0'*1;
+	var d_time='6954'*1;
 	setTimer();
 	
 	function setTimer(){

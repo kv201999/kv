@@ -56512,3 +56512,129 @@ array (
   'sign' => '25f9f6f1232f6ae54bd2614e44a886a3',
 )
 
+array (
+  'c' => 'Pay',
+  'client_ip' => '127.0.0.1',
+  'format' => 'page',
+  'goods_desc' => 'buy',
+  'mch_id' => 'shanghu',
+  'money' => '3000',
+  'notify_url' => 'http://127.0.0.1/api/notify.php',
+  'order_sn' => 'SH20201029122548',
+  'ptype' => '3',
+  'time' => '1603945548',
+  'sign' => '81fedc4f339d1ec1f8a203ec70e65b56',
+)
+
+array (
+  'c' => 'Pay',
+  'client_ip' => '127.0.0.1',
+  'format' => 'page',
+  'goods_desc' => 'buy',
+  'mch_id' => 'shanghu',
+  'money' => '3000',
+  'notify_url' => 'http://127.0.0.1/api/notify.php',
+  'order_sn' => 'SH20201029124311',
+  'ptype' => '1',
+  'time' => '1603946591',
+  'sign' => '6b1c5c04f460e64ba36a8c0b2c62bea8',
+)
+
+array (
+  'c' => 'Pay',
+  'client_ip' => '127.0.0.1',
+  'format' => 'page',
+  'goods_desc' => 'buy',
+  'mch_id' => 'shanghu',
+  'money' => '850',
+  'notify_url' => 'http://127.0.0.1/api/notify.php',
+  'order_sn' => 'SH20201029124355',
+  'ptype' => '1',
+  'time' => '1603946635',
+  'sign' => '30c754d1c5ad4e3fac8d2e410d32a74e',
+)
+
+array (
+  'c' => 'Pay',
+  'client_ip' => '127.0.0.1',
+  'format' => 'page',
+  'goods_desc' => 'buy',
+  'mch_id' => 'shanghu',
+  'money' => '1322',
+  'notify_url' => 'http://127.0.0.1/api/notify.php',
+  'order_sn' => 'SH20201029182721',
+  'ptype' => '1',
+  'time' => '1603967241',
+  'sign' => 'c9c8b0a96248893161c9d681d3080619',
+)
+
+array (
+  'c' => 'Pay',
+  'client_ip' => '127.0.0.1',
+  'format' => 'page',
+  'goods_desc' => 'buy',
+  'mch_id' => 'shanghu',
+  'money' => '1322',
+  'notify_url' => 'http://127.0.0.1/api/notify.php',
+  'order_sn' => 'SH20201029182743',
+  'ptype' => '1',
+  'time' => '1603967263',
+  'sign' => 'f8f03bc40d174921172e1d956c52bc69',
+)
+
+array (
+  'c' => 'Pay',
+  'client_ip' => '127.0.0.1',
+  'format' => 'page',
+  'goods_desc' => 'buy',
+  'mch_id' => 'shanghu',
+  'money' => '3788',
+  'notify_url' => 'http://127.0.0.1/api/notify.php',
+  'order_sn' => 'SH20201029182753',
+  'ptype' => '1',
+  'time' => '1603967273',
+  'sign' => '648ddf0fad8355b21329ea193c5eef41',
+)
+
+array (
+  'c' => 'Pay',
+  'client_ip' => '127.0.0.1',
+  'format' => 'page',
+  'goods_desc' => 'buy',
+  'mch_id' => 'shanghu',
+  'money' => '1000',
+  'notify_url' => 'http://127.0.0.1/api/notify.php',
+  'order_sn' => 'SH20201029182848',
+  'ptype' => '1',
+  'time' => '1603967328',
+  'sign' => '557b3e37cf05169af168dfb6558c99a5',
+)
+
+array (
+  'c' => 'Pay',
+  'client_ip' => '127.0.0.1',
+  'format' => 'page',
+  'goods_desc' => 'buy',
+  'mch_id' => 'shanghu',
+  'money' => '2900',
+  'notify_url' => 'http://127.0.0.1/api/notify.php',
+  'order_sn' => 'SH20201029182928',
+  'ptype' => '1',
+  'time' => '1603967368',
+  'sign' => '6fa2f7f3b3460cfa649f16a99bcb9ca2',
+)
+
+array (
+  'c' => 'Pay',
+  'client_ip' => '127.0.0.1',
+  'format' => 'page',
+  'goods_desc' => 'buy',
+  'mch_id' => 'shanghu',
+  'money' => '2900',
+  'notify_url' => 'http://127.0.0.1/api/notify.php',
+  'order_sn' => 'SH20201029182951',
+  'ptype' => '3',
+  'time' => '1603967391',
+  'sign' => '84f35429a231706c46240dd65c4de4b8',
+)
+

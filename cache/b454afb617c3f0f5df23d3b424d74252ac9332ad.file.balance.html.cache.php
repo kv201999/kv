@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2020-10-29 11:55:52
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2020-10-29 17:18:59
          compiled from "D:\phpstudy_pro\WWW\kv\admin\view\Finance\balance.html" */ ?>
-<?php /*%%SmartyHeaderCode:309785f9a3d48076f84-58798825%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:301335f9a89036a9b81-31632393%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,7 +11,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '309785f9a3d48076f84-58798825',
+  'nocache_hash' => '301335f9a89036a9b81-31632393',
   'function' => 
   array (
   ),
@@ -26,9 +26,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_5f9a3d48108d85_01193772',
+  'unifunc' => 'content_5f9a89036e4f15_00736698',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5f9a3d48108d85_01193772')) {function content_5f9a3d48108d85_01193772($_smarty_tpl) {?><div class="layui-col-md12">
+<?php if ($_valid && !is_callable('content_5f9a89036e4f15_00736698')) {function content_5f9a89036e4f15_00736698($_smarty_tpl) {?><div class="layui-col-md12">
 <div class="layui-card">
 <div class="layui-card-header"><span>账户余额</span></div>
 <div class="layui-card-body">

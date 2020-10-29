@@ -1,4 +1,4 @@
-<?php /*%%SmartyHeaderCode:205875f993b3e61fcd4-55772668%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:61225f9a54ca1c9742-29036811%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -33,7 +33,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '205875f993b3e61fcd4-55772668',
+  'nocache_hash' => '61225f9a54ca1c9742-29036811',
   'variables' => 
   array (
     's' => 0,
@@ -44,10 +44,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_5f993b3e9cac67_42213689',
+  'unifunc' => 'content_5f9a54ca54bd75_43635005',
   'cache_lifetime' => 300,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5f993b3e9cac67_42213689')) {function content_5f993b3e9cac67_42213689($_smarty_tpl) {?><!doctype html>
+<?php if ($_valid && !is_callable('content_5f9a54ca54bd75_43635005')) {function content_5f9a54ca54bd75_43635005($_smarty_tpl) {?><!doctype html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -124,7 +124,7 @@ select{width:14rem;position: relative;height: 2.2rem;padding: 0 0.5rem;}
 			-->
 			<select id="s_mtype" style="height:3rem;border:0;width:100%;border-radius:5px;">
 								<option value="0" data-type="" selected>全部支付类型</option>
-								<option value="1" data-type="2" >支付宝</option>
+								<option value="1" data-type="2" >闲鱼固码</option>
 								<option value="3" data-type="3" >银行卡</option>
 							</select>
 		</div>
@@ -192,7 +192,7 @@ select{width:14rem;position: relative;height: 2.2rem;padding: 0 0.5rem;}
 					<div class="selectbox">
 						<select id="mtype_id">
 														<option value="0">全部支付类型</option>
-														<option value="1">支付宝</option>
+														<option value="1">闲鱼固码</option>
 														<option value="3">银行卡</option>
 													</select>
 					</div>

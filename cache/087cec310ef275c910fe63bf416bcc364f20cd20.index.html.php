@@ -1,11 +1,11 @@
-<?php /*%%SmartyHeaderCode:227125f9a36aceecfb7-85306541%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:61355f9a56bedb5756-29348108%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '087cec310ef275c910fe63bf416bcc364f20cd20' => 
     array (
       0 => 'D:\\phpstudy_pro\\WWW\\kv\\home\\view\\Order\\index.html',
-      1 => 1603875606,
+      1 => 1603946058,
       2 => 'file',
     ),
     'cfb654ce50c2064ecd000c5c405f8f854a49b36c' => 
@@ -33,7 +33,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '227125f9a36aceecfb7-85306541',
+  'nocache_hash' => '61355f9a56bedb5756-29348108',
   'variables' => 
   array (
     'is_msdbhk' => 0,
@@ -45,10 +45,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_5f9a36ad9276e9_78253032',
+  'unifunc' => 'content_5f9a56bf171280_49070664',
   'cache_lifetime' => 300,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5f9a36ad9276e9_78253032')) {function content_5f9a36ad9276e9_78253032($_smarty_tpl) {?><!doctype html>
+<?php if ($_valid && !is_callable('content_5f9a56bf171280_49070664')) {function content_5f9a56bf171280_49070664($_smarty_tpl) {?><!doctype html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -62,7 +62,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <meta http-equiv="Expires" content="-1" />
 <meta http-equiv="pragram" content="no-cache" />
 <link rel="stylesheet" type="text/css" href="public/layer/need/layer.css">
-<link rel="stylesheet" type="text/css" href="public/home/css/mainStylePc.css?v=0.41">
+<link rel="stylesheet" type="text/css" href="public/home/css/mainStyle.css?v=0.41">
+<script type="text/javascript" src="public/home/js/init.js?v=0.41"></script>
 <style>
 .moreBtn,.noData{text-align:center;font-size: 1.2rem;padding: 0.8rem 0;color: #666;}
 </style>
@@ -410,7 +411,7 @@ $(function(){
 		var liObj=obj.parents('li');
 		var osn=liObj.attr('data-osn');
 		var item=nowlist[osn];
-		var con='确定已收到<b style="color:#fc744d;font-size:20px;">'+item.money+'</b>';
+		var con='确定已收到<b style="color:#fc744d;font-size:20px;">'+item.rmb+'</b>元<br />'+'系统将扣除你的账户<strong style="line-height: 30px">'+item.money+'</strong>USDT';
 		if(cnf_mscheck_needpwd=='是'){
 			con+='<div style="font-weight:bold;">请输入二级密码：<br><input type="password" id="password2" style="display:inline-block;line-height:26px;padding:2px 5px;border:1px solid #dedede;;border-radius:3px;" /></div>';
 		}

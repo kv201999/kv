@@ -1,4 +1,4 @@
-<?php /*%%SmartyHeaderCode:88635f991e617c9f63-71592106%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:64335f9a8f745e9595-12290655%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -9,7 +9,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '88635f991e617c9f63-71592106',
+  'nocache_hash' => '64335f9a8f745e9595-12290655',
   'variables' => 
   array (
     'updateall' => 0,
@@ -22,10 +22,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_5f991e61ad89d0_69301694',
+  'unifunc' => 'content_5f9a8f749a6631_84619801',
   'cache_lifetime' => 300,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5f991e61ad89d0_69301694')) {function content_5f991e61ad89d0_69301694($_smarty_tpl) {?><style>
+<?php if ($_valid && !is_callable('content_5f9a8f749a6631_84619801')) {function content_5f9a8f749a6631_84619801($_smarty_tpl) {?><style>
 .imgItemBtn{cursor:pointer;}
 .banner_it{width:80px;height:80px;background-size:cover;border:1px solid #dedede;
 line-height:80px;margin-right:5px;display:inline-block;float:left;text-align:center;font-size:4rem;cursor:pointer;
@@ -50,8 +50,8 @@ position:relative;}
                 <div class="layui-input-inline" style="width:140px;">
                     <select id="s_mtype_id" name="s_mtype_id">
                         <option value="0">全部</option>
-                                                <option value="1">支付宝(闲鱼)</option>
-                                                <option value="3">银行卡(转账)</option>
+                                                <option value="1">闲鱼固码</option>
+                                                <option value="3">银行卡</option>
                                             </select>
                 </div>
             </div>
@@ -112,8 +112,8 @@ position:relative;}
             <div class="layui-input-block" style="width:160px;">
                 <select id="mtype_id" lay-filter="mtype_id">
 					<option value="0">请选择类型</option>
-                                        <option value="1" data-type="2">支付宝(闲鱼)</option>
-                                        <option value="3" data-type="3">银行卡(转账)</option>
+                                        <option value="1" data-type="2">闲鱼固码</option>
+                                        <option value="3" data-type="3">银行卡</option>
                                     </select>
             </div>
         </div>

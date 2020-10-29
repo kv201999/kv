@@ -1,4 +1,4 @@
-<?php /*%%SmartyHeaderCode:274735f9913a8914883-06778081%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:312745f9a6eeb83dac8-83201224%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -9,13 +9,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '274735f9913a8914883-06778081',
+  'nocache_hash' => '312745f9a6eeb83dac8-83201224',
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_5f9913a8966fd4_26341639',
+  'unifunc' => 'content_5f9a6eeb935357_81470679',
   'cache_lifetime' => 300,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5f9913a8966fd4_26341639')) {function content_5f9913a8966fd4_26341639($_smarty_tpl) {?><div class="layui-col-md12">
+<?php if ($_valid && !is_callable('content_5f9a6eeb935357_81470679')) {function content_5f9a6eeb935357_81470679($_smarty_tpl) {?><div class="layui-col-md12">
 <div class="layui-card">
 <div class="layui-card-header"><span>码商代理列表</span></div>
 <div class="layui-card-body">
