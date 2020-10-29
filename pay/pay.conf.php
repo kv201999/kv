@@ -13,7 +13,6 @@ include GLOBAL_PATH.'global.func.php';
 //基本类库
 include GLOBAL_PATH.'library/Mysql.class.php';
 include GLOBAL_PATH.'library/MyMemcache.class.php';
-
 include ROOT_PATH.'pay/pay.func.php';
 
 

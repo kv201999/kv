@@ -26,24 +26,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="72f60046-69c8-472f-827d-b75a76e1ff38" name="Default Changelist" comment="修复bug">
-      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cache/ce8a08cee366b635e8c074c75a8022f6fb7a1b41.file.sjuser.html.cache.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cache/ce8a08cee366b635e8c074c75a8022f6fb7a1b41.sjuser.html.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pay/demo/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/view/Pay/order.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/view/Pay/order.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/pay.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/pay.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/daemon/queue_balance.log" beforeDir="false" afterPath="$PROJECT_DIR$/daemon/queue_balance.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/daemon/queue_checkma.log" beforeDir="false" afterPath="$PROJECT_DIR$/daemon/queue_checkma.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/daemon/queue_checkonline.log" beforeDir="false" afterPath="$PROJECT_DIR$/daemon/queue_checkonline.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/daemon/queue_checkorder.log" beforeDir="false" afterPath="$PROJECT_DIR$/daemon/queue_checkorder.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/daemon/queue_notice.log" beforeDir="false" afterPath="$PROJECT_DIR$/daemon/queue_notice.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/conf.php" beforeDir="false" afterPath="$PROJECT_DIR$/pay/conf.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/notify.php" beforeDir="false" afterPath="$PROJECT_DIR$/pay/notify.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/pay.php" beforeDir="false" afterPath="$PROJECT_DIR$/pay/pay.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/query.php" beforeDir="false" afterPath="$PROJECT_DIR$/pay/query.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/087cec310ef275c910fe63bf416bcc364f20cd20.file.index.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/087cec310ef275c910fe63bf416bcc364f20cd20.file.index.html.cache.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/087cec310ef275c910fe63bf416bcc364f20cd20.index.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/087cec310ef275c910fe63bf416bcc364f20cd20.index.html.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/24a750c339ca510cd299192ae89eb74073291993.file.index.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/24a750c339ca510cd299192ae89eb74073291993.file.index.html.cache.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/24a750c339ca510cd299192ae89eb74073291993.index.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/24a750c339ca510cd299192ae89eb74073291993.index.html.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/2810ca79a588130426c96914d5d4745dafc2f0e5.file.index.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/2810ca79a588130426c96914d5d4745dafc2f0e5.file.index.html.cache.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/2810ca79a588130426c96914d5d4745dafc2f0e5.index.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/2810ca79a588130426c96914d5d4745dafc2f0e5.index.html.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/416b4067c7c2c842fe3af5df22702406aac4690b.file.foot.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/416b4067c7c2c842fe3af5df22702406aac4690b.file.foot.html.cache.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/591d8eed6ffc898f696e2db2201d77d6d65cf0da.file.yong.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/591d8eed6ffc898f696e2db2201d77d6d65cf0da.file.yong.html.cache.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/591d8eed6ffc898f696e2db2201d77d6d65cf0da.yong.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/591d8eed6ffc898f696e2db2201d77d6d65cf0da.yong.html.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/6c9c676646c9979739d5cc6bf1c50256a133b098.default.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/6c9c676646c9979739d5cc6bf1c50256a133b098.default.html.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/6c9c676646c9979739d5cc6bf1c50256a133b098.file.default.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/6c9c676646c9979739d5cc6bf1c50256a133b098.file.default.html.cache.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/9957648e33493acb580e25be3709f4e69f2eafea.bank.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/9957648e33493acb580e25be3709f4e69f2eafea.bank.html.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/9957648e33493acb580e25be3709f4e69f2eafea.file.bank.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/9957648e33493acb580e25be3709f4e69f2eafea.file.bank.html.cache.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/9c50ecf14e965fae8061f07caad01daed6728694.file.order.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/9c50ecf14e965fae8061f07caad01daed6728694.file.order.html.cache.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/9c50ecf14e965fae8061f07caad01daed6728694.order.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/9c50ecf14e965fae8061f07caad01daed6728694.order.html.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/a27f8309e3fc0bdc60a5629df44eae86ba42a08e.file.info.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/a27f8309e3fc0bdc60a5629df44eae86ba42a08e.file.info.html.cache.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/a27f8309e3fc0bdc60a5629df44eae86ba42a08e.info.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/a27f8309e3fc0bdc60a5629df44eae86ba42a08e.info.html.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/a3515b0e87ff414f380510cf11ea81547edf9234.file.menu.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/a3515b0e87ff414f380510cf11ea81547edf9234.file.menu.html.cache.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/a58176f25f5488b9aaf1727502bca6a2ecd08282.file.index.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/a58176f25f5488b9aaf1727502bca6a2ecd08282.file.index.html.cache.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/a58176f25f5488b9aaf1727502bca6a2ecd08282.index.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/a58176f25f5488b9aaf1727502bca6a2ecd08282.index.html.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/b454afb617c3f0f5df23d3b424d74252ac9332ad.balance.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/b454afb617c3f0f5df23d3b424d74252ac9332ad.balance.html.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/b454afb617c3f0f5df23d3b424d74252ac9332ad.file.balance.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/b454afb617c3f0f5df23d3b424d74252ac9332ad.file.balance.html.cache.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/bb5cbc0698118390e81a3604deb82777805e7682.datatj.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/bb5cbc0698118390e81a3604deb82777805e7682.datatj.html.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/bb5cbc0698118390e81a3604deb82777805e7682.file.datatj.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/bb5cbc0698118390e81a3604deb82777805e7682.file.datatj.html.cache.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/cfb654ce50c2064ecd000c5c405f8f854a49b36c.file.head.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/cfb654ce50c2064ecd000c5c405f8f854a49b36c.file.head.html.cache.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/e51002ab56deb05102d7b150d0e80ae4f8be73c4.file.js.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/e51002ab56deb05102d7b150d0e80ae4f8be73c4.file.js.html.cache.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/global/db.conf.php" beforeDir="false" afterPath="$PROJECT_DIR$/global/db.conf.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/controller/FinanceController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/home/controller/FinanceController.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/controller/OrderController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/home/controller/OrderController.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/controller/UserController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/home/controller/UserController.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/view/Finance/cash.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/view/Finance/cash.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/view/User/bcard.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/view/User/bcard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/ma_sql.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ma_sql.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/order.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/order.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/workerman/workerman.log" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/workerman/workerman.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pay/pay.conf.php" beforeDir="false" afterPath="$PROJECT_DIR$/pay/pay.conf.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +73,13 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -74,6 +101,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/api" />
@@ -83,14 +111,15 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\phpstudy_pro\WWW\global" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\phpstudy_pro\WWW\api" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\phpstudy_pro\WWW\kv\pay" />
+      <recent name="D:\phpstudy_pro\WWW\global" />
+    </key>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
   <component name="SvnConfiguration">
     <configuration />
   </component>

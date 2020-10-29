@@ -1,4 +1,4 @@
-<?php /*%%SmartyHeaderCode:3765f99446427b488-20355004%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:194435f9a3c79d5d1a6-20183911%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -27,17 +27,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '3765f99446427b488-20355004',
+  'nocache_hash' => '194435f9a3c79d5d1a6-20183911',
   'variables' => 
   array (
     'info' => 0,
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_5f9944645cd517_02245650',
+  'unifunc' => 'content_5f9a3c7a153058_78559394',
   'cache_lifetime' => 300,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5f9944645cd517_02245650')) {function content_5f9944645cd517_02245650($_smarty_tpl) {?><!doctype html>
+<?php if ($_valid && !is_callable('content_5f9a3c7a153058_78559394')) {function content_5f9a3c7a153058_78559394($_smarty_tpl) {?><!doctype html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -92,8 +92,8 @@ window.Databus={pauseSound:0,pauseMusic:0};
 		<!--<a href="javascript:;" class="backBtn"></a>-->
 	</div>
 	<div class="PaymentCon">	
-		<div class="amount cpBtn" data-clipboard-text="1750.00">1750.00<span class="copyBtn">复制</span></div>
-		<div style="font-size: 18px;margin-top:5px;color: #333" data-clipboard-text="263.55">≈263.55USDT</div>
+		<div class="amount cpBtn" data-clipboard-text="1000.00">1000.00<span class="copyBtn">复制</span></div>
+		<div style="font-size: 18px;margin-top:5px;color: #333" data-clipboard-text="149.48">≈149.48USDT</div>
 				<div class="uname" style="text-align:left;">
 											开户银行：中国工商银行<br>
 												<div style="clear:both;height:0.5rem;"></div>
@@ -207,7 +207,7 @@ $(function(){
 	
 	$('.timeBox').on('click',function(){
 		var obj=$(this);
-		var osn='MS2020102809574962709';
+		var osn='MS2020102903462368619';
 		layer.open({
 			//title:'',
 			content:'如果您已支付请确定提交',
@@ -242,7 +242,7 @@ $(function(){
 <script>
 $(function(){
 
-	nowOrderSn='MS2020102809574962709';
+	nowOrderSn='MS2020102903462368619';
 	
 	var music=new Music();
 	

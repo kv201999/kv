@@ -56484,3 +56484,31 @@ array (
   'sign' => '98a542431a15e7b4532fc945a4186ca8',
 )
 
+array (
+  'c' => 'Pay',
+  'client_ip' => '127.0.0.1',
+  'format' => 'page',
+  'goods_desc' => 'buy',
+  'mch_id' => 'shanghu',
+  'money' => '2000',
+  'notify_url' => 'http://127.0.0.1/api/notify.php',
+  'order_sn' => 'SH20201029113150',
+  'ptype' => '3',
+  'time' => '1603942310',
+  'sign' => 'ccad16894f01f2a48520dfc4d0de354d',
+)
+
+array (
+  'c' => 'Pay',
+  'client_ip' => '127.0.0.1',
+  'format' => 'page',
+  'goods_desc' => 'buy',
+  'mch_id' => 'shanghu',
+  'money' => '1000',
+  'notify_url' => 'http://127.0.0.1/api/notify.php',
+  'order_sn' => 'SH20201029114623',
+  'ptype' => '3',
+  'time' => '1603943183',
+  'sign' => '25f9f6f1232f6ae54bd2614e44a886a3',
+)
+

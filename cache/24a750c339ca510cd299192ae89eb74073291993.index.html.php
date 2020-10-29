@@ -1,11 +1,11 @@
-<?php /*%%SmartyHeaderCode:308815f995162b5f5e9-06476765%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:107305f9a3cfcef90f6-66162486%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '24a750c339ca510cd299192ae89eb74073291993' => 
     array (
       0 => 'D:\\phpstudy_pro\\WWW\\kv\\home\\view\\Default\\index.html',
-      1 => 1603883356,
+      1 => 1603884046,
       2 => 'file',
     ),
     'cfb654ce50c2064ecd000c5c405f8f854a49b36c' => 
@@ -33,7 +33,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '308815f995162b5f5e9-06476765',
+  'nocache_hash' => '107305f9a3cfcef90f6-66162486',
   'variables' => 
   array (
     'user' => 0,
@@ -50,10 +50,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_5f995162d98790_43960823',
+  'unifunc' => 'content_5f9a3cfd1e3321_14271464',
   'cache_lifetime' => 300,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5f995162d98790_43960823')) {function content_5f995162d98790_43960823($_smarty_tpl) {?><!doctype html>
+<?php if ($_valid && !is_callable('content_5f9a3cfd1e3321_14271464')) {function content_5f9a3cfd1e3321_14271464($_smarty_tpl) {?><!doctype html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -67,8 +67,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <meta http-equiv="Expires" content="-1" />
 <meta http-equiv="pragram" content="no-cache" />
 <link rel="stylesheet" type="text/css" href="public/layer/need/layer.css">
-<link rel="stylesheet" type="text/css" href="public/home/css/mainStyle.css?v=0.41">
-<script type="text/javascript" src="public/home/js/init.js?v=0.41"></script>
+<link rel="stylesheet" type="text/css" href="public/home/css/mainStylePc.css?v=0.41">
 <style>
 .moreBtn,.noData{text-align:center;font-size: 1.2rem;padding: 0.8rem 0;color: #666;}
 </style>
@@ -117,12 +116,12 @@ window.Databus={pauseSound:0,pauseMusic:0};
 	<p class="robOrderTipstxt">每隔200分钟会自动下线</p>
 		<p style="height:0.5rem;">&nbsp;</p>
 		<div class="robOrderNum">
-		<p class="userbox"><span>余额：11254.57 USDT</span><span class="edu">冻结：0 USDT</span></p>
+		<p class="userbox"><span>余额：10806.14 USDT</span><span class="edu">冻结：448.43 USDT</span></p>
 		<ul>
-			<li><p>41</p><p>总单数</p></li>
+			<li><p>43</p><p>总单数</p></li>
 			<li><p>16</p><p>完成单数</p></li>
-			<li><p>39.02%</p><p>成功率</p></li>
-			<li><p>16428.12</p><p>总金额 </p></li>
+			<li><p>37.21%</p><p>成功率</p></li>
+			<li><p>16876.55</p><p>总金额 </p></li>
 			<li><p>10280.53</p><p>完成金额</p></li>
 			<li><p>83.94</p><p>提成</p></li>
 		</ul>
@@ -175,9 +174,8 @@ global.appurl='/?';
 <script>
 preventDefault();
 $(function(){
-	
 	var timer=null;
-	var d_time='11964'*1;
+	var d_time='0'*1;
 	setTimer();
 	
 	function setTimer(){

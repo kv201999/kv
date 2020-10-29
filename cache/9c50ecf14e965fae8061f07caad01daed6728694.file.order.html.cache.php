@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2020-10-28 18:16:33
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2020-10-29 11:55:27
          compiled from "D:\phpstudy_pro\WWW\kv\admin\view\Pay\order.html" */ ?>
-<?php /*%%SmartyHeaderCode:59695f994501b9a9d9-87109261%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:154125f9a3d2ff04464-52910486%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '9c50ecf14e965fae8061f07caad01daed6728694' => 
     array (
       0 => 'D:\\phpstudy_pro\\WWW\\kv\\admin\\view\\Pay\\order.html',
-      1 => 1603877333,
+      1 => 1603937460,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '59695f994501b9a9d9-87109261',
+  'nocache_hash' => '154125f9a3d2ff04464-52910486',
   'function' => 
   array (
   ),
@@ -26,9 +26,25 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_5f994501bdedb3_74546778',
+  'unifunc' => 'content_5f9a3d30004fb1_59310479',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5f994501bdedb3_74546778')) {function content_5f994501bdedb3_74546778($_smarty_tpl) {?><div class="layui-col-md12">
+<?php if ($_valid && !is_callable('content_5f9a3d30004fb1_59310479')) {function content_5f9a3d30004fb1_59310479($_smarty_tpl) {?><style>
+	.layui-table td, .layui-table th{
+		font-size: 12px;
+	}
+	.layui-table-cell{
+		padding: 0 5px;
+	}
+	#searchForm{
+		text-align:left;
+		font-size: 12px;
+	}
+	.layui-form-label{
+		padding: 9px 10px;
+		text-align: left;
+	}
+</style>
+<div class="layui-col-md12">
 <div class="layui-card">
 <div class="layui-card-header">
 	<span>订单明细</span>
@@ -131,39 +147,39 @@ $_smarty_tpl->tpl_vars['vo']->_loop = true;
 				</div>
 			</div>
 			<?php }?>
-			
+
+			<div class="layui-inline" style="margin-right:-4px;"></div>
+		</div>
+		<div class="layui-form-item" style="margin-bottom:5px;">
 			<div class="layui-inline" style="margin-right:0;">
 				<label class="layui-form-label" style="width:30px;">开始</label>
-				<div class="layui-input-inline" style="width:140px;">
+				<div class="layui-input-inline" style="width:100px;">
 					<input name="s_start_time" id="s_start_time" class="layui-input" placeholder="请选择" />
 				</div>
 			</div>
 			<div class="layui-inline" style="margin-right:0;">
 				<label class="layui-form-label" style="width:30px;">结束</label>
-				<div class="layui-input-inline" style="width:140px;">
+				<div class="layui-input-inline" style="width:100px;">
 					<input name="s_end_time" id="s_end_time" class="layui-input" placeholder="请选择">
 				</div>
 			</div>
-			<div class="layui-inline" style="margin-right:-4px;"></div>
-		</div>
-		<div class="layui-form-item" style="margin-bottom:5px;">
 			<?php if ($_smarty_tpl->tpl_vars['user']->value['gid']<42) {?>
             <div class="layui-inline">
                 <label class="layui-form-label" style="width:80px;">收款码账号</label>
-                <div class="layui-input-inline" style="width:160px;">
+                <div class="layui-input-inline" style="width:130px;">
                     <input type="text" name="s_ma_account" id="s_ma_account" autocomplete="off" class="layui-input" placeholder="请输入">
                 </div>
             </div>
 			<?php }?>
             <div class="layui-inline">
                 <label class="layui-form-label" style="width:60px;">搜索团队</label>
-                <div class="layui-input-inline" style="width:160px;">
+                <div class="layui-input-inline" style="width:130px;">
                     <input type="text" name="s_keyword2" id="s_keyword2" autocomplete="off" class="layui-input" placeholder="请输入">
                 </div>
             </div>
 			<div class="layui-inline">
 				<label class="layui-form-label" style="width:50px;">关键词</label>
-				<div class="layui-input-inline" style="width:180px;">
+				<div class="layui-input-inline" style="width:130px;">
 					<input type="text" name="s_keyword" id="s_keyword" autocomplete="off" class="layui-input" placeholder="请输入关键词">
 				</div>
 			</div>
@@ -247,7 +263,7 @@ $('#searchBtn').on('click',function(){
         url:global.appurl+'c=Pay&a=order_list',
         cols:[[
            // {field:'id', width:80, title: 'ID'},
-			{field:'order_sn',width:200,style:'text-align:left;',title: '类型/系统/商户单号',templet:function(d){
+			{field:'order_sn',width:150,style:'text-align:left;',title: '类型/系统/商户单号',templet:function(d){
 				var html=d.mtype_name;
 				html+='<br>'+d.order_sn+'<br>'+d.out_order_sn;
 				if(d.pay_status==9){
@@ -256,20 +272,20 @@ $('#searchBtn').on('click',function(){
 				return html;
 			}},
 			//{field:'out_order_sn', title: '商户单号'},
-			{field:'rmb', title: '订单金额'},
-			{field:'otcbuy', title: '兑换价格'},
-			{field:'money', title: 'USDT'},
+			{field:'rmb', width:75,title: '订单金额'},
+			{field:'otcbuy',width:55, title: '兑换价格'},
+			{field:'money', width:65,title: 'USDT'},
 			//{field:'goods_desc', title: '商品描述'},
 			<?php if ($_smarty_tpl->tpl_vars['user']->value['gid']<42||in_array($_smarty_tpl->tpl_vars['user']->value['gid'],array(61,81))) {?>
-			{field:'fee', title: '手续费'},
-			{field:'real_money', title: '应结算'},
-            {field:'su_account',width:130, title: '所属商户',templet:function(d){
+			{field:'fee', width:55,title: '手续费'},
+			{field:'real_money', width:65,title: '应结算'},
+            {field:'su_account',width:70, title: '所属商户',templet:function(d){
                 return d.su_account+'<br>'+d.su_nickname;
             }},
 			<?php }?>
 			//{field:'mtype_name', title: '支付类型'},
 			<?php if ($_smarty_tpl->tpl_vars['user']->value['gid']<42||$_smarty_tpl->tpl_vars['user']->value['gid']==85) {?>
-            {field:'mu_account',width:190,title: '码商/收款码',templet:function(d){
+            {field:'mu_account',width:160,title: '码商/收款码',templet:function(d){
 				var html='';
 				if(d.ma_id<1){
 					return '/';
@@ -327,20 +343,20 @@ $('#searchBtn').on('click',function(){
 				html+='<br>'+d.check_id;
 				return html;
 			}},
-            {field:'create_time',width:130,title: '下单时间'},
-            {field:'pay_status_flag', title: '支付状态'},
-            {field:'pay_time',width:130,title: '支付时间'},
+            {field:'create_time',width:100,title: '下单时间'},
+            {field:'pay_status_flag',width:60, title: '支付状态'},
+            {field:'pay_time',width:100,title: '支付时间'},
             {field:'notice_status_flag', title: '通知状态'},
-            {field:'notice_msg', title: '回复内容'},
+            // {field:'notice_msg', title: '回复内容'},
 			<?php if ($_smarty_tpl->tpl_vars['isOrderHk']->value) {?>
-            {field:'hk_status_flag',width:100,title: '回款状态',templet:function(d){
+            {field:'hk_status_flag',width:80,title: '回款状态',templet:function(d){
 				if(d.pay_status!=9){
 					return '/';
 				}
 				return d.hk_status_flag;
 			}},
 			<?php }?>
-			{field:'', width:180, title: '操作',toolbar:'#barItemAct'}
+			{field:'', width:100, title: '操作',toolbar:'#barItemAct'}
         ]],
         done:function(res, curr, count){
             //console.log(res);
