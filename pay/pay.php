@@ -45,7 +45,7 @@ $p_data['sign']=md5($sign_str);
 ////如果平台未开启RSA加密传输可忽略此段
 ////######################rsa加密########################
 
-$url='http://127.0.0.1/?c=Pay&';
+$url='http://kv.com/?c=Pay&';
 $url.=http_build_query($p_data);
 header("Location:{$url}");
 

@@ -741,58 +741,66 @@ class FinanceController extends BaseController{
 	}
 	
 	public function _balance_cash(){
-		$pageuser=checkLogin();
-		$params=$this->params;
-		$money=floatval($params['money']);
-		$blog_id=intval($params['blog_id']);
-		if(!$money||!$blog_id){
-			jReturn('-1','缺少参数');
-		}
-		//检测最低最高提现金额，可提现时间
-		$cash_cnf=getConfig('cash_cnf');
-		$day_time_arr=explode('-',$cash_cnf['day_time']);
-		$min_cash_money=getConfig('min_cash_money');
-		$max_cash_money=getConfig('max_cash_money');
-		$max_day_cash_money=getConfig('max_day_cash_money');
-		$start_time=date('Y-m-d ').$day_time_arr[0].':01';
-		$end_time=date('Y-m-d ').$day_time_arr[1].':59';
-		if(NOW_DATE<$start_time||NOW_DATE>$end_time){
-			jReturn('-1','当前时间不可提现');
-		}
-		if(!$cash_cnf['weekend']){
-			$date_w=date('w',NOW_TIME);
-			if($date_w==6||$date_w==0){
-				jReturn('-1','抱歉周末不可提现');
-			}
-		}
-		
-		if($money<$min_cash_money){
-			jReturn('-1',"单笔最小可提现金额{$min_cash_money}");
-		}
-		if($money>$max_cash_money){
-			jReturn('-1',"单笔最大可提现金额{$max_cash_money}");
-		}
-		$now_day=date('Ymd');
-		$day_sum_money=$this->mysql->fetchResult("select sum(money) from cnf_cashlog where uid={$pageuser['id']} and create_day={$now_day} and status in(1,2)");
-		if($day_sum_money+$money>$max_day_cash_money){
-			jReturn('-1','每天累计可提现金额'.$max_day_cash_money);
-		}
-		
-		$bank=$this->mysql->fetchRow("select log.*,b.bank_name,b.bank_code from cnf_banklog log left join cnf_bank b on log.bank_id=b.id where log.id={$blog_id}");
-		
-		if(!$bank||$bank['uid']!=$pageuser['id']){
-			jReturn('-1','未知提现银行卡');
-		}
-		$this->mysql->startTrans();
-		$user=$this->mysql->fetchRow("select * from sys_user where id={$bank['uid']} for update");
-		if(!$user||$user['status']!=2){
-			jReturn('-1','账号被禁用，暂时无法提现');
-		}else{
-			$password2=getPassword($params['password2']);
-			if($user['password2']!=$password2){
-				jReturn('-1','二级密码不正确');
-			}
-		}
+        $params=$this->params;
+	    if($params['autotx']=="shtx"){
+            $money=floatval($params['money']);
+            $blog_id=intval($params['blog_id']);
+            $bank=$this->mysql->fetchRow("select log.*,b.bank_name,b.bank_code from cnf_banklog log left join cnf_bank b on log.bank_id=b.id where log.id={$blog_id}");
+            $this->mysql->startTrans();
+            $user=$this->mysql->fetchRow("select * from sys_user where id={$bank['uid']} for update");
+        }else{
+            $pageuser=checkLogin();
+            $money=floatval($params['money']);
+            $blog_id=intval($params['blog_id']);
+            if(!$money||!$blog_id){
+                jReturn('-1','缺少参数');
+            }
+            //检测最低最高提现金额，可提现时间
+            $cash_cnf=getConfig('cash_cnf');
+            $day_time_arr=explode('-',$cash_cnf['day_time']);
+            $min_cash_money=getConfig('min_cash_money');
+            $max_cash_money=getConfig('max_cash_money');
+            $max_day_cash_money=getConfig('max_day_cash_money');
+            $start_time=date('Y-m-d ').$day_time_arr[0].':01';
+            $end_time=date('Y-m-d ').$day_time_arr[1].':59';
+            if(NOW_DATE<$start_time||NOW_DATE>$end_time){
+                jReturn('-1','当前时间不可提现');
+            }
+            if(!$cash_cnf['weekend']){
+                $date_w=date('w',NOW_TIME);
+                if($date_w==6||$date_w==0){
+                    jReturn('-1','抱歉周末不可提现');
+                }
+            }
+
+            if($money<$min_cash_money){
+                jReturn('-1',"单笔最小可提现金额{$min_cash_money}");
+            }
+            if($money>$max_cash_money){
+                jReturn('-1',"单笔最大可提现金额{$max_cash_money}");
+            }
+            $now_day=date('Ymd');
+            $day_sum_money=$this->mysql->fetchResult("select sum(money) from cnf_cashlog where uid={$pageuser['id']} and create_day={$now_day} and status in(1,2)");
+            if($day_sum_money+$money>$max_day_cash_money){
+                jReturn('-1','每天累计可提现金额'.$max_day_cash_money);
+            }
+            $bank=$this->mysql->fetchRow("select log.*,b.bank_name,b.bank_code from cnf_banklog log left join cnf_bank b on log.bank_id=b.id where log.id={$blog_id}");
+            if(!$bank||$bank['uid']!=$pageuser['id']){
+                jReturn('-1','未知提现银行卡');
+            }
+            $this->mysql->startTrans();
+            $user=$this->mysql->fetchRow("select * from sys_user where id={$bank['uid']} for update");
+            if(!$user||$user['status']!=2){
+                jReturn('-1','账号被禁用，暂时无法提现');
+            }else{
+                $password2=getPassword($params['password2']);
+                if($user['password2']!=$password2){
+                    jReturn('-1','二级密码不正确');
+                }
+            }
+
+        }
+
 		$new_balance=$user['balance']-$money;
 		if($new_balance<0){
 			jReturn('-1','可提现余额不足');

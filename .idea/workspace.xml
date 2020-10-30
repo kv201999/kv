@@ -25,65 +25,20 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72f60046-69c8-472f-827d-b75a76e1ff38" name="Default Changelist" comment="调整paydemo">
+    <list default="true" id="72f60046-69c8-472f-827d-b75a76e1ff38" name="Default Changelist" comment="修复bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/controller/FinanceController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/controller/FinanceController.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/controller/UserController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/controller/UserController.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/view/User/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/view/User/user.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/00375af84998e3d7fe7fe90b53f3190f1d66770f.agent.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/00375af84998e3d7fe7fe90b53f3190f1d66770f.agent.html.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/00375af84998e3d7fe7fe90b53f3190f1d66770f.file.agent.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/00375af84998e3d7fe7fe90b53f3190f1d66770f.file.agent.html.cache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/0042d29fc2f6064899fdb1fe83e1f864b663d9f6.file.mtype.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/0042d29fc2f6064899fdb1fe83e1f864b663d9f6.file.mtype.html.cache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/0042d29fc2f6064899fdb1fe83e1f864b663d9f6.mtype.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/0042d29fc2f6064899fdb1fe83e1f864b663d9f6.mtype.html.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/087cec310ef275c910fe63bf416bcc364f20cd20.file.index.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/087cec310ef275c910fe63bf416bcc364f20cd20.file.index.html.cache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/087cec310ef275c910fe63bf416bcc364f20cd20.index.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/087cec310ef275c910fe63bf416bcc364f20cd20.index.html.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/24a750c339ca510cd299192ae89eb74073291993.file.index.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/24a750c339ca510cd299192ae89eb74073291993.file.index.html.cache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/24a750c339ca510cd299192ae89eb74073291993.index.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/24a750c339ca510cd299192ae89eb74073291993.index.html.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/2810ca79a588130426c96914d5d4745dafc2f0e5.file.index.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/2810ca79a588130426c96914d5d4745dafc2f0e5.file.index.html.cache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/2810ca79a588130426c96914d5d4745dafc2f0e5.index.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/2810ca79a588130426c96914d5d4745dafc2f0e5.index.html.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/416b4067c7c2c842fe3af5df22702406aac4690b.file.foot.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/416b4067c7c2c842fe3af5df22702406aac4690b.file.foot.html.cache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/471142dd334852d18baa47ff6b157dc86533a396.file.skma.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/471142dd334852d18baa47ff6b157dc86533a396.file.skma.html.cache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/471142dd334852d18baa47ff6b157dc86533a396.skma.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/471142dd334852d18baa47ff6b157dc86533a396.skma.html.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/591d8eed6ffc898f696e2db2201d77d6d65cf0da.file.yong.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/591d8eed6ffc898f696e2db2201d77d6d65cf0da.file.yong.html.cache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/591d8eed6ffc898f696e2db2201d77d6d65cf0da.yong.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/591d8eed6ffc898f696e2db2201d77d6d65cf0da.yong.html.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/62651e17443ce947922d89d039f336b7e390c474.file.online.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/62651e17443ce947922d89d039f336b7e390c474.file.online.html.cache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/62651e17443ce947922d89d039f336b7e390c474.online.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/62651e17443ce947922d89d039f336b7e390c474.online.html.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/6a4294f6a88b5464a960cb14c609eebee981acb0.file.skmaTrash.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/6a4294f6a88b5464a960cb14c609eebee981acb0.file.skmaTrash.html.cache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/6a4294f6a88b5464a960cb14c609eebee981acb0.skmaTrash.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/6a4294f6a88b5464a960cb14c609eebee981acb0.skmaTrash.html.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/6c22969cc5585f637c588bb7c5c488c06603ce25.bset.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/6c22969cc5585f637c588bb7c5c488c06603ce25.bset.html.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/6c22969cc5585f637c588bb7c5c488c06603ce25.file.bset.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/6c22969cc5585f637c588bb7c5c488c06603ce25.file.bset.html.cache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/928d1dc368d6c144c71d67c9a81cbf4c3120eac0.cashlog.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/928d1dc368d6c144c71d67c9a81cbf4c3120eac0.cashlog.html.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/928d1dc368d6c144c71d67c9a81cbf4c3120eac0.file.cashlog.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/928d1dc368d6c144c71d67c9a81cbf4c3120eac0.file.cashlog.html.cache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/9957648e33493acb580e25be3709f4e69f2eafea.bank.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/9957648e33493acb580e25be3709f4e69f2eafea.bank.html.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/9957648e33493acb580e25be3709f4e69f2eafea.file.bank.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/9957648e33493acb580e25be3709f4e69f2eafea.file.bank.html.cache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/9c50ecf14e965fae8061f07caad01daed6728694.file.order.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/9c50ecf14e965fae8061f07caad01daed6728694.file.order.html.cache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/9c50ecf14e965fae8061f07caad01daed6728694.order.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/9c50ecf14e965fae8061f07caad01daed6728694.order.html.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/9e08f3722282f5f3e79371ba70bbd1e69c808db9.balancelog.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/9e08f3722282f5f3e79371ba70bbd1e69c808db9.balancelog.html.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/9e08f3722282f5f3e79371ba70bbd1e69c808db9.file.balancelog.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/9e08f3722282f5f3e79371ba70bbd1e69c808db9.file.balancelog.html.cache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/a27f8309e3fc0bdc60a5629df44eae86ba42a08e.file.info.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/a27f8309e3fc0bdc60a5629df44eae86ba42a08e.file.info.html.cache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/a27f8309e3fc0bdc60a5629df44eae86ba42a08e.info.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/a27f8309e3fc0bdc60a5629df44eae86ba42a08e.info.html.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/a3515b0e87ff414f380510cf11ea81547edf9234.file.menu.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/a3515b0e87ff414f380510cf11ea81547edf9234.file.menu.html.cache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/b454afb617c3f0f5df23d3b424d74252ac9332ad.balance.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/b454afb617c3f0f5df23d3b424d74252ac9332ad.balance.html.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/b454afb617c3f0f5df23d3b424d74252ac9332ad.file.balance.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/b454afb617c3f0f5df23d3b424d74252ac9332ad.file.balance.html.cache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/bfe668b140db5d83befb87e9b2dd47a57f584077.file.paylog.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/bfe668b140db5d83befb87e9b2dd47a57f584077.file.paylog.html.cache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/bfe668b140db5d83befb87e9b2dd47a57f584077.paylog.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/bfe668b140db5d83befb87e9b2dd47a57f584077.paylog.html.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/cfb654ce50c2064ecd000c5c405f8f854a49b36c.file.head.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/cfb654ce50c2064ecd000c5c405f8f854a49b36c.file.head.html.cache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/e51002ab56deb05102d7b150d0e80ae4f8be73c4.file.js.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/e51002ab56deb05102d7b150d0e80ae4f8be73c4.file.js.html.cache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/ea269881345f4f58427c7090d8607319ba6ec877.file.index.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/ea269881345f4f58427c7090d8607319ba6ec877.file.index.html.cache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/ea269881345f4f58427c7090d8607319ba6ec877.index.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/ea269881345f4f58427c7090d8607319ba6ec877.index.html.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/ec7a763f6f14e283ff303517c5bdab9fe910bfa6.file.userms.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/ec7a763f6f14e283ff303517c5bdab9fe910bfa6.file.userms.html.cache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/ec7a763f6f14e283ff303517c5bdab9fe910bfa6.userms.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/ec7a763f6f14e283ff303517c5bdab9fe910bfa6.userms.html.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/eca752588a5352cbf6229a868ea95844c505ffa4.file.index.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/eca752588a5352cbf6229a868ea95844c505ffa4.file.index.html.cache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/eca752588a5352cbf6229a868ea95844c505ffa4.index.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/eca752588a5352cbf6229a868ea95844c505ffa4.index.html.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/f2e3ea8b092738d6df2caa10859a3802849a3ca3.apikey.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/f2e3ea8b092738d6df2caa10859a3802849a3ca3.apikey.html.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/f2e3ea8b092738d6df2caa10859a3802849a3ca3.file.apikey.html.cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/cache/f2e3ea8b092738d6df2caa10859a3802849a3ca3.file.apikey.html.cache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/controller/PayController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/home/controller/PayController.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/view/Order/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/view/Order/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/daemon/queue_balance.log" beforeDir="false" afterPath="$PROJECT_DIR$/daemon/queue_balance.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/daemon/queue_balance.php" beforeDir="false" afterPath="$PROJECT_DIR$/daemon/queue_balance.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/daemon/queue_checkma.log" beforeDir="false" afterPath="$PROJECT_DIR$/daemon/queue_checkma.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/daemon/queue_checkonline.log" beforeDir="false" afterPath="$PROJECT_DIR$/daemon/queue_checkonline.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/daemon/queue_checkorder.log" beforeDir="false" afterPath="$PROJECT_DIR$/daemon/queue_checkorder.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/daemon/queue_notice.log" beforeDir="false" afterPath="$PROJECT_DIR$/daemon/queue_notice.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/controller/OrderController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/home/controller/OrderController.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/ma_sql.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ma_sql.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/order.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/order.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pay/demo/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/pay/demo/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pay/pay.php" beforeDir="false" afterPath="$PROJECT_DIR$/pay/pay.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pay/query.php" beforeDir="false" afterPath="$PROJECT_DIR$/pay/query.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/qrcode/tg_781152.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/uploads/qrcode/tg_781152.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/workerman/workerman.log" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/workerman/workerman.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +94,7 @@
       <recent name="D:\phpstudy_pro\WWW\global" />
     </key>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -245,6 +200,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="579" y="331" key="Github.CreateGistDialog/0.0.1536.824@0.0.1536.824" timestamp="1603767546740" />
+    <state x="539" y="366" key="NewPhpFileDialog" timestamp="1604080317327">
+      <screen x="0" y="23" width="1440" height="825" />
+    </state>
+    <state x="539" y="366" key="NewPhpFileDialog/0.23.1440.825@0.23.1440.825" timestamp="1604080317327" />
     <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1603944485053">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
