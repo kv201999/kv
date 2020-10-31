@@ -254,13 +254,13 @@ class LoginController extends BaseController{
 				jReturn('-1','图形验证码错误');
 			}
 		}*/
-		if(!$params['smscode']){
-			jReturn('-1','请填写短信验证码');
-		}
-		$checkSms=checkPhoneCode(['stype'=>1,'phone'=>$params['phone'],'code'=>$params['smscode']]);
-		if($checkSms['code']!=1){
-			exit(json_encode($checkSms));
-		}
+//		if(!$params['smscode']){
+//			jReturn('-1','请填写短信验证码');
+//		}
+//		$checkSms=checkPhoneCode(['stype'=>1,'phone'=>$params['phone'],'code'=>$params['smscode']]);
+//		if($checkSms['code']!=1){
+//			exit(json_encode($checkSms));
+//		}
 		if(!$params['password']){
 			jReturn('-1','请填写登录密码');
 		}
