@@ -1,16 +1,34 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>USDT承兑</title>
+    <meta name="apple-touch-fullscreen" content="YES" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta content="email=no" name="format-detection" />
+    <meta http-equiv="Expires" content="-1" />
+    <meta http-equiv="pragram" content="no-cache" />
+    <link rel="stylesheet" type="text/css" href="/public/layer/need/layer.css">
+    <link rel="stylesheet" type="text/css" href="/public/home/css/mainStylePc.css?v=0.41">
+    <style>
+        .moreBtn,.noData{text-align:center;font-size: 1.2rem;padding: 0.8rem 0;color: #666;}
+    </style>
+
 </head>
 <body>
 <form action="../pay.php">
-    <label>金额</label><input type="number" name="money"><br />
-    <label>支付类型(1支付宝，3银行卡)</label><input type="number" name="ptype"><br>
-    <label>回U钱包地址</label><input type="text" name="usdtaddress">
-    <input type="submit" value="提交">
+<div class="Login">
 
+    <div class="LoginCon" style="padding-top:10rem;">
+        <h3 style="text-align: center;margin-bottom: 2rem;font-size: 1.5rem;font-family: auto;">购买USDT订单信息</h3>
+        <div class="inputbox "><input style="padding-left: 1.5rem;width: 30rem" type="tel" name="money" placeholder="请填写购买金额"></div>
+        <div class="inputbox "><input style="padding-left: 1.5rem;width: 30rem" type="text" name="usdtaddress" placeholder="请填写回币地址"></div>
+        <input style="border: 0;cursor: pointer" type="submit" class="LoginBtn" value="提交">
+    </div>
+</div>
 </form>
 </body>
 </html>

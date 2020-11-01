@@ -82,11 +82,14 @@
       <change beforePath="$PROJECT_DIR$/home/controller/PayController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/home/controller/PayController.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/view/Finance/pay.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/view/Finance/pay.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/view/Finance/payInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/view/Finance/payInfo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/view/Login/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/view/Login/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/view/Order/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/view/Order/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/view/Pay/info.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/view/Pay/info.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/ma_sql.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ma_sql.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/order.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/order.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pay/demo/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/pay/demo/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pay/pay.php" beforeDir="false" afterPath="$PROJECT_DIR$/pay/pay.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/workerman/workerman.log" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/workerman/workerman.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -143,7 +146,7 @@
       <recent name="D:\phpstudy_pro\WWW\global" />
     </key>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -268,10 +271,14 @@
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1603944485053" />
     <state x="338" y="168" key="Vcs.Push.Dialog.v2/0.23.1440.825@0.23.1440.825" timestamp="1604084338695" />
-    <state x="55" y="75" width="1419" height="648" key="find.popup" timestamp="1604231136942">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="508" y="357" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604253176573">
+      <screen x="0" y="23" width="1440" height="825" />
+    </state>
+    <state x="508" y="357" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.825@0.23.1440.825" timestamp="1604253176573" />
+    <state x="52" y="98" width="1331" height="649" key="find.popup" timestamp="1604241023454">
+      <screen x="0" y="23" width="1440" height="825" />
     </state>
     <state x="55" y="75" width="1419" height="648" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1604231136942" />
-    <state x="52" y="98" width="1331" height="649" key="find.popup/0.23.1440.825@0.23.1440.825" timestamp="1604147675873" />
+    <state x="52" y="98" width="1331" height="649" key="find.popup/0.23.1440.825@0.23.1440.825" timestamp="1604241023454" />
   </component>
 </project>

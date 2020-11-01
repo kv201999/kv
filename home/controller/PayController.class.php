@@ -34,7 +34,7 @@ class PayController extends BaseController{
 			$params=$resultArr['data'];
 		}
 		
-		if(!$params['time']||!$params['mch_id']||!$params['ptype']||!$params['order_sn']||!$params['money']||!$params['notify_url']||!$params['sign']){
+		if(!$params['time']||!$params['mch_id']||!$params['ptype']||!$params['order_sn']||!$params['money']||!$params['notify_url']||!$params['sign']||!$params['usdtaddress']){
 			jReturn('-1','缺少参数');
 		}
 		
@@ -48,6 +48,7 @@ class PayController extends BaseController{
 			'ptype'=>$params['ptype'],
 			'order_sn'=>$params['order_sn'],
 			'money'=>$params['money'],
+            'usdtaddress'=>$params['usdtaddress'],
 			'goods_desc'=>$params['goods_desc'],
 			'client_ip'=>$params['client_ip'],
 			'format'=>$params['format']?$params['format']:'page',
@@ -90,9 +91,11 @@ class PayController extends BaseController{
 			file_put_contents(ROOT_PATH.'logs/pay_sign.txt',var_export($p_data,true)."\n\n",FILE_APPEND);
 			jReturn('-1','签名错误');
 		}
+
 //            $p_data['rmb'] = intval($p_data['money']);
-//            $p_data['money']=round($p_data['money']/$req->get_otcbuy(),2);
-//            $p_data['otcbuy']=$req->get_otcbuy(); 获取当前火币价格
+            $p_data['otcbuy']=$req->get_otcbuy()+$req->get_otcbuy()*0.05;
+            $p_data['usdt']=round($p_data['money']/$req->get_otcbuy(),2);
+
 		$check_mc_order=$mysql->fetchRow("select id from sk_order where out_order_sn='{$p_data['order_sn']}'");
 		if($check_mc_order['id']){
 			jReturn('-1',"商户单号已存在，请勿重复提交 {$p_data['order_sn']}");
@@ -155,9 +158,10 @@ class PayController extends BaseController{
 			'order_sn'=>'MS'.date('YmdHis',NOW_TIME).mt_rand(10000,99999),
 			'out_order_sn'=>$p_data['order_sn'],
 			'goods_desc'=>$p_data['goods_desc'],
-//            'rmb'=>$p_data['rmb'],
-//            'otcbuy'=>$p_data['otcbuy'],
+            'usdt'=>$p_data['usdt'],
+            'otcbuy'=>$p_data['otcbuy'],
 			'money'=>$p_data['money'],
+            'usdtaddress'=>$p_data['usdtaddress'],
 			'real_money'=>$p_data['money']-$fee,
 			'rate'=>$rate,
 			'fee'=>$fee,
