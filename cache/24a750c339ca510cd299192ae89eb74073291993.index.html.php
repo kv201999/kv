@@ -1,4 +1,4 @@
-<?php /*%%SmartyHeaderCode:317065f9a56a31c30c7-30722524%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:33645f9e699812ef95-04684312%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -33,7 +33,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '317065f9a56a31c30c7-30722524',
+  'nocache_hash' => '33645f9e699812ef95-04684312',
   'variables' => 
   array (
     'user' => 0,
@@ -50,10 +50,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_5f9a56a33e6600_64869903',
+  'unifunc' => 'content_5f9e69983549a9_07659432',
   'cache_lifetime' => 300,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5f9a56a33e6600_64869903')) {function content_5f9a56a33e6600_64869903($_smarty_tpl) {?><!doctype html>
+<?php if ($_valid && !is_callable('content_5f9e69983549a9_07659432')) {function content_5f9e69983549a9_07659432($_smarty_tpl) {?><!doctype html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -67,8 +67,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <meta http-equiv="Expires" content="-1" />
 <meta http-equiv="pragram" content="no-cache" />
 <link rel="stylesheet" type="text/css" href="public/layer/need/layer.css">
-<link rel="stylesheet" type="text/css" href="public/home/css/mainStyle.css?v=0.41">
-<script type="text/javascript" src="public/home/js/init.js?v=0.41"></script>
+<link rel="stylesheet" type="text/css" href="public/home/css/mainStylePc.css?v=0.41">
 <style>
 .moreBtn,.noData{text-align:center;font-size: 1.2rem;padding: 0.8rem 0;color: #666;}
 </style>
@@ -115,15 +114,15 @@ window.Databus={pauseSound:0,pauseMusic:0};
 		</div>
 	</div>
 	<p class="robOrderTipstxt">每隔200分钟会自动下线</p>
-		<p style="height:0.5rem;">&nbsp;</p>
+		<p class="robOrderTipstxt" style="margin-top:0.2rem;">排队人数：1/2</p>
 		<div class="robOrderNum">
-		<p class="userbox"><span>余额：10679.75 USDT</span><span class="edu">冻结：0 USDT</span></p>
+		<p class="userbox"><span>余额：46.91 USDT</span><span class="edu">冻结：3000 USDT</span></p>
 		<ul>
-			<li><p>45</p><p>总单数</p></li>
-			<li><p>18</p><p>完成单数</p></li>
-			<li><p>40%</p><p>成功率</p></li>
-			<li><p>17451.37</p><p>总金额 </p></li>
-			<li><p>10855.35</p><p>完成金额</p></li>
+			<li><p>48</p><p>总单数</p></li>
+			<li><p>20</p><p>完成单数</p></li>
+			<li><p>41.67%</p><p>成功率</p></li>
+			<li><p>22084.21</p><p>总金额 </p></li>
+			<li><p>12488.19</p><p>完成金额</p></li>
 			<li><p>89.43</p><p>提成</p></li>
 		</ul>
 	</div>
@@ -176,7 +175,7 @@ global.appurl='/?';
 preventDefault();
 $(function(){
 	var timer=null;
-	var d_time='6954'*1;
+	var d_time='9433'*1;
 	setTimer();
 	
 	function setTimer(){
@@ -289,7 +288,7 @@ $(function(){
 	var ioapp={
 		debug:false,
 		ws:null,
-		wsUrl:'ws://127.0.0.1:9502',
+		wsUrl:'ws://kv.com:9502',
 		func:null,//公共函数库
 		user:iouser,
 		params:{},//参数

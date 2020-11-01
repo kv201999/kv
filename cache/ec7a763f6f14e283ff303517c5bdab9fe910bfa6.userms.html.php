@@ -1,15 +1,15 @@
-<?php /*%%SmartyHeaderCode:203335f9a4a535b05c5-27947552%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:173555f9e6a226c7599-68907556%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'ec7a763f6f14e283ff303517c5bdab9fe910bfa6' => 
     array (
       0 => 'D:\\phpstudy_pro\\WWW\\kv\\admin\\view\\User\\userms.html',
-      1 => 1578880071,
+      1 => 1604217333,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '203335f9a4a535b05c5-27947552',
+  'nocache_hash' => '173555f9e6a226c7599-68907556',
   'variables' => 
   array (
     'sys_group' => 0,
@@ -19,10 +19,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_5f9a4a539255e5_58211829',
+  'unifunc' => 'content_5f9e6a229263e0_57874963',
   'cache_lifetime' => 300,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5f9a4a539255e5_58211829')) {function content_5f9a4a539255e5_58211829($_smarty_tpl) {?><div class="layui-col-md12">
+<?php if ($_valid && !is_callable('content_5f9e6a229263e0_57874963')) {function content_5f9e6a229263e0_57874963($_smarty_tpl) {?><div class="layui-col-md12">
 <div class="layui-card">
 <div class="layui-card-header">
 	<span>码商列表</span>
@@ -143,13 +143,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<div class="layui-form-item">
 			<label class="layui-form-label">姓名：</label>
 			<div class="layui-input-block">
-				<input type="text" id="realname" placeholder="" autocomplete="off" class="layui-input" value="{{d.item.realname||''}}" />
+				<input type="text" id="nickname" placeholder="" autocomplete="off" class="layui-input" value="{{d.item.nickname||''}}" />
 			</div>
 		</div>
 		<div class="layui-form-item">
-			<label class="layui-form-label">昵称：</label>
+			<label class="layui-form-label">钱包地址：</label>
 			<div class="layui-input-block">
-				<input type="text" id="nickname" placeholder="" autocomplete="off" class="layui-input" value="{{d.item.nickname||''}}" />
+				<input type="text" id="address" placeholder="" autocomplete="off" class="layui-input" value="{{d.item.address||''}}" />
 			</div>
 		</div>
 		<div class="layui-form-item" style="margin-bottom:0;">
@@ -299,8 +299,8 @@ $('#searchBtn').on('click',function(){
 			}},
             {field:'phone',width:120, title: '手机号'},
             {field:'paccount',width:120,title: '邀请人',templet:function(d){
-                if(d.paccount||d.prealname){
-                    return d.prealname+'<br>'+d.paccount;
+                if(d.paccount||d.pnickname){
+                    return d.pnickname+'<br>'+d.paccount;
                 }else{
                     return '';
                 }
@@ -484,8 +484,8 @@ function saveBtn(ts){
 	var password=$.trim($('#password').val());
 	var password2=$.trim($('#password2').val());
 	var phone=$.trim($('#phone').val());
-	var realname=$.trim($('#realname').val());
 	var nickname=$.trim($('#nickname').val());
+	var address=$.trim($('#address').val());
 	var forbid_time_flag=$.trim($('#forbid_time_flag').val());
 	var forbid_msg=$.trim($('#forbid_msg').val());
 	var gid=$.trim($('#gid').val());
@@ -502,12 +502,12 @@ function saveBtn(ts){
 		_alert('请选择用户分组');
 		return false;
 	}
-	if(!realname){
+	if(!nickname){
 		_alert('请填写姓名');
 		return false;
 	}
-	if(!nickname){
-		_alert('请填写昵称');
+	if(!address){
+		_alert('请填写钱包地址');
 		return false;
 	}
 	if(password){
@@ -527,7 +527,7 @@ function saveBtn(ts){
 		data:{
 			item_id:item_id,gid:gid,status:status,is_online:is_online,is_google:is_google,
 			account:account,paccount:paccount,
-			realname:realname,nickname:nickname,phone:phone,password:password,password2:password2,
+			nickname:nickname,address:address,phone:phone,password:password,password2:password2,
 			forbid_time_flag:forbid_time_flag,forbid_msg:forbid_msg
 		},
 		success:function(json){
@@ -543,8 +543,8 @@ function saveBtn(ts){
 			}else{
                 //同步更新
                 var uitem={
-                    realname: realname,
                     nickname: nickname,
+                    address: address,
                     forbid_time_flag: forbid_time_flag,
                     forbid_msg: forbid_msg,
                     gid: gid,
@@ -552,7 +552,7 @@ function saveBtn(ts){
                 }
                 if(paccount){
                     uitem.paccount=paccount;
-                    uitem.prealname=json.data.prealname;
+                    uitem.pnickname=json.data.pnickname;
                 }
                 if(phone){
                     uitem.phone=phone;

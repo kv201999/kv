@@ -122,13 +122,13 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">姓名：</label>
 			<div class="layui-input-block">
-				<input type="text" id="realname" placeholder="" autocomplete="off" class="layui-input" value="{{d.item.realname||''}}" />
+				<input type="text" id="nickname" placeholder="" autocomplete="off" class="layui-input" value="{{d.item.nickname||''}}" />
 			</div>
 		</div>
 		<div class="layui-form-item">
-			<label class="layui-form-label">昵称：</label>
+			<label class="layui-form-label">钱包地址：</label>
 			<div class="layui-input-block">
-				<input type="text" id="nickname" placeholder="" autocomplete="off" class="layui-input" value="{{d.item.nickname||''}}" />
+				<input type="text" id="address" placeholder="" autocomplete="off" class="layui-input" value="{{d.item.address||''}}" />
 			</div>
 		</div>
 		<div class="layui-form-item" style="margin-bottom:0;">
@@ -288,8 +288,8 @@ $('#searchBtn').on('click',function(){
 			}},
             {field:'phone',width:120, title: '手机号'},
             {field:'paccount',width:120,title: '邀请人',templet:function(d){
-                if(d.paccount||d.prealname){
-                    return d.prealname+'<br>'+d.paccount;
+                if(d.paccount||d.pnickname){
+                    return d.pnickname+'<br>'+d.paccount;
                 }else{
                     return '';
                 }
@@ -473,8 +473,8 @@ function saveBtn(ts){
 	var password=$.trim($('#password').val());
 	var password2=$.trim($('#password2').val());
 	var phone=$.trim($('#phone').val());
-	var realname=$.trim($('#realname').val());
 	var nickname=$.trim($('#nickname').val());
+	var address=$.trim($('#address').val());
 	var forbid_time_flag=$.trim($('#forbid_time_flag').val());
 	var forbid_msg=$.trim($('#forbid_msg').val());
 	var gid=$.trim($('#gid').val());
@@ -491,12 +491,12 @@ function saveBtn(ts){
 		_alert('请选择用户分组');
 		return false;
 	}
-	if(!realname){
+	if(!nickname){
 		_alert('请填写姓名');
 		return false;
 	}
-	if(!nickname){
-		_alert('请填写昵称');
+	if(!address){
+		_alert('请填写钱包地址');
 		return false;
 	}
 	if(password){
@@ -516,7 +516,7 @@ function saveBtn(ts){
 		data:{
 			item_id:item_id,gid:gid,status:status,is_online:is_online,is_google:is_google,
 			account:account,paccount:paccount,
-			realname:realname,nickname:nickname,phone:phone,password:password,password2:password2,
+			nickname:nickname,address:address,phone:phone,password:password,password2:password2,
 			forbid_time_flag:forbid_time_flag,forbid_msg:forbid_msg
 		},
 		success:function(json){
@@ -532,8 +532,8 @@ function saveBtn(ts){
 			}else{
                 //同步更新
                 var uitem={
-                    realname: realname,
                     nickname: nickname,
+                    address: address,
                     forbid_time_flag: forbid_time_flag,
                     forbid_msg: forbid_msg,
                     gid: gid,
@@ -541,7 +541,7 @@ function saveBtn(ts){
                 }
                 if(paccount){
                     uitem.paccount=paccount;
-                    uitem.prealname=json.data.prealname;
+                    uitem.pnickname=json.data.pnickname;
                 }
                 if(phone){
                     uitem.phone=phone;

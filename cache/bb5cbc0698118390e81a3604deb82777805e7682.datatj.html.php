@@ -1,4 +1,4 @@
-<?php /*%%SmartyHeaderCode:211425f9a3d3d690c04-90114381%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:14715f9e6a212ae8a4-14631644%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -9,7 +9,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '211425f9a3d3d690c04-90114381',
+  'nocache_hash' => '14715f9e6a212ae8a4-14631644',
   'variables' => 
   array (
     's' => 0,
@@ -18,10 +18,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_5f9a3d3d766f08_48319303',
+  'unifunc' => 'content_5f9e6a213c7fc3_61020924',
   'cache_lifetime' => 300,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5f9a3d3d766f08_48319303')) {function content_5f9a3d3d766f08_48319303($_smarty_tpl) {?><div class="layui-card">
+<?php if ($_valid && !is_callable('content_5f9e6a213c7fc3_61020924')) {function content_5f9e6a213c7fc3_61020924($_smarty_tpl) {?><div class="layui-card">
   <div class="layui-card-header">数据统计</div>
   <div class="layui-card-body layui-text">
   
@@ -30,13 +30,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			<div class="layui-inline" style="margin-right:0;">
 				<label class="layui-form-label" style="width:30px;">开始</label>
 				<div class="layui-input-inline" style="width:120px;">
-					<input name="s_start_time" id="s_start_time" value="2020-10-22" class="layui-input" placeholder="开始日期" />
+					<input name="s_start_time" id="s_start_time" value="2020-10-25" class="layui-input" placeholder="开始日期" />
 				</div>
 			</div>
 			<div class="layui-inline">
 				<label class="layui-form-label" style="width:30px;">结束</label>
 				<div class="layui-input-inline" style="width:120px;">
-					<input name="s_end_time" id="s_end_time" value="2020-10-29" class="layui-input" placeholder="结束日期">
+					<input name="s_end_time" id="s_end_time" value="2020-11-01" class="layui-input" placeholder="结束日期">
 				</div>
 			</div>
 			<div class="layui-inline">
@@ -44,7 +44,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				<div class="layui-input-inline" style="width:120px;">
 					<select id="s_mtype_id" name="s_mtype_id">
 						<option value="0">全部</option>
-												<option value="1">支付宝</option>
+												<option value="1">闲鱼固码</option>
 												<option value="3">银行卡</option>
 											</select>
 				</div>

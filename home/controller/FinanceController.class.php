@@ -17,6 +17,7 @@ class FinanceController extends BaseController{
 	
 	public function _payAct(){
 		$pageuser=checkLogin();
+        $req = new req();
 		$bk_id=intval($this->params['skbank_id']);
 		$money=floatval($this->params['money']);
 		$cnf_pay_min_money=getConfig('cnf_pay_min_money');
@@ -42,6 +43,8 @@ class FinanceController extends BaseController{
 			'aid'=>intval($skbank['uid']),
 			'uid'=>$pageuser['id'],
 			'money'=>$money,
+            'otcbuy'=>$req->get_otcbuy(),
+            'usdt'=>round($money/$req->get_otcbuy(),2),
 			'order_sn'=>'H'.date('YmdHis').mt_rand(11111,99999),
 			'skbank_id'=>$bk_id,
 			'create_time'=>NOW_TIME,

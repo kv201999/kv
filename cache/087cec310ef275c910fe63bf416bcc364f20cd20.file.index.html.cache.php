@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2020-10-29 13:44:30
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2020-11-01 15:17:05
          compiled from "D:\phpstudy_pro\WWW\kv\home\view\Order\index.html" */ ?>
-<?php /*%%SmartyHeaderCode:61355f9a56bedb5756-29348108%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:44535f9e60f16b1070-72959966%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '087cec310ef275c910fe63bf416bcc364f20cd20' => 
     array (
       0 => 'D:\\phpstudy_pro\\WWW\\kv\\home\\view\\Order\\index.html',
-      1 => 1603946058,
+      1 => 1604215020,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '61355f9a56bedb5756-29348108',
+  'nocache_hash' => '44535f9e60f16b1070-72959966',
   'function' => 
   array (
   ),
@@ -26,9 +26,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_5f9a56bedf3437_31090534',
+  'unifunc' => 'content_5f9e60f16ee953_58570148',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5f9a56bedf3437_31090534')) {function content_5f9a56bedf3437_31090534($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ("head.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, null, array(), 0);?>
+<?php if ($_valid && !is_callable('content_5f9e60f16ee953_58570148')) {function content_5f9e60f16ee953_58570148($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ("head.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, null, array(), 0);?>
 
 <style>
 .userState{cursor:pointer;}
@@ -260,11 +260,11 @@ function iniOrder(item){
 		if(item.mtype_type==3){
 		html+='<p>银行账号：'+item.ma_account+'</p>';
 		}
-		html+='<p>兑换价格：1USDT兑'+item.otcbuy+'元</p>';
-		html+='<p>下单时间： '+item.create_time+'</p>';
-	//	html+='<p>支付时间：<span class="payTime">'+item.pay_time+'</span></p>';
+		//html+='<p>兑换价格：1USDT兑'+item.otcbuy+'元</p>';
+		html+='<p>下单时间：'+item.create_time+'</p>';
+		html+='<p>支付时间：<span class="payTime">'+item.pay_time+'</span></p>';
 		html+='<div class="paystatebox">';
-			html+='<p class="amount">'+item.rmb+'<span style="color: #333;font-size: 16px">元 ≈ '+item.money+' USDT</span></p>';
+			html+='<p class="amount">￥'+item.money+'</p>';
 			if(item.pay_status==1||item.pay_status==2){
 				html+='<a href="javascript:;"  class="payConfirmBtn">确认收款</a>';
 			}else if(item.pay_status==3){

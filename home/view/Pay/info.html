@@ -20,8 +20,7 @@
 		<!--<a href="javascript:;" class="backBtn"></a>-->
 	</div>
 	<div class="PaymentCon">	
-		<div class="amount cpBtn" data-clipboard-text="[[$info.rmb]]">[[$info.rmb]]<span class="copyBtn">复制</span></div>
-		<div style="font-size: 18px;margin-top:5px;color: #333" data-clipboard-text="[[$info.money]]">≈[[$info.money]]USDT</div>
+		<div class="amount cpBtn" data-clipboard-text="[[$info.money]]">[[$info.money]]<span class="copyBtn">复制</span></div>
 		[[if $info.mtype_type eq 2 or $info.ptype eq 12]]
 		<div class="qrcode" style="width:80%;"><img src="[[$info.ma_qrcode]]" style="width:210px;"></div>
 		[[/if]]

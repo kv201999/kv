@@ -1,11 +1,11 @@
-<?php /*%%SmartyHeaderCode:61355f9a56bedb5756-29348108%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:44535f9e60f16b1070-72959966%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '087cec310ef275c910fe63bf416bcc364f20cd20' => 
     array (
       0 => 'D:\\phpstudy_pro\\WWW\\kv\\home\\view\\Order\\index.html',
-      1 => 1603946058,
+      1 => 1604215020,
       2 => 'file',
     ),
     'cfb654ce50c2064ecd000c5c405f8f854a49b36c' => 
@@ -33,7 +33,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '61355f9a56bedb5756-29348108',
+  'nocache_hash' => '44535f9e60f16b1070-72959966',
   'variables' => 
   array (
     'is_msdbhk' => 0,
@@ -45,10 +45,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_5f9a56bf171280_49070664',
+  'unifunc' => 'content_5f9e60f19add33_30794199',
   'cache_lifetime' => 300,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5f9a56bf171280_49070664')) {function content_5f9a56bf171280_49070664($_smarty_tpl) {?><!doctype html>
+<?php if ($_valid && !is_callable('content_5f9e60f19add33_30794199')) {function content_5f9e60f19add33_30794199($_smarty_tpl) {?><!doctype html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -62,8 +62,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <meta http-equiv="Expires" content="-1" />
 <meta http-equiv="pragram" content="no-cache" />
 <link rel="stylesheet" type="text/css" href="public/layer/need/layer.css">
-<link rel="stylesheet" type="text/css" href="public/home/css/mainStyle.css?v=0.41">
-<script type="text/javascript" src="public/home/js/init.js?v=0.41"></script>
+<link rel="stylesheet" type="text/css" href="public/home/css/mainStylePc.css?v=0.41">
 <style>
 .moreBtn,.noData{text-align:center;font-size: 1.2rem;padding: 0.8rem 0;color: #666;}
 </style>
@@ -308,11 +307,11 @@ function iniOrder(item){
 		if(item.mtype_type==3){
 		html+='<p>银行账号：'+item.ma_account+'</p>';
 		}
-		html+='<p>兑换价格：1USDT兑'+item.otcbuy+'元</p>';
-		html+='<p>下单时间： '+item.create_time+'</p>';
-	//	html+='<p>支付时间：<span class="payTime">'+item.pay_time+'</span></p>';
+		//html+='<p>兑换价格：1USDT兑'+item.otcbuy+'元</p>';
+		html+='<p>下单时间：'+item.create_time+'</p>';
+		html+='<p>支付时间：<span class="payTime">'+item.pay_time+'</span></p>';
 		html+='<div class="paystatebox">';
-			html+='<p class="amount">'+item.rmb+'<span style="color: #333;font-size: 16px">元 ≈ '+item.money+' USDT</span></p>';
+			html+='<p class="amount">￥'+item.money+'</p>';
 			if(item.pay_status==1||item.pay_status==2){
 				html+='<a href="javascript:;"  class="payConfirmBtn">确认收款</a>';
 			}else if(item.pay_status==3){
@@ -613,7 +612,7 @@ $(function(){
 	var ioapp={
 		debug:false,
 		ws:null,
-		wsUrl:'ws://127.0.0.1:9502',
+		wsUrl:'ws://kv.com:9502',
 		func:null,//公共函数库
 		user:iouser,
 		params:{},//参数

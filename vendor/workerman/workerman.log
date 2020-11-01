@@ -391,3 +391,6 @@ Stack trace:
 2020-10-30 22:18:47 pid:94248 Workerman[./socket.php] start in DEBUG mode
 2020-10-30 22:18:51 pid:94248 Workerman[socket.php] stopping ...
 2020-10-30 22:18:51 pid:94248 Workerman[socket.php] has been stopped
+2020-11-01 19:40:31 pid:1044 Workerman[./socket.php] start in DEBUG mode
+2020-11-01 19:40:34 pid:1044 Workerman[socket.php] stopping ...
+2020-11-01 19:40:34 pid:1044 Workerman[socket.php] has been stopped

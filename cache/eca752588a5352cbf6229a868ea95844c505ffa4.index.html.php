@@ -1,4 +1,4 @@
-<?php /*%%SmartyHeaderCode:61225f9a54ca1c9742-29036811%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:191925f9e6127290452-99112570%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -33,7 +33,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '61225f9a54ca1c9742-29036811',
+  'nocache_hash' => '191925f9e6127290452-99112570',
   'variables' => 
   array (
     's' => 0,
@@ -44,10 +44,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_5f9a54ca54bd75_43635005',
+  'unifunc' => 'content_5f9e612760e9b4_33169006',
   'cache_lifetime' => 300,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5f9a54ca54bd75_43635005')) {function content_5f9a54ca54bd75_43635005($_smarty_tpl) {?><!doctype html>
+<?php if ($_valid && !is_callable('content_5f9e612760e9b4_33169006')) {function content_5f9e612760e9b4_33169006($_smarty_tpl) {?><!doctype html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -61,8 +61,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <meta http-equiv="Expires" content="-1" />
 <meta http-equiv="pragram" content="no-cache" />
 <link rel="stylesheet" type="text/css" href="public/layer/need/layer.css">
-<link rel="stylesheet" type="text/css" href="public/home/css/mainStyle.css?v=0.41">
-<script type="text/javascript" src="public/home/js/init.js?v=0.41"></script>
+<link rel="stylesheet" type="text/css" href="public/home/css/mainStylePc.css?v=0.41">
 <style>
 .moreBtn,.noData{text-align:center;font-size: 1.2rem;padding: 0.8rem 0;color: #666;}
 </style>
@@ -918,7 +917,7 @@ $(function(){
 	var ioapp={
 		debug:false,
 		ws:null,
-		wsUrl:'ws://127.0.0.1:9502',
+		wsUrl:'ws://kv.com:9502',
 		func:null,//公共函数库
 		user:iouser,
 		params:{},//参数

@@ -1,4 +1,4 @@
-<?php /*%%SmartyHeaderCode:27985f9a7c5d9a7068-89841693%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:247155f9e63668bbd72-49205512%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -33,7 +33,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '27985f9a7c5d9a7068-89841693',
+  'nocache_hash' => '247155f9e63668bbd72-49205512',
   'variables' => 
   array (
     'user' => 0,
@@ -44,10 +44,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_5f9a7c5dbe24a9_82057248',
+  'unifunc' => 'content_5f9e6366acbd30_77420427',
   'cache_lifetime' => 300,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5f9a7c5dbe24a9_82057248')) {function content_5f9a7c5dbe24a9_82057248($_smarty_tpl) {?><!doctype html>
+<?php if ($_valid && !is_callable('content_5f9e6366acbd30_77420427')) {function content_5f9e6366acbd30_77420427($_smarty_tpl) {?><!doctype html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -61,8 +61,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <meta http-equiv="Expires" content="-1" />
 <meta http-equiv="pragram" content="no-cache" />
 <link rel="stylesheet" type="text/css" href="public/layer/need/layer.css">
-<link rel="stylesheet" type="text/css" href="public/home/css/mainStyle.css?v=0.41">
-<script type="text/javascript" src="public/home/js/init.js?v=0.41"></script>
+<link rel="stylesheet" type="text/css" href="public/home/css/mainStylePc.css?v=0.41">
 <style>
 .moreBtn,.noData{text-align:center;font-size: 1.2rem;padding: 0.8rem 0;color: #666;}
 </style>
@@ -103,12 +102,12 @@ window.Databus={pauseSound:0,pauseMusic:0};
 	</div>
 	<div class="HomeCen">
 		<ul>
-						<li><p>9679.75</p><p>接单余额</p></li>
-			<li><p>1054.33</p><p>可提余额</p></li>
-			<li><p>0</p><p>冻结余额</p></li>
+						<li><p>46.91</p><p>接单余额</p></li>
+			<li><p>54.33</p><p>可提余额</p></li>
+			<li><p>3000</p><p>冻结余额</p></li>
 						
-			<li><p>18</p><p>订单数</p></li>
-			<li><p>10855.35</p><p>订单总额</p></li>
+			<li><p>20</p><p>订单数</p></li>
+			<li><p>12488.19</p><p>订单总额</p></li>
 			<li><p>89.43</p><p>提成</p></li>
 		</ul>
 	</div>
@@ -211,7 +210,7 @@ $(function(){
 	var ioapp={
 		debug:false,
 		ws:null,
-		wsUrl:'ws://127.0.0.1:9502',
+		wsUrl:'ws://kv.com:9502',
 		func:null,//公共函数库
 		user:iouser,
 		params:{},//参数

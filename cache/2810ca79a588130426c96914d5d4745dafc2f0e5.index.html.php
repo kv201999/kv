@@ -1,4 +1,4 @@
-<?php /*%%SmartyHeaderCode:196475f9a99c4474911-38099663%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:7725f9e6a1d63dd06-64407880%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -9,7 +9,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '196475f9a99c4474911-38099663',
+  'nocache_hash' => '7725f9e6a1d63dd06-64407880',
   'variables' => 
   array (
     'user' => 0,
@@ -17,10 +17,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_5f9a99c45d5732_83542762',
+  'unifunc' => 'content_5f9e6a1d8172a7_79333348',
   'cache_lifetime' => 300,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5f9a99c45d5732_83542762')) {function content_5f9a99c45d5732_83542762($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_5f9e6a1d8172a7_79333348')) {function content_5f9e6a1d8172a7_79333348($_smarty_tpl) {?><!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -554,7 +554,7 @@ $(function(){
 	var ioapp={
 		debug:false,
 		ws:null,
-		wsUrl:'ws://127.0.0.1:9502',
+		wsUrl:'ws://kv.com:9502',
 		func:null,//公共函数库
 		user:iouser,
 		params:{},//参数

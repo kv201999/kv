@@ -1,4 +1,4 @@
-<?php /*%%SmartyHeaderCode:168735f9a3d25771103-71061311%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:263725f9e6a1da69801-18465035%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -9,17 +9,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '168735f9a3d25771103-71061311',
+  'nocache_hash' => '263725f9e6a1da69801-18465035',
   'variables' => 
   array (
     'user' => 0,
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_5f9a3d25864004_94966416',
+  'unifunc' => 'content_5f9e6a1db7b2f3_18032179',
   'cache_lifetime' => 300,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5f9a3d25864004_94966416')) {function content_5f9a3d25864004_94966416($_smarty_tpl) {?><div class="layui-card">
+<?php if ($_valid && !is_callable('content_5f9e6a1db7b2f3_18032179')) {function content_5f9e6a1db7b2f3_18032179($_smarty_tpl) {?><div class="layui-card">
   <div class="layui-card-header">版本信息</div>
   <div class="layui-card-body layui-text">
     <table class="layui-table">
@@ -50,7 +50,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         </tr>
 		        <tr>
           <td style="width:160px;">前台测试地址</td>
-          <td><a href="http://127.0.0.1/?c=Pay&a=test&v=v2.0.20" target="_blank">http://127.0.0.1/?c=Pay&a=test&v=v2.0.20</a></td>
+          <td><a href="http://kv.com/?c=Pay&a=test&v=v2.0.20" target="_blank">http://kv.com/?c=Pay&a=test&v=v2.0.20</a></td>
         </tr>
 		        <!--
         <tr>

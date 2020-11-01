@@ -76,7 +76,7 @@ class UserController extends BaseController{
 			$where.=" and is_online={$params['s_is_online']}";
 		}
 		
-		$where.=empty($params['s_keyword'])?'':" and (id='{$params['s_keyword']}' or account='{$params['s_keyword']}' or phone='{$params['s_keyword']}' or realname like '%{$params['s_keyword']}%' or nickname like '%{$params['s_keyword']}%')";
+		$where.=empty($params['s_keyword'])?'':" and (id='{$params['s_keyword']}' or account='{$params['s_keyword']}' or phone='{$params['s_keyword']}' or nickname like '%{$params['s_keyword']}%' or nickname like '%{$params['s_keyword']}%')";
 		
 		$sql_cnt="select count(1) as cnt,sum(balance) as balance,sum(sx_balance) as sx_balance,
 		sum(fz_balance) as fz_balance,sum(kb_balance) as kb_balance from sys_user {$where}";
@@ -97,9 +97,9 @@ class UserController extends BaseController{
 				$item['login_time']=date('m-d H:i:s',$item['login_time']);
 			}
 			if($item['pid']){
-				$p_user=$this->mysql->fetchRow("select account,nickname,realname from sys_user where id={$item['pid']}");
+				$p_user=$this->mysql->fetchRow("select account,nickname,nickname from sys_user where id={$item['pid']}");
 				$item['paccount']=$p_user['account'];
-				$item['prealname']=$p_user['realname']?$p_user['realname']:$p_user['nickname'];
+				$item['pnickname']=$p_user['nickname']?$p_user['nickname']:$p_user['nickname'];
 			}
 			
 			//统计码商今日/累计收款
@@ -177,7 +177,7 @@ class UserController extends BaseController{
 			jReturn('-1','请填写钱包地址');
 		}
 		if(!$params['nickname']){
-			jReturn('-1','请填写昵称');
+			jReturn('-1','请填写姓名');
 		}
 		$data=array(
 			'address'=>$params['address'],
@@ -237,7 +237,7 @@ class UserController extends BaseController{
 		//邀请人判断
 		if($pageuser['gid']==1){
 			if($params['paccount']){
-				$p_user=$this->mysql->fetchRow("select id,account,realname from sys_user where account='{$params['paccount']}' or phone='{$params['paccount']}'");
+				$p_user=$this->mysql->fetchRow("select id,account,nickname from sys_user where account='{$params['paccount']}' or phone='{$params['paccount']}'");
 				if($p_user['id']){
 					//被编辑者的下级
 					if($item_id){
@@ -308,7 +308,7 @@ class UserController extends BaseController{
 		$return_data=[];
 		if($p_user){
 			$return_data['paccount']=$p_user['account'];
-			$return_data['prealname']=$p_user['realname'];
+			$return_data['pnickname']=$p_user['nickname'];
 		}
 		jReturn('1','操作成功',$return_data);
 	}
@@ -474,7 +474,7 @@ class UserController extends BaseController{
 			$uid_str=implode(',',$uid_arr);
 			$where.=" and id in({$uid_str})";
 		}
-		$where.=empty($params['s_keyword'])?'':" and (account='{$params['s_keyword']}' or phone='{$params['s_keyword']}' or realname like '%{$params['s_keyword']}%' or nickname like '%{$params['s_keyword']}%')";
+		$where.=empty($params['s_keyword'])?'':" and (account='{$params['s_keyword']}' or phone='{$params['s_keyword']}' or nickname like '%{$params['s_keyword']}%' or nickname like '%{$params['s_keyword']}%')";
 		
 		$count_item=$this->mysql->fetchRow("select count(1) as cnt,sum(balance) as balance,sum(sx_balance) as sx_balance,sum(kb_balance) as kb_balance from sys_user {$where}");
 		$list=$this->mysql->fetchRows("select * from sys_user {$where} order by id desc",$params['page'],$this->pageSize);
@@ -488,9 +488,9 @@ class UserController extends BaseController{
 			$item['du_open_flag']=$cnf_du_open[$item['du_open']];
 			
 			if($item['pid']){
-				$p_user=$this->mysql->fetchRow("select account,nickname,realname from sys_user where id={$item['pid']}");
+				$p_user=$this->mysql->fetchRow("select account,nickname,nickname from sys_user where id={$item['pid']}");
 				$item['paccount']=$p_user['account'];
-				$item['prealname']=$p_user['realname']?$p_user['realname']:$p_user['nickname'];
+				$item['pnickname']=$p_user['nickname']?$p_user['nickname']:$p_user['nickname'];
 			}
 			
 			//统计一下码商代理的佣金
@@ -583,7 +583,7 @@ class UserController extends BaseController{
 			$where.=" and log.id in({$uid_str})";
 		}
 		//$where.=empty($params['s_gid'])?'':" and gid={$params['s_gid']}";
-		$where.=empty($params['s_keyword'])?'':" and (log.account='{$params['s_keyword']}' or log.phone='{$params['s_keyword']}' or log.realname like '%{$params['s_keyword']}%' or log.nickname like '%{$params['s_keyword']}%')";
+		$where.=empty($params['s_keyword'])?'':" and (log.account='{$params['s_keyword']}' or log.phone='{$params['s_keyword']}' or log.nickname like '%{$params['s_keyword']}%' or log.nickname like '%{$params['s_keyword']}%')";
 		$count=$this->mysql->fetchResult("select count(1) from sys_user log {$where}");
 		$sql="select log.*,u.account as up_account,u.nickname as up_nickname,u.fy_rate as up_fy_rate from sys_user log left join sys_user u on log.pid=u.id {$where} order by log.id desc";
 		$list=$this->mysql->fetchRows($sql,$params['page'],$this->pageSize);
@@ -776,7 +776,7 @@ class UserController extends BaseController{
 			$where.=" and log.id in({$uid_str})";
 		}
 		$where.=empty($params['s_gid'])?'':" and log.gid={$params['s_gid']}";
-		$where.=empty($params['s_keyword'])?'':" and (log.account='{$params['s_keyword']}' or log.phone='{$params['s_keyword']}' or log.realname like '%{$params['s_keyword']}%' or log.nickname like '%{$params['s_keyword']}%')";
+		$where.=empty($params['s_keyword'])?'':" and (log.account='{$params['s_keyword']}' or log.phone='{$params['s_keyword']}' or log.nickname like '%{$params['s_keyword']}%' or log.nickname like '%{$params['s_keyword']}%')";
 		$count=$this->mysql->fetchResult("select count(1) from sys_user log {$where}");
 		$sql="select log.*,u.account as up_account,u.nickname as up_nickname,u.td_rate as up_td_rate from sys_user log left join sys_user u on log.pid=u.id {$where} order by log.id desc";
 		$list=$this->mysql->fetchRows($sql,$params['page'],$this->pageSize);
@@ -1339,8 +1339,8 @@ class UserController extends BaseController{
 			$list[]=$uv;
 		}
 		foreach($list as &$item){
-			if(!$item['realname']){
-				$item['realname']='';
+			if(!$item['nickname']){
+				$item['nickname']='';
 			}
 			$item['gname']=$sys_group[$item['gid']];
 		}

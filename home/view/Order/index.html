@@ -202,11 +202,11 @@ function iniOrder(item){
 		if(item.mtype_type==3){
 		html+='<p>银行账号：'+item.ma_account+'</p>';
 		}
-		html+='<p>兑换价格：1USDT兑'+item.otcbuy+'元</p>';
-		html+='<p>下单时间： '+item.create_time+'</p>';
-	//	html+='<p>支付时间：<span class="payTime">'+item.pay_time+'</span></p>';
+		//html+='<p>兑换价格：1USDT兑'+item.otcbuy+'元</p>';
+		html+='<p>下单时间：'+item.create_time+'</p>';
+		html+='<p>支付时间：<span class="payTime">'+item.pay_time+'</span></p>';
 		html+='<div class="paystatebox">';
-			html+='<p class="amount">'+item.rmb+'<span style="color: #333;font-size: 16px">元 ≈ '+item.money+' USDT</span></p>';
+			html+='<p class="amount">￥'+item.money+'</p>';
 			if(item.pay_status==1||item.pay_status==2){
 				html+='<a href="javascript:;"  class="payConfirmBtn">确认收款</a>';
 			}else if(item.pay_status==3){

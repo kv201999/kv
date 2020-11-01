@@ -19,7 +19,9 @@
 		<p>下单时间：[[$paylog.create_time]]</p>
 		<p>订单状态：<b>[[$paylog.pay_status_flag]]</b></p>
 		<p>收款姓名：[[$paylog['skbank'].bank_realname]]</p>
-		<p style="font-weight:bold;color: red">订单金额：[[$paylog.money]]</p>
+		<p>提交充值金额：[[$paylog.money]]</p>
+		<p>火币实时价格：[[$paylog.otcbuy]]</p>
+		<p style="font-weight:bold;color: red">实际转币金额：[[$paylog.usdt]]</p>
 		<p style="font-weight:bold;">充值钱包地址：[[$paylog['skbank'].bank_account]]</p>
 		<p>----------</p>
 		<h3>充值教程：</h3>

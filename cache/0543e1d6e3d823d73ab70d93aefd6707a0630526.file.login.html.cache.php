@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2020-10-28 16:40:44
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2020-11-01 15:08:41
          compiled from "D:\phpstudy_pro\WWW\kv\home\view\Login\login.html" */ ?>
-<?php /*%%SmartyHeaderCode:317705f992e8c08c9f2-20394452%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:151265f9e5ef9640183-01145728%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,15 +11,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '317705f992e8c08c9f2-20394452',
+  'nocache_hash' => '151265f9e5ef9640183-01145728',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_5f992e8c0ca3b5_71699151',
+  'unifunc' => 'content_5f9e5ef965a546_09066629',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5f992e8c0ca3b5_71699151')) {function content_5f992e8c0ca3b5_71699151($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ("head.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, null, array(), 0);?>
+<?php if ($_valid && !is_callable('content_5f9e5ef965a546_09066629')) {function content_5f9e5ef965a546_09066629($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ("head.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, null, array(), 0);?>
 
 <div class="Login">
 	<div class="LoginCon" style="padding-top:14rem;">

@@ -90,9 +90,9 @@ class PayController extends BaseController{
 			file_put_contents(ROOT_PATH.'logs/pay_sign.txt',var_export($p_data,true)."\n\n",FILE_APPEND);
 			jReturn('-1','签名错误');
 		}
-            $p_data['rmb'] = intval($p_data['money']);
-            $p_data['money']=round($p_data['money']/$req->get_otcbuy(),2);
-            $p_data['otcbuy']=$req->get_otcbuy();
+//            $p_data['rmb'] = intval($p_data['money']);
+//            $p_data['money']=round($p_data['money']/$req->get_otcbuy(),2);
+//            $p_data['otcbuy']=$req->get_otcbuy(); 获取当前火币价格
 		$check_mc_order=$mysql->fetchRow("select id from sk_order where out_order_sn='{$p_data['order_sn']}'");
 		if($check_mc_order['id']){
 			jReturn('-1',"商户单号已存在，请勿重复提交 {$p_data['order_sn']}");
@@ -102,10 +102,10 @@ class PayController extends BaseController{
 		if(!$mtype){
 			jReturn('-1','不存在该支付类型或未开放');
 		}else{
-			if($p_data['rmb']<$mtype['min_money']){
+			if($p_data['money']<$mtype['min_money']){
 				jReturn('-1',"该通道最小订单金额为{$mtype['min_money']}");
 			}
-			if($p_data['rmb']>$mtype['max_money']){
+			if($p_data['money']>$mtype['max_money']){
 				jReturn('-1',"该通道最大订单金额为{$mtype['max_money']}");
 			}
 		}
@@ -155,8 +155,8 @@ class PayController extends BaseController{
 			'order_sn'=>'MS'.date('YmdHis',NOW_TIME).mt_rand(10000,99999),
 			'out_order_sn'=>$p_data['order_sn'],
 			'goods_desc'=>$p_data['goods_desc'],
-            'rmb'=>$p_data['rmb'],
-            'otcbuy'=>$p_data['otcbuy'],
+//            'rmb'=>$p_data['rmb'],
+//            'otcbuy'=>$p_data['otcbuy'],
 			'money'=>$p_data['money'],
 			'real_money'=>$p_data['money']-$fee,
 			'rate'=>$rate,
@@ -234,9 +234,9 @@ class PayController extends BaseController{
 			'ptype_name'=>$mtype['name'],
 			'realname'=>$sk_ma['ma_realname'],
 			'account'=>$sk_ma['ma_account'],
-			'money'=>$sk_order['rmb'],
-            'otcbuy'=>$sk_order['otcbuy'],
-            'usdt'=>$sk_order['money'],
+			'money'=>$sk_order['money'],
+//            'otcbuy'=>$sk_order['otcbuy'],
+//            'usdt'=>$sk_order['money'],
 			'bank'=>'',
 			'qrcode'=>''
 		];
@@ -264,9 +264,9 @@ class PayController extends BaseController{
 		}
 		$min_match_money=floatval(getConfig('min_match_money'));
 		$ptype=intval($p_data['ptype']);
-		$limit_balance=$min_match_money+$p_data['rmb'];
+		$limit_balance=$min_match_money+$p_data['money'];
 
-		$order_arr=$this->mysql->fetchRows("select ma_id from sk_order where ptype={$ptype} and pay_status in(1,2) and money='{$p_data['rmb']}'");
+		$order_arr=$this->mysql->fetchRows("select ma_id from sk_order where ptype={$ptype} and pay_status in(1,2) and money='{$p_data['money']}'");
 		foreach($order_arr as $ev){
 			$this->checkMaArr[]=$ev['ma_id'];
 		}
@@ -281,7 +281,7 @@ class PayController extends BaseController{
 		
 		$sql="select log.* from sk_ma log left join sys_user u on log.uid=u.id 
 		where log.mtype_id={$ptype} and log.status=2 
-		and (log.min_money<={$p_data['rmb']} and log.max_money>={$p_data['rmb']}) 
+		and (log.min_money<={$p_data['money']} and log.max_money>={$p_data['money']}) 
 		and (u.status=2 and u.is_online=1 and u.sx_balance>={$limit_balance})";
 		
 		//###########指定代理/码商###########
@@ -321,7 +321,7 @@ class PayController extends BaseController{
 
 		//检测该码商是否有相同金额订单
 		if($sk_ma){
-			$check_order=$mysql->fetchRow("select id from sk_order where muid={$sk_ma['uid']} and pay_status<=2 and money='{$p_data['rmb']}'");
+			$check_order=$mysql->fetchRow("select id from sk_order where muid={$sk_ma['uid']} and pay_status<=2 and money='{$p_data['money']}'");
 			if($check_order['id']){
 				$this->checkMaArr[]=$sk_ma['id'];
 				$this->getMaNum++;
@@ -401,9 +401,9 @@ class PayController extends BaseController{
 			'mch_id'=>$p_data['mch_id'],
 			'order_sn'=>$order['order_sn'],
 			'out_order_sn'=>$order['out_order_sn'],
-            'money'=>$order['rmb'],
-            'otcbuy'=>$order['otcbuy'],
-            'usdt'=>$order['money'],
+            'money'=>$order['money'],
+//            'otcbuy'=>$order['otcbuy'],
+//            'usdt'=>$order['money'],
 			'order_time'=>$order['create_time'],
 			'pay_time'=>$order['pay_time'],
 			'status'=>$order['pay_status'],

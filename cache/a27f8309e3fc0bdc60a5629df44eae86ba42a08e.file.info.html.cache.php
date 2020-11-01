@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2020-10-29 18:35:53
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2020-11-01 15:20:04
          compiled from "D:\phpstudy_pro\WWW\kv\home\view\Pay\info.html" */ ?>
-<?php /*%%SmartyHeaderCode:19435f9a9b09ce9948-06744930%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:128165f9e61a4c88634-93975966%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'a27f8309e3fc0bdc60a5629df44eae86ba42a08e' => 
     array (
       0 => 'D:\\phpstudy_pro\\WWW\\kv\\home\\view\\Pay\\info.html',
-      1 => 1603880032,
+      1 => 1604214822,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '19435f9a9b09ce9948-06744930',
+  'nocache_hash' => '128165f9e61a4c88634-93975966',
   'function' => 
   array (
   ),
@@ -21,9 +21,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_5f9a9b09d396c7_25961718',
+  'unifunc' => 'content_5f9e61a4cd5ea6_04358932',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5f9a9b09d396c7_25961718')) {function content_5f9a9b09d396c7_25961718($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ("head.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, null, array(), 0);?>
+<?php if ($_valid && !is_callable('content_5f9e61a4cd5ea6_04358932')) {function content_5f9e61a4cd5ea6_04358932($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ("head.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, null, array(), 0);?>
 
 <style>
 .qrcode img{cursor:pointer;}
@@ -48,12 +48,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<!--<a href="javascript:;" class="backBtn"></a>-->
 	</div>
 	<div class="PaymentCon">	
-		<div class="amount cpBtn" data-clipboard-text="<?php echo $_smarty_tpl->tpl_vars['info']->value['rmb'];?>
-"><?php echo $_smarty_tpl->tpl_vars['info']->value['rmb'];?>
+		<div class="amount cpBtn" data-clipboard-text="<?php echo $_smarty_tpl->tpl_vars['info']->value['money'];?>
+"><?php echo $_smarty_tpl->tpl_vars['info']->value['money'];?>
 <span class="copyBtn">复制</span></div>
-		<div style="font-size: 18px;margin-top:5px;color: #333" data-clipboard-text="<?php echo $_smarty_tpl->tpl_vars['info']->value['money'];?>
-">≈<?php echo $_smarty_tpl->tpl_vars['info']->value['money'];?>
-USDT</div>
 		<?php if ($_smarty_tpl->tpl_vars['info']->value['mtype_type']==2||$_smarty_tpl->tpl_vars['info']->value['ptype']==12) {?>
 		<div class="qrcode" style="width:80%;"><img src="<?php echo $_smarty_tpl->tpl_vars['info']->value['ma_qrcode'];?>
 " style="width:210px;"></div>

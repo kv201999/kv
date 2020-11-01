@@ -1,4 +1,4 @@
-<?php /*%%SmartyHeaderCode:134175f9a252632fd43-22096796%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:71305f9e69a997d723-29851519%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -9,7 +9,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '134175f9a252632fd43-22096796',
+  'nocache_hash' => '71305f9e69a997d723-29851519',
   'variables' => 
   array (
     's' => 0,
@@ -17,10 +17,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_5f9a252666d438_43261082',
+  'unifunc' => 'content_5f9e69a9a76247_24167527',
   'cache_lifetime' => 300,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5f9a252666d438_43261082')) {function content_5f9a252666d438_43261082($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_5f9e69a9a76247_24167527')) {function content_5f9e69a9a76247_24167527($_smarty_tpl) {?><!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -207,7 +207,7 @@ $('#LAY-user-login-submit').on('click',function(){
       });
       _alert(json.msg,{icon:1},function(){
         //location.href=global.appurl;
-		location.href='http://127.0.0.1/ht.php';
+		location.href='http://kv.com/ht.php';
       });
 
     }

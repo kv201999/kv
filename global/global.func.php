@@ -1,6 +1,6 @@
 <?php
 
-//decode by http://www.gaiym.com/
+
 function sqAuth()
 {
 	if (strtolower($_SERVER['REQUEST_METHOD']) == 'get') {

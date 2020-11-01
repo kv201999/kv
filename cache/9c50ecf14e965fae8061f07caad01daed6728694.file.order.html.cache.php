@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2020-10-29 18:30:28
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2020-11-01 15:24:29
          compiled from "D:\phpstudy_pro\WWW\kv\admin\view\Pay\order.html" */ ?>
-<?php /*%%SmartyHeaderCode:22025f9a99c48304b0-65208563%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:123515f9e62ad4b0f08-63467519%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '9c50ecf14e965fae8061f07caad01daed6728694' => 
     array (
       0 => 'D:\\phpstudy_pro\\WWW\\kv\\admin\\view\\Pay\\order.html',
-      1 => 1603937460,
+      1 => 1604215373,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '22025f9a99c48304b0-65208563',
+  'nocache_hash' => '123515f9e62ad4b0f08-63467519',
   'function' => 
   array (
   ),
@@ -26,9 +26,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_5f9a99c4876b46_29494694',
+  'unifunc' => 'content_5f9e62ad4f4a40_31394648',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5f9a99c4876b46_29494694')) {function content_5f9a99c4876b46_29494694($_smarty_tpl) {?><style>
+<?php if ($_valid && !is_callable('content_5f9e62ad4f4a40_31394648')) {function content_5f9e62ad4f4a40_31394648($_smarty_tpl) {?><style>
 	.layui-table td, .layui-table th{
 		font-size: 12px;
 	}
@@ -272,9 +272,9 @@ $('#searchBtn').on('click',function(){
 				return html;
 			}},
 			//{field:'out_order_sn', title: '商户单号'},
-			{field:'rmb', width:75,title: '订单金额'},
-			{field:'otcbuy',width:55, title: '兑换价格'},
-			{field:'money', width:65,title: 'USDT'},
+			{field:'money', width:75,title: '订单金额'},
+			// {field:'otcbuy',width:55, title: '兑换价格'},
+			// {field:'money', width:65,title: 'USDT'},
 			//{field:'goods_desc', title: '商品描述'},
 			<?php if ($_smarty_tpl->tpl_vars['user']->value['gid']<42||in_array($_smarty_tpl->tpl_vars['user']->value['gid'],array(61,81))) {?>
 			{field:'fee', width:55,title: '手续费'},

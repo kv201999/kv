@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2020-10-29 11:55:41
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2020-11-01 15:56:17
          compiled from "D:\phpstudy_pro\WWW\kv\admin\view\User\datatj.html" */ ?>
-<?php /*%%SmartyHeaderCode:211425f9a3d3d690c04-90114381%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:14715f9e6a212ae8a4-14631644%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,7 +11,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '211425f9a3d3d690c04-90114381',
+  'nocache_hash' => '14715f9e6a212ae8a4-14631644',
   'function' => 
   array (
   ),
@@ -23,9 +23,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_5f9a3d3d701844_10312315',
+  'unifunc' => 'content_5f9e6a21382849_07549632',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5f9a3d3d701844_10312315')) {function content_5f9a3d3d701844_10312315($_smarty_tpl) {?><div class="layui-card">
+<?php if ($_valid && !is_callable('content_5f9e6a21382849_07549632')) {function content_5f9e6a21382849_07549632($_smarty_tpl) {?><div class="layui-card">
   <div class="layui-card-header">数据统计</div>
   <div class="layui-card-body layui-text">
   
