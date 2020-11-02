@@ -208,8 +208,8 @@ $('#searchBtn').on('click',function(){
 			}},
 			//{field:'out_order_sn', title: '商户单号'},
 			{field:'money', width:75,title: '订单金额'},
-			// {field:'otcbuy',width:55, title: '兑换价格'},
-			// {field:'money', width:65,title: 'USDT'},
+			{field:'otcbuy',width:55, title: '兑换价格'},
+			{field:'usdt', width:65,title: 'USDT'},
 			//{field:'goods_desc', title: '商品描述'},
 			[[if $user.gid lt 42 or in_array($user.gid,[61,81])]]
 			{field:'fee', width:55,title: '手续费'},

@@ -93,8 +93,7 @@ class PayController extends BaseController{
 		}
 
 //            $p_data['rmb'] = intval($p_data['money']);
-            $p_data['otcbuy']=$req->get_otcbuy()+$req->get_otcbuy()*0.05;
-            $p_data['usdt']=round($p_data['money']/$req->get_otcbuy(),2);
+
 
 		$check_mc_order=$mysql->fetchRow("select id from sk_order where out_order_sn='{$p_data['order_sn']}'");
 		if($check_mc_order['id']){
@@ -150,7 +149,9 @@ class PayController extends BaseController{
 		$mysql->startTrans();
 		$ma_user=$mysql->fetchRow("select id,sx_balance,fz_balance from sys_user where id={$sk_ma['uid']} for update");
 		$rate=$user['td_rate'][$ptype];
-		$fee=$p_data['money']*$rate;
+        $p_data['otcbuy']=$req->get_otcbuy();
+        $p_data['usdt']=round($p_data['money']/$req->get_otcbuy(),2);
+		$fee=round($p_data['usdt']*$rate,2);
 		$sk_order=[
 			'muid'=>$sk_ma['uid'],//码商id
 			'suid'=>$user['id'],//商户id
@@ -162,7 +163,7 @@ class PayController extends BaseController{
             'otcbuy'=>$p_data['otcbuy'],
 			'money'=>$p_data['money'],
             'usdtaddress'=>$p_data['usdtaddress'],
-			'real_money'=>$p_data['money']-$fee,
+			'real_money'=>$p_data['usdt']-$fee,
 			'rate'=>$rate,
 			'fee'=>$fee,
 			'ma_id'=>$sk_ma['id'],//码id
@@ -180,7 +181,6 @@ class PayController extends BaseController{
 			'create_day'=>date('Ymd',NOW_TIME),
 			'reffer_url'=>$_SERVER['HTTP_REFERER']
 		];
-		
 		if($ptype==12){
 			$ma_qrcode='uploads/qr/'.date('Ymd').'/'.getRsn().'.jpg';
 			$ma_qrcode_path=ROOT_PATH.$ma_qrcode;
@@ -355,7 +355,7 @@ class PayController extends BaseController{
 				jReturn('-1',$resultArr['msg']);
 			}
 			$params=$resultArr['data'];
-			var_dump($params);
+			//var_dump($params);
 		}
 		
 		$p_data=array(
@@ -486,6 +486,7 @@ class PayController extends BaseController{
 			$this->display($tpl_name,$data);
 			exit;
 		}
+		//var_dump($data);
 		$this->display($data);
 	}
 	
