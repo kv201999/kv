@@ -14,25 +14,21 @@
 		font-size: 1.8rem;
 		font-weight: bold;
 	}
+	.fillCashBtn{
+		display: inline-block;
+		float: right;
+		background-color: #019aff;
+		color: white;
+		padding: 2px 14px;
+		font-size: 16px;
+		border-radius: 5px;
+		line-height: 20px;
+	}
 </style>
 <div class="robOrder">
-	<div class="robOrderBox">
-		<!-- 立即抢单 -->
-		<a href="javascript:;" class="robNowBtn" style="[[if $user.is_online eq 1]]display:none;[[/if]]">开启抢单</a>
-		<!-- 停止抢单 -->
-		<div class="stopRob" style="[[if $user.is_online eq 0]]display:none;[[/if]]">
-			<p class="countDown">00:00</p>
-			<a href="javascript:;" class="robStopBtn">停止抢单</a>
-		</div>
-	</div>
-	<p class="robOrderTipstxt">每隔[['cnf_user_offline_time'|getConfig/60]]分钟会自动下线</p>
-	[[if $queue_num gt 0]]
-	<p class="robOrderTipstxt" style="margin-top:0.2rem;">排队人数：[[$queue_num]]/[[$total_num]]</p>
-	[[else]]
-	<p style="height:0.5rem;">&nbsp;</p>
-	[[/if]]
 	<div class="robOrderNum">
-		<p class="userbox"><span>余额：[[$user.sx_balance]] USDT</span><span class="edu">冻结：[[$user.fz_balance]] USDT</span></p>
+		<p class="userbox"><span>余额：[[$user.sx_balance]] </span><a href="/?c=Finance&a=pay" class="fillCashBtn">充值</a></p>
+<!--		<span class="edu">冻结：[[$user.fz_balance]] </span>-->
 		<ul>
 			<li><p>[[$order_num]]</p><p>总单数</p></li>
 			<li><p>[[$forder_num]]</p><p>完成单数</p></li>
@@ -42,6 +38,22 @@
 			<li><p>[[$yong_money]]</p><p>提成</p></li>
 		</ul>
 	</div>
+	<div class="robOrderBox">
+		<!-- 立即抢单 -->
+		<a href="javascript:;" class="robNowBtn" style="[[if $user.is_online eq 1]]display:none;[[/if]]">开启抢单</a>
+		<!-- 停止抢单 -->
+		<div class="stopRob" style="[[if $user.is_online eq 0]]display:none;[[/if]]">
+			<p class="countDown">00:00</p>
+			<a href="javascript:;" class="robStopBtn">停止抢单</a>
+		</div>
+	</div>
+<!--	<p class="robOrderTipstxt">每隔[['cnf_user_offline_time'|getConfig/60]]分钟会自动下线</p>-->
+<!--	[[if $queue_num gt 0]]-->
+<!--	<p class="robOrderTipstxt" style="margin-top:0.2rem;">排队人数：[[$queue_num]]/[[$total_num]]</p>-->
+<!--	[[else]]-->
+<!--	<p style="height:0.5rem;">&nbsp;</p>-->
+<!--	[[/if]]-->
+
 
 	<div class="warmTips">
 		1.保持在线状态才会派发订单<br>
