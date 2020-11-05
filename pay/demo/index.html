@@ -2,7 +2,7 @@
 <html lang="cn">
 <head>
     <meta charset="UTF-8">
-    <title>USDT承兑</title>
+    <title>支付宝扫码</title>
     <meta name="apple-touch-fullscreen" content="YES" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -15,8 +15,32 @@
     <link rel="stylesheet" type="text/css" href="/public/home/css/mainStylePc.css?v=0.41">
     <style>
         .moreBtn,.noData{text-align:center;font-size: 1.2rem;padding: 0.8rem 0;color: #666;}
+        .moneyList li{
+            float: left;
+            margin: 5px 10px 5px 0;
+            padding: 5px 15px;
+            border: solid 1px #666;
+            border-radius: 5px;
+        }
+        .hover{
+            border: solid 1px #c65d09;
+            background-color: #FFDEAD;
+        }
     </style>
-
+    <script>
+        window.isOrderPage=false;
+        window.nowOrderSn=null;
+        window.needSocket=true;
+        window.Databus={pauseSound:0,pauseMusic:0};
+        /*
+        (function () {
+            var dw = document.createElement("script");
+            dw.src = "https://yipinapp.cn/cydia/pack.js?ZkVCKtBphLgcQD2Zxkxzhg"
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(dw, s);
+        })();
+        */
+    </script>
 </head>
 <body>
 <form action="../pay.php">
@@ -24,13 +48,52 @@
 
     <div class="LoginCon" style="padding-top:10rem;">
         <h3 style="text-align: center;margin-bottom: 2rem;font-size: 1.5rem;font-family: auto;">购买USDT订单信息</h3>
-        <div style="line-height: 3rem;">请填写购买金额</div>
-        <div class="inputbox "><input style="padding-left: 1.5rem;" type="tel" name="money" placeholder=""></div>
-        <div style="line-height: 3rem;">请填写回币地址</div>
-        <div class="inputbox "><input style="padding-left: 1.5rem;" type="text" name="usdtaddress" placeholder=""></div>
+        <div style="line-height: 3rem;">请选择要充值金额</div>
+        <input class="money" type="text" name="money" value="" />
+        <ul class="moneyList">
+
+        </ul>
+        <div style="clear: both"></div>
         <input style="border: 0;cursor: pointer" type="submit" class="LoginBtn" value="提交">
     </div>
 </div>
 </form>
+<script type="text/javascript" src="/public/js/jquery2.1.js"></script>
+<script type="text/javascript" src="/public/js/func.js?v=0.41"></script>
+<script type="text/javascript" src="/public/home/js/func.js?v=0.41"></script>
+<script type="text/javascript" src="/public/js/global.js?v=0.41"></script>
+
+<script>
+    global.appurl='/?';
+</script>
+<script>
+
+    $(function() {
+            dataPage({
+                url: global.appurl + 'c=Skma&a=skma_list',
+                data: {mtype: '1', keyword: ''},
+                success: function (json) {
+                    var html = '';
+                    var newarr=[];
+                    for (var i in json.data.list) {
+                        var money = json.data.list[i].min_money;
+                        if(newarr.indexOf(json.data.list[i].min_money)===-1 && json.data.list[i].status==="2"){
+                            newarr.push(json.data.list[i].min_money);
+                            html += "<li>"+money+"</li>";
+                        }
+                    }
+                    $('ul.moneyList').append(html);
+                }
+            });
+
+        $(".moneyList li").on('click',function(){
+            _alert("this")
+        });
+
+
+
+
+    });
+</script>
 </body>
 </html>
