@@ -21188,3 +21188,53 @@ select log.* from sk_ma log left join sys_user u on log.uid=u.id
 		and (log.min_money<=1000 and log.max_money>=1000) 
 		and (u.status=2 and u.is_online=1 and u.sx_balance>=1001) order by u.queue_time asc,log.queue_time asc
 
+select log.* from sk_ma log left join sys_user u on log.uid=u.id 
+		where log.mtype_id=1 and log.status=2 
+		and (log.min_money<=2000 and log.max_money>=2000) 
+		and (u.status=2 and u.is_online=1 and u.sx_balance>=2001) order by u.queue_time asc,log.queue_time asc
+
+select log.* from sk_ma log left join sys_user u on log.uid=u.id 
+		where log.mtype_id=1 and log.status=2 
+		and (log.min_money<=3000 and log.max_money>=3000) 
+		and (u.status=2 and u.is_online=1 and u.sx_balance>=3001) order by u.queue_time asc,log.queue_time asc
+
+select log.* from sk_ma log left join sys_user u on log.uid=u.id 
+		where log.mtype_id=1 and log.status=2 
+		and (log.min_money<=3000 and log.max_money>=3000) 
+		and (u.status=2 and u.is_online=1 and u.sx_balance>=3001) and log.id not in (88) order by u.queue_time asc,log.queue_time asc
+
+select log.* from sk_ma log left join sys_user u on log.uid=u.id 
+		where log.mtype_id=1 and log.status=2 
+		and (log.min_money<=6000 and log.max_money>=6000) 
+		and (u.status=2 and u.is_online=1 and u.sx_balance>=8000) order by u.queue_time asc,log.queue_time asc
+
+select log.* from sk_ma log left join sys_user u on log.uid=u.id 
+		where log.mtype_id=1 and log.status=2 
+		and (log.min_money<=6000 and log.max_money>=6000) 
+		and (u.status=2 and u.is_online=1 and u.sx_balance>=8000) order by u.queue_time asc,log.queue_time asc
+
+select log.* from sk_ma log left join sys_user u on log.uid=u.id 
+		where log.mtype_id=1 and log.status=2 
+		and (log.min_money<=6000 and log.max_money>=6000) 
+		and (u.status=2 and u.is_online=1 and u.sx_balance>=8000) order by u.queue_time asc,log.queue_time asc
+
+select log.* from sk_ma log left join sys_user u on log.uid=u.id 
+		where log.mtype_id=1 and log.status=2 
+		and (log.min_money<=5000 and log.max_money>=5000) 
+		and (u.status=2 and u.is_online=1 and u.sx_balance>=7000) order by u.queue_time asc,log.queue_time asc
+
+select log.* from sk_ma log left join sys_user u on log.uid=u.id 
+		where log.mtype_id=1 and log.status=2 
+		and (log.min_money<=10000 and log.max_money>=10000) 
+		and (u.status=2 and u.is_online=1 and u.sx_balance>=12000) order by u.queue_time asc,log.queue_time asc
+
+select log.* from sk_ma log left join sys_user u on log.uid=u.id 
+		where log.mtype_id=3 and log.status=2 
+		and (log.min_money<=2000 and log.max_money>=2000) 
+		and (u.status=2 and u.is_online=1 and u.sx_balance>=4000) order by u.queue_time asc,log.queue_time asc
+
+select log.* from sk_ma log left join sys_user u on log.uid=u.id 
+		where log.mtype_id=3 and log.status=2 
+		and (log.min_money<=3000 and log.max_money>=3000) 
+		and (u.status=2 and u.is_online=1 and u.sx_balance>=5000) order by u.queue_time asc,log.queue_time asc
+

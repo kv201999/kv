@@ -27,12 +27,25 @@
   <component name="ChangeListManager">
     <list default="true" id="72f60046-69c8-472f-827d-b75a76e1ff38" name="Default Changelist" comment="更改首页样式">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/controller/PayController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/controller/PayController.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/view/Finance/bank.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/view/Finance/bank.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/daemon/queue_balance.log" beforeDir="false" afterPath="$PROJECT_DIR$/daemon/queue_balance.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/daemon/queue_checkma.log" beforeDir="false" afterPath="$PROJECT_DIR$/daemon/queue_checkma.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/daemon/queue_checkonline.log" beforeDir="false" afterPath="$PROJECT_DIR$/daemon/queue_checkonline.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/daemon/queue_checkorder.log" beforeDir="false" afterPath="$PROJECT_DIR$/daemon/queue_checkorder.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/daemon/queue_notice.log" beforeDir="false" afterPath="$PROJECT_DIR$/daemon/queue_notice.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/controller/PayController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/home/controller/PayController.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/controller/SkmaController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/home/controller/SkmaController.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/view/Finance/pay.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/view/Finance/pay.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/view/Finance/payInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/view/Finance/payInfo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/view/Pay/info.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/view/Pay/info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/view/Skma/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/view/Skma/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ma_sql.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ma_sql.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/order.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/order.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/pay_sign.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/pay_sign.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pay/demo/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/pay/demo/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pay/pay.php" beforeDir="false" afterPath="$PROJECT_DIR$/pay/pay.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/workerman/workerman.log" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/workerman/workerman.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +85,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/api" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -109,6 +123,7 @@
       <workItem from="1603794076433" duration="29612000" />
       <workItem from="1604214511965" duration="2221000" />
       <workItem from="1604217080886" duration="6029000" />
+      <workItem from="1604977928517" duration="18335000" />
     </task>
     <task id="LOCAL-00001" summary="2">
       <created>1603774141073</created>
@@ -163,7 +178,17 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -200,10 +225,18 @@
     <option name="LAST_COMMIT_MESSAGE" value="更改首页样式" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="651" y="274" key="#Notifications" timestamp="1604977964736">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="651" y="274" key="#Notifications/0.0.1536.824@0.0.1536.824" timestamp="1604977964736" />
     <state x="533" y="271" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603279275756">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="533" y="271" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1603279275756" />
+    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1604992175187">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1604992175187" />
     <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1603271974003">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -221,6 +254,10 @@
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1603944485053" />
     <state x="338" y="168" key="Vcs.Push.Dialog.v2/0.23.1440.825@0.23.1440.825" timestamp="1604364432105" />
+    <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1604992790341">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1604992790341" />
     <state x="508" y="357" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604253176573">
       <screen x="0" y="23" width="1440" height="825" />
     </state>

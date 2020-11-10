@@ -15,23 +15,48 @@
 .PaymentCon .wxTips{font-size:1rem;background:#f8ecd6;color:#e88900;line-height:1.3rem;padding:0.5rem;font-weight:400;border-radius:8px;margin-bottom:0.5rem;}
 </style>
 <div class="Payment">
-	<div class="HeadTop ">
-		<p class="Tit">USDT承兑</p>
+	<div class="HeadTop [[if $info.mtype_id eq 1]]HeadTopZfb[[elseif in_array($info.mtype_id,[2,4,5])]]HeadTopWx[[elseif $info.mtype_id eq 6]]HeadTopYsf[[else]][[/if]]">
+		<p class="Tit">[[$info.mtype_name]]</p>
 		<!--<a href="javascript:;" class="backBtn"></a>-->
 	</div>
 	<div class="PaymentCon">
-		<table width="90%" style="margin: 0 auto">
-			<tr><td colspan="2" style="line-height: 3rem"><div style="line-height: 75px; padding-top: 8px" class="amount cpBtn" data-clipboard-text="[[$info.money]]">[[$info.money]]<span class="copyBtn" style="margin-left: 8px">复制</span></td></tr>
-			<tr><td style="border-bottom: solid 1px #ddd;line-height: 60px">开户银行：</td><td style="border-bottom: solid 1px #ddd;line-height: 60px;text-align: right">[[$info.bank_name]]</td></tr>
-			<tr><td style="border-bottom: solid 1px #ddd;line-height: 60px">收款姓名：</td><td style="border-bottom: solid 1px #ddd;line-height: 60px;text-align: right" class="cpBtn" data-clipboard-text="[[$info.ma_realname]]">[[$info.ma_realname2]]<span class="copyBtn" style="margin-left: 8px">复制</span></td></tr>
-			<tr><td style="border-bottom: solid 1px #ddd;line-height: 60px">收款账号：</td><td style="border-bottom: solid 1px #ddd;line-height: 60px;text-align: right" class="cpBtn" data-clipboard-text="[[$info.ma_account]]">[[$info.ma_account2]]<span class="copyBtn" style="margin-left: 8px">复制</span></td></tr>
-			<tr><td style="border-bottom: solid 1px #ddd;line-height: 60px">兑换价格：</td><td style="border-bottom: solid 1px #ddd;line-height: 60px;text-align: right" >[[$info.otcbuy]] CNY</td></tr>
-			<tr><td style="border-bottom: solid 1px #ddd;line-height: 60px">回币数量：</td><td style="border-bottom: solid 1px #ddd;line-height: 60px;text-align: right" >[[$info.real_money]] USDT</td></tr>
-			<tr><td style="line-height: 60px">回币地址：</td><td style="line-height: 60px;text-align: right" >[[$info.usdtaddress]]</td></tr>
-
-		</table>
+		<div class="amount cpBtn" data-clipboard-text="[[$info.money]]">￥[[$info.money]]<span class="copyBtn">复制</span></div>
+		[[if $info.mtype_type eq 2 or $info.ptype eq 12]]
+		<div class="qrcode" style="width:80%;"><img src="[[$info.ma_qrcode]]" style="width:210px;"></div>
+		[[/if]]
+		<div class="uname" style="text-align:left;">
+			[[if in_array($info.mtype_id,[3,5])]]
+			[[if $info.mtype_id eq 3]]
+			开户银行：[[$info.bank_name]]<br>
+			[[if $info.branch_name]]开户支行：[[$info.branch_name]]<br>[[/if]]
+			[[/if]]
+			<div style="clear:both;height:0.5rem;"></div>
+			<span class="cpBtn" data-clipboard-text="[[$info.ma_realname]]">收款姓名：[[$info.ma_realname2]] <span class="copyBtn">复制</span></span><br>
+			<div style="clear:both;height:0.5rem;"></div>
+			<span class="cpBtn" data-clipboard-text="[[$info.ma_account]]">收款账号：[[$info.ma_account2]] <span class="copyBtn">复制</span></span><br>
+			<div style="clear:both;height:0.8rem;"></div>
+			[[if $info.mtype_id eq 5]]
+			<div class="wxTips">
+				微信“我”→“支付”→“收付款”→“向银行卡转帐”→填写银行卡相关信息点击下一步→输入金额完成转账。<br>转账金额和银行信息必须与订单完全一致，否则无法完成。
+			</div>
+			<div class="zfbBox" style="padding-top:25px;padding-bottom:10px;">
+				<a class="" style="background-color: rgba(66,174,60,1);color:#fff;font-size:14px;padding:10px 22px;border-radius:5px;" href="weixin://" target="_blank">打开微信立即付款</a>
+			</div>
+			[[/if]]
+			[[else]]
+			[[if $info.mtype_id eq 4]]
+			<p style="text-align:left;margin-bottom:0.5rem;" class="cpBtn" data-clipboard-text="[[$info.ma_account]]">手机号：[[$info.ma_account2]] <span class="copyBtn">复制</span></p>
+			<p style="text-align:left;margin-bottom:0.5rem;" class="cpBtn" data-clipboard-text="[[$info.ma_realname]]"><b style="opacity:0;">姓</b>姓名：[[$info.ma_realname2]] <span class="copyBtn">复制</span></p>
+			<div style="clear:both;height:0.5rem;"></div>
+			<div class="wxTips">
+				微信“我”→“支付”→“收付款”→“向手机号转帐”→填写手机号→输入转帐金额点确定完成转账。<br>转账金额和手机号必须与订单完全一致，否则将无法完成。
+			</div>
+			[[else]]
+			<p style="text-align:center;">姓名：[[$info.ma_realname2]]</p>
+			[[/if]]
+			[[/if]]
 		</div>
-		<div class="time" style="text-align: center;color: red;line-height: 60px; border: solid 1px #ccc;width: 70%;cursor: pointer;margin: 20px auto 0;">
+		<div class="time">
 			[[if $info.pay_status eq 9]]
 			订单已支付
 			[[elseif $info.pay_status eq 2]]
@@ -44,12 +69,12 @@
 			<!--倒计时-->
 			<span class="timeBox"></span>
 			[[if $info.mtype_id eq 1 and $info.zfbh5_url]]
-			
+
 			<div class="zfbBox" style="padding-top:25px;">
 				<a class="linkBtn" data-clipboard-text="[[$info.money]]" style="background:#0aaaf0;color:#fff;font-size:14px;padding:10px 22px;border-radius:5px;" href="javascript:;">复制金额并打开支付宝</a>
 				<div style="font-size:0.9rem;color:#f30;text-align:center;padding-top:0.5rem;">请在非QQ浏览器中打开</div>
 			</div>
-			
+
 			[[/if]]
 			[[if $info.mtype_id eq 12]]
 			<div class="zfbBox" style="padding-top:25px;">
@@ -58,13 +83,13 @@
 			[[/if]]
 			[[/if]]
 		</div>
-<!--		<div class="warmTips" >-->
-<!--			<b>温馨提示：</b><br>-->
-<!--			1、请在订单有效期内进行付款<br>-->
-<!--			2、不可重复支付，务必支付以上金额，否则会不到账<br>-->
-<!--			3、点击复制金额，扫码支付时，在金额一栏粘贴，完成付款<br>-->
-<!--			4、付款15分钟未到账，请联系在线客服<br>-->
-<!--		</div>-->
+		<div class="warmTips" >
+			<b>温馨提示：</b><br>
+			1、请在订单有效期内进行付款<br>
+			2、不可重复支付，务必支付以上金额，否则会不到账<br>
+			3、点击复制金额，扫码支付时，在金额一栏粘贴，完成付款<br>
+			4、付款15分钟未到账，请联系在线客服<br>
+		</div>
 	</div>
 </div>
 

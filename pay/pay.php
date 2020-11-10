@@ -4,10 +4,9 @@ include './conf.php';
 $params=$_REQUEST;
 $ptype=intval($params['ptype']);//支付类型
 if(!$ptype){
-	$ptype=3;
+	$ptype=1;
 }
 $money=floatval($params['money']);
-$usdtaddress=$params['usdtaddress'];
 if(!$money||$money<0.01){
 	$money=mt_rand(10,100)/100;
 }
@@ -18,7 +17,6 @@ $p_data=array(
 	'ptype'=>$ptype,
 	'order_sn'=>'SH'.date('YmdHis',$now_time),
 	'money'=>$money,
-    'usdtaddress'=>$usdtaddress,
 	'goods_desc'=>'buy',
 	'client_ip'=>'127.0.0.1',
 	'format'=>'page',

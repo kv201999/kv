@@ -34,7 +34,7 @@ class PayController extends BaseController{
 			$params=$resultArr['data'];
 		}
 		
-		if(!$params['time']||!$params['mch_id']||!$params['ptype']||!$params['order_sn']||!$params['money']||!$params['notify_url']||!$params['sign']||!$params['usdtaddress']){
+		if(!$params['time']||!$params['mch_id']||!$params['ptype']||!$params['order_sn']||!$params['money']||!$params['notify_url']||!$params['sign']){
 			jReturn('-1','缺少参数');
 		}
 		
@@ -48,7 +48,6 @@ class PayController extends BaseController{
 			'ptype'=>$params['ptype'],
 			'order_sn'=>$params['order_sn'],
 			'money'=>$params['money'],
-            'usdtaddress'=>$params['usdtaddress'],
 			'goods_desc'=>$params['goods_desc'],
 			'client_ip'=>$params['client_ip'],
 			'format'=>$params['format']?$params['format']:'page',
@@ -162,7 +161,6 @@ class PayController extends BaseController{
             'usdt'=>$p_data['usdt'],
             'otcbuy'=>$p_data['otcbuy'],
 			'money'=>$p_data['money'],
-            'usdtaddress'=>$p_data['usdtaddress'],
 			'real_money'=>$p_data['usdt']-$fee,
 			'rate'=>$rate,
 			'fee'=>$fee,
@@ -239,8 +237,8 @@ class PayController extends BaseController{
 			'realname'=>$sk_ma['ma_realname'],
 			'account'=>$sk_ma['ma_account'],
 			'money'=>$sk_order['money'],
-//            'otcbuy'=>$sk_order['otcbuy'],
-//            'usdt'=>$sk_order['money'],
+            'otcbuy'=>$sk_order['otcbuy'],
+            'usdt'=>$sk_order['usdt'],
 			'bank'=>'',
 			'qrcode'=>''
 		];
@@ -406,8 +404,8 @@ class PayController extends BaseController{
 			'order_sn'=>$order['order_sn'],
 			'out_order_sn'=>$order['out_order_sn'],
             'money'=>$order['money'],
-//            'otcbuy'=>$order['otcbuy'],
-//            'usdt'=>$order['money'],
+            'otcbuy'=>$order['otcbuy'],
+            'usdt'=>$order['usdt'],
 			'order_time'=>$order['create_time'],
 			'pay_time'=>$order['pay_time'],
 			'status'=>$order['pay_status'],

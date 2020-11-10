@@ -45,7 +45,7 @@ position:relative;}
             <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
             <a class="layui-btn layui-btn-xs layui-btn-primary" lay-event="edit">编辑</a>
         </script>
-	
+
 </div>
 </div>
 </div>
@@ -53,12 +53,12 @@ position:relative;}
 <!--弹层-->
 <script type="text/html" id="layerTpl">
 	<form class="layui-form LayerForm" onsubmit="return false;">
-		<div class="layui-form-item layui-form-text">
-			<label class="layui-form-label">所属代理：</label>
-			<div class="layui-input-block">
-				<input type="text" id="account" placeholder="留空归属平台" autocomplete="off" class="layui-input" [[if $user.gid neq 1]]disabled[[/if]] value="[[if $user.gid eq 1]]{{d.item.account||''}}[[else]][[$user.account]][[/if]]" />
-			</div>
-		</div>
+<!--		<div class="layui-form-item layui-form-text">-->
+<!--			<label class="layui-form-label">所属代理：</label>-->
+<!--			<div class="layui-input-block">-->
+<!--				<input type="text" id="account" placeholder="留空归属平台" autocomplete="off" class="layui-input" [[if $user.gid neq 1]]disabled[[/if]] value="[[if $user.gid eq 1]]{{d.item.account||''}}[[else]][[$user.account]][[/if]]" />-->
+<!--			</div>-->
+<!--		</div>-->
 <!--		<div class="layui-form-item">-->
 <!--			<label class="layui-form-label">银行省市：</label>-->
 <!--			<div class="layui-inline" style="width:140px;margin-right:20px;">-->
@@ -131,7 +131,7 @@ position:relative;}
 <!--				</div>-->
 <!--			</div>-->
 <!--		</div>-->
-		
+
 		<div class="layui-form-item">
 			<label class="layui-form-label">状态：</label>
 			<div class="layui-input-block">
@@ -140,7 +140,7 @@ position:relative;}
 				[[/foreach]]
 			</div>
 		</div>
-		
+
 		<div class="layui-form-item">
 			<div class="layui-input-block">
 				<input type="hidden" id="item_id" value="{{d.item.id||''}}" />
@@ -215,7 +215,7 @@ layui.table.on('tool(dataTable)', function(obj){
     var item = obj.data;
     var layEvent = obj.event;
     var tr = obj.tr;
- 
+
     if(layEvent === 'del'){ //删除
         layer.confirm('确定要删除么？',{title:'系统提示',icon: 3},function(index){
             ajax({
@@ -387,7 +387,7 @@ function saveBtn(ts){
 					uitem.nickname=json.data.nickname;
 				}
                 nowActItem.update(uitem);
-                
+
 			}
 		}
 	});

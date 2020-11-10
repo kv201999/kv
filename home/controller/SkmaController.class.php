@@ -251,7 +251,7 @@ class SkmaController extends BaseController{
 		}
 
 		if(!$item_id){
-			$sk_ma['status']=1;
+			$sk_ma['status']=2;
 			//$sk_ma['fz_time']=NOW_TIME+86400*90;
 			$sk_ma['uid']=$pageuser['id'];
 			$sk_ma['create_time']=NOW_TIME;
@@ -263,9 +263,9 @@ class SkmaController extends BaseController{
 				jReturn('-1','抱歉，您没有权限操作该收款码');
 			}
 			if($sk_ma['status']==2){
-//				if(NOW_TIME<$item['fz_time']){
-//					jReturn('-1','请先在首页开启抢单');
-//				}
+				if(NOW_TIME<$item['fz_time']){
+					jReturn('-1','请先在首页开启抢单');
+				}
 			}
 			$res=$this->mysql->update($sk_ma,"id={$item_id}",'sk_ma');
 		}

@@ -27,3 +27,31 @@ array (
   'pt_sign' => 'dda9dc42fb98a352516444967456cc3c',
 )
 
+array (
+  'time' => '1604979003',
+  'mch_id' => 'shanghu',
+  'ptype' => '3',
+  'order_sn' => 'SH20201110113003',
+  'money' => '850',
+  'goods_desc' => 'buy',
+  'client_ip' => '127.0.0.1',
+  'format' => 'page',
+  'notify_url' => 'http://127.0.0.1/api/notify.php',
+  'sign' => '1ac629a15b801bba251e10c2e13884ef',
+  'pt_sign' => '8d68b9bd86a3fd72b99e8a8e75d6a22e',
+)
+
+array (
+  'time' => '1604979048',
+  'mch_id' => 'shanghu',
+  'ptype' => '3',
+  'order_sn' => 'SH20201110113048',
+  'money' => '850',
+  'goods_desc' => 'buy',
+  'client_ip' => '127.0.0.1',
+  'format' => 'page',
+  'notify_url' => 'http://127.0.0.1/api/notify.php',
+  'sign' => '0f52e7cece2050e98ebc87ff51d1aec4',
+  'pt_sign' => 'c8b051b105333aba81751da956268321',
+)
+

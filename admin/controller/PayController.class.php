@@ -636,7 +636,7 @@ class PayController extends BaseController{
 		];
 		$res2=$this->mysql->update($user_data,"id={$user['id']}",'sys_user');
 		$res3=balanceLog($user,2,14,-$order['money'],$order['id'],$order['order_sn'],$this->mysql);
-		if($order['ptype']==11){
+		if($order['ptype']==1){
 			$res4=$this->delSkma($order['ma_id'],$this->mysql);
 		}else{
 			$res4=true;
@@ -956,7 +956,7 @@ class PayController extends BaseController{
 	
 	//删除收款码
 	private function delSkma($ma_id,$mysql){
-		return true;//因为不是固定金额-所以不再删除
+		//return true;//因为不是固定金额-所以不再删除
 		$sk_ma=[
 			'status'=>99,
 			'fz_time'=>NOW_TIME+90*86400

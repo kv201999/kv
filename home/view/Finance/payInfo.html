@@ -23,6 +23,18 @@
 		<p>火币实时价格：[[$paylog.otcbuy]]</p>
 		<p style="font-weight:bold;color: red">实际转币金额：[[$paylog.usdt]]</p>
 		<p style="font-weight:bold;">充值钱包地址：[[$paylog['skbank'].bank_account]]</p>
+		<div class="pinzheng">
+			<span>付款凭证：</span>
+			<ul>
+				[[foreach from=$paylog['banners'] item=vo]]
+				<li class="bannerItem"><img src="[[$vo]]"></li>
+				[[/foreach]]
+				[[if $paylog.pay_status eq 1]]
+				<li id="fileUploadH5Btn"><a href="javascript:;"><img src="/public/home/images/add.png"></a></li>
+				[[/if]]
+			</ul>
+			<input type="file" id="fileUploadH5" accept="image/*" style="display:none;" />
+		</div>
 		<p>----------</p>
 		<h3>充值教程：</h3>
 		<p>1.火币网注册实名 2.OTC购买USDT 3.选择提币到上面地址</p>
@@ -35,70 +47,98 @@
 [[include file="js.html"]]
 <script src="/public/js/lrz.all.bundle.js"></script>
 <script>
-preventDefault();
-$(function(){
+	preventDefault();
+	$(function(){
+		$('#fileUploadH5Btn').on('click',function(){
+			$('#fileUploadH5').trigger('click');
+		});
 
-
-	$('#fileUploadH5Btn').on('click',function(){
-		$('#fileUploadH5').trigger('click');
-	});
-	
-
-	$('body').on('click','.bannerItem span',function(){
-		var obj=$(this);
-		obj.parent('.bannerItem').remove();
-		if($('.bannerItem').length>=3){
-			$('#fileUploadH5Btn').hide();
-		}else{
-			$('#fileUploadH5Btn').show();
-		}
-	});
-	
-	$('body').on('click','.bannerItem img',function(){
-		var obj=$(this);
-		var src=obj.attr('src');
-		layer.open({
-			content:'<div style="width:100%;text-align:center;"><img src="'+src+'"/></div>',
-			style:'width:80%',
-			btn:['关闭'],
-			yes:function(idx){
-				layer.close(idx);
+		$('body').on('click','.bannerItem span',function(){
+			var obj=$(this);
+			obj.parent('.bannerItem').remove();
+			if($('.bannerItem').length>=3){
+				$('#fileUploadH5Btn').hide();
+			}else{
+				$('#fileUploadH5Btn').show();
 			}
 		});
-	});
+		$('body').on('click','.bannerItem img',function(){
+			var obj=$(this);
+			var src=obj.attr('src');
+			layer.open({
+				content:'<div style="width:100%;text-align:center;"><img src="'+src+'"/></div>',
+				style:'width:80%',
+				btn:['关闭'],
+				yes:function(idx){
+					layer.close(idx);
+				}
+			});
+		});
 
-
-	
-	$('.fillCashBtn').on('click',function(){
-		var obj=$(this);
-		var osn='[[$paylog.order_sn]]';
-		layer.open({
-			//title:'',
-			content:'您确定提交已付款状态么？',
-			style:'width:65%',
-			btn:['确定','取消'],
-			yes:function(idx){
-				layer.close(idx);
+		document.getElementById('fileUploadH5').addEventListener('change', function () {
+			var that = this;
+			lrz(that.files[0], {
+				width:800,
+				height:800
+			}).then(function(rst){
+				that.value=null;
 				ajax({
-					url:global.appurl+'c=Finance&a=payUpdate',
-					data:{osn:osn},
+					url:global.appurl+'a=imgUpload',
+					data:{imgdata:rst.base64},
 					success:function(json){
 						if(json.code!=1){
 							_alert(json.msg);
 							return;
 						}
-						_alert({
-							content:json.msg,
-							end:function(){
-								location.reload();
-							}
-						});
+						var html='<li class="bannerItem"><img src="'+json.data.src+'"><span>×</span></li>';
+						$('#fileUploadH5Btn').before(html);
+						if($('.bannerItem').length>=3){
+							$('#fileUploadH5Btn').hide();
+						}
 					}
 				});
-			}
+				return rst;
+			});
 		});
+
+		$('.fillCashBtn').on('click',function(){
+			var obj=$(this);
+			var osn='[[$paylog.order_sn]]';
+			var pay_realname=$.trim($('#pay_realname').val());
+			var pay_account=$.trim($('#pay_account').val());
+			var remark=$.trim($('#remark').val());
+			var banners=[];
+			$('.bannerItem').each(function(i,o){
+				banners.push($(o).find('img').attr('src'));
+			});
+
+			layer.open({
+				//title:'',
+				content:'您确定提交已付款状态么？',
+				style:'width:65%',
+				btn:['确定','取消'],
+				yes:function(idx){
+					layer.close(idx);
+					ajax({
+						url:global.appurl+'c=Finance&a=payUpdate',
+						data:{osn:osn,banners:banners,pay_realname:pay_realname,pay_account:pay_account,remark:remark},
+						success:function(json){
+							if(json.code!=1){
+								_alert(json.msg);
+								return;
+							}
+							_alert({
+								content:json.msg,
+								end:function(){
+									location.reload();
+								}
+							});
+						}
+					});
+				}
+			});
+		});
+
 	});
-	
-});
 </script>
 [[include file="foot.html"]]

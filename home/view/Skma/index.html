@@ -370,7 +370,6 @@ $(function(){
 		$('#ma_zkling').val('');
 		$('#min_money').val("[['cnf_skm_min_money'|getConfig]]");
 		$('#max_money').val("[['cnf_skm_max_money'|getConfig]]");
-
 		$('#item_id').val(0);
 		$('.bannerItem').find('img').attr('src','/public/home/images/add.png');
 		$('.stateNav span[data-status="2"]').trigger('click');
@@ -434,7 +433,7 @@ $(function(){
 	
 	$('.confirmBtn').on('click',function(){
 		var obj=$(this);
-		var item_id=$('#item_id').val();;
+		var item_id=true;;
 		var mtype_id=$('#mtype_id').val();
 		var province_id=$('#province_id').val();
 		var city_id=$('#city_id').val();

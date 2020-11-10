@@ -398,3 +398,10 @@ Stack trace:
 2020-11-02 16:31:18 pid:25112 Workerman[socket.php] stopping ...
 2020-11-02 16:31:18 pid:25112 Workerman[socket.php] has been stopped
 2020-11-02 16:31:29 pid:25324 Workerman[./socket.php] start in DEBUG mode
+2020-11-10 16:22:02 pid:14607 Workerman[./socket.php] start in DEBUG mode
+2020-11-10 16:22:45 pid:14607 Workerman[socket.php] stopping ...
+2020-11-10 16:22:45 pid:14607 Workerman[socket.php] has been stopped
+2020-11-10 16:24:30 pid:14611 Workerman[./socket.php] start in DEBUG mode
+2020-11-10 16:24:43 pid:14611 Workerman[socket.php] stopping ...
+2020-11-10 16:24:43 pid:14611 Workerman[socket.php] has been stopped
+2020-11-10 16:24:53 pid:14614 Workerman[./socket.php] start in DEBUG mode
