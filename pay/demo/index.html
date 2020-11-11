@@ -23,7 +23,6 @@
             border-radius: 5px;
             cursor: pointer;
             color: #666;
-
         }
         .moneyList li.hover,.typeList li.hover{
             border: solid 1px #0081d7;
@@ -40,7 +39,6 @@
 <body>
 <form action="../pay.php">
 <div class="Login">
-
     <div class="LoginCon" style="padding-top:10rem;">
         <h3 style="text-align: center;margin-bottom: 2rem;font-size: 1.5rem;font-family: auto;">购买USDT订单信息</h3>
         <div style="line-height: 3rem;font-weight: bold">请选择付款方式</div>
@@ -50,7 +48,6 @@
         <input hidden class="money" type="text" name="money" value="" />
         <input hidden class="ptype" type="text" name="ptype" value="" />
         <ul class="moneyList">
-
         </ul>
         <div style="clear: both"></div>
         <input style="border: 0;cursor: pointer" type="submit" class="LoginBtn" value="提交">
@@ -61,12 +58,10 @@
 <script type="text/javascript" src="/public/js/func.js?v=0.41"></script>
 <script type="text/javascript" src="/public/home/js/func.js?v=0.41"></script>
 <script type="text/javascript" src="/public/js/global.js?v=0.41"></script>
-
 <script>
     global.appurl='/?';
 </script>
 <script>
-
     $(function() {
             dataPage({
                 url: global.appurl + 'c=Skma&a=skma_list',
@@ -86,7 +81,6 @@
                         $("ul.moneyList li").removeClass("hover");
                         $(this).addClass("hover");
                         $(".money").val($(this).text());
-
                     });
                     $("ul.typeList li").on('click',function(){
                         $("ul.typeList li").removeClass("hover");
@@ -97,8 +91,6 @@
                             $(".money").show();
                             $(".moneytip").text("请输入要付款的金额");
                             $(".ptype").val(3);
-
-
                         }else{
                             $(".money").val("");
                             $("ul.moneyList li").show();
@@ -106,16 +98,9 @@
                             $(".ptype").val(1);
                         }
 
-
                     });
                 }
             });
-
-
-
-
-
-
     });
 </script>
 </body>

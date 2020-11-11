@@ -53,23 +53,10 @@ position:relative;}
 <!--弹层-->
 <script type="text/html" id="layerTpl">
 	<form class="layui-form LayerForm" onsubmit="return false;">
-		<div class="layui-form-item">
-			<label class="layui-form-label">银行省市：</label>
-			<div class="layui-inline" style="width:140px;margin-right:20px;">
-				<select id="province_id" lay-filter="province_id">
-					<option value="0">请选择省份</option>
-					[[foreach from=$province_arr item=vo]]
-					<option value="[[$vo.id]]">[[$vo.cname]]</option>
-					[[/foreach]]
-				</select>
-			</div>
-			<div class="layui-inline" style="width:160px;">
-				<select id="city_id" lay-filter="city_id" lay-search>
-					<option value="0">请选择城市</option>
-					[[foreach from=$city_arr item=vo]]
-					<option value="[[$vo.id]]">[[$vo.cname]]</option>
-					[[/foreach]]
-				</select>
+		<div class="layui-form-item layui-form-text">
+			<label class="layui-form-label">商户号：</label>
+			<div class="layui-input-block">
+				<input type="text" id="item_uid" placeholder="" autocomplete="off" class="layui-input" value="{{d.item.uid||''}}" />
 			</div>
 		</div>
 		<div class="layui-form-item">
@@ -93,7 +80,7 @@ position:relative;}
 			<div class="layui-input-block">
 				<input type="text" id="bank_realname" placeholder="" autocomplete="off" class="layui-input" value="{{d.item.bank_realname||''}}" />
 			</div>
-		</div>		
+		</div>
 		<div class="layui-form-item">
 			<div class="layui-input-block">
 				<input type="hidden" id="item_id" value="{{d.item.id||''}}" />
@@ -153,7 +140,7 @@ layui.table.on('tool(dataTable)', function(obj){
     var item = obj.data;
     var layEvent = obj.event;
     var tr = obj.tr;
- 
+
     if(layEvent === 'del'){ //删除
         layer.confirm('确定要删除么？',{title:'系统提示',icon: 3},function(index){
             ajax({
@@ -249,11 +236,11 @@ function provinceChange(pid,cid){
 
 ///////////////////////////////////////
 
-
 //保存更新
 function saveBtn(ts){
 	var obj=$(ts);
 	var item_id=$('#item_id').val();
+	var item_uid=$('#item_uid').val();
 	var i_index=$('#item_id').attr('i-index');
 	var province_id=$.trim($('#province_id').val());
 	var city_id=$.trim($('#city_id').val());
@@ -272,7 +259,7 @@ function saveBtn(ts){
 	}
 	ajax({
 		url:global.appurl+'c=Finance&a=banklog_update',
-		data:{item_id:item_id,province_id:province_id,city_id:city_id,bank_id:bank_id,bank_account:bank_account,bank_realname:bank_realname},
+		data:{item_id:item_id,item_uid:item_uid,province_id:province_id,city_id:city_id,bank_id:bank_id,bank_account:bank_account,bank_realname:bank_realname},
 		success:function(json){
 			_alert(json.msg);
 			obj.attr('has-click','0');

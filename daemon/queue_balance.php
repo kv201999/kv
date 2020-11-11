@@ -12,7 +12,7 @@ while(true){
 	//p($list);exit;
     //echo $mysql->lastSql;exit;
     if(!$list){
-        echo "没有数据暂停5秒\n";
+        echo time()."没有数据暂停5秒\n";
 		$mysql->close();
 		unset($mysql);
         sleep(5);
@@ -23,7 +23,7 @@ while(true){
 		$mysql->startTrans();
 		$item=$mysql->fetchRow("select * from sk_order where id={$item['id']} for update");
 		$user=$mysql->fetchRow("select * from sys_user where id={$item['suid']} for update");
-        $blog_id=$mysql->fetchRow("select * from cnf_banklog where id={$item['suid']} for update");
+        $blog_id=$mysql->fetchRow("select * from cnf_banklog where uid={$item['suid']} for update");
 		$sk_order=[
 			'js_status'=>2,
 			'js_time'=>time()
@@ -51,11 +51,9 @@ while(true){
                 'money'=>$user['balance']+$item['real_money'],
                 'autotx'=>"shtx",
             ];
-            $url=$_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].'/ht.php?c=Finance&a=balance_cash';
+            $url='http://127.0.0.1/ht.php?c=Finance&a=balance_cash';
             $result=curl_post($url,$p_data);
-
         }
-
 		//信用单笔回款数量（金额）达到上限自动下线码商
 		if($cnf_xyhk_model=='是'&&$cnf_mshk_signle=='是'&&$item['muid']){
 			$cnf_whkbjjd_num=intval(getConfig('cnf_whkbjjd_num'));
@@ -111,7 +109,7 @@ while(true){
 	
 	$mysql->close();
     unset($mysql);
-    echo "处理完一批，暂停1秒\n";
+    echo time()."处理完一批，暂停1秒\n";
     sleep(1);
 }
 ?>

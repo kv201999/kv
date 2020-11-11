@@ -1,11 +1,11 @@
 <?php
 !defined('ROOT_PATH') && exit;
 class FinanceController extends BaseController{
-	
+
 	public function __construct(){
 		parent::__construct();
 	}
-	
+
 	//#############################收款银行卡#############################
 	public function _bank(){
 		$pageuser=checkPower();
@@ -18,7 +18,7 @@ class FinanceController extends BaseController{
 		);
 		display('Finance/bank.html',$data);
 	}
-	
+
 	public function _bank_list(){
 		$pageuser=checkLogin();
 		$params=$this->params;
@@ -55,7 +55,7 @@ class FinanceController extends BaseController{
 			$pay_sql="select sum(money) as money from cnf_paylog where skbank_id={$item['id']} and FROM_UNIXTIME(create_time,'%Y%m%d')={$now_day} and pay_status=3";
 			$pay_item=$this->mysql->fetchRow($pay_sql);
 			$item['today_money']=floatval($pay_item['money']);
-			
+
 			$item['max_tmoney']=floatval($item['max_tmoney']);
 			$item['max_nmoney']=floatval($item['max_nmoney']);
 		}
@@ -66,7 +66,7 @@ class FinanceController extends BaseController{
 		);
 		jReturn('1','ok',$data);
 	}
-	
+
 	public function _bank_update(){
 		$pageuser=checkPower();
 		$params=$this->params;
@@ -77,7 +77,6 @@ class FinanceController extends BaseController{
 		$params['status']=intval($params['status']);
 		$params['max_tmoney']=floatval($params['max_tmoney']);
 		$item_id=intval($params['item_id']);
-		
 		if($params['account']){
 			$user=$this->mysql->fetchRow("select * from sys_user where account='{$params['account']}'");
 			if($user['gid']!=85){
@@ -87,7 +86,7 @@ class FinanceController extends BaseController{
 		}else{
 			$uid=0;
 		}
-		
+
 //		if($params['province_id']<1||$params['city_id']<1){
 //			jReturn('-1','请选择银行卡开户所属省市');
 //		}
@@ -152,7 +151,7 @@ class FinanceController extends BaseController{
 		}
 		jReturn('1','操作成功',$return_data);
 	}
-	
+
 	//删除
 	public function _bank_delete(){
 		$pageuser=checkLogin();
@@ -177,15 +176,15 @@ class FinanceController extends BaseController{
 		actionLog(['opt_name'=>'删除收款银行卡','sql_str'=>json_encode($skbank,256)],$this->mysql);
 		jReturn('1','操作成功');
 	}
-	
-	
+
+
 	//#############################充值记录#############################
 	public function _paylog(){
 		checkPower();
 		$data=[];
 		display('Finance/paylog.html',$data);
 	}
-	
+
 	public function _paylog_list(){
 		$pageuser=checkLogin();
 		$is_download=intval($this->params['is_download']);
@@ -197,7 +196,7 @@ class FinanceController extends BaseController{
 		$params=$this->params;
 		$params['s_pay_status']=intval($params['s_pay_status']);
 		$where="where log.pay_status<99";
-		
+
 		if($pageuser['gid']>41){
 			/*
 			$uid_arr=getDownUser($pageuser['id']);
@@ -207,7 +206,7 @@ class FinanceController extends BaseController{
 			*/
 			$where.=" and log.aid={$pageuser['id']}";
 		}
-		
+
 		$s_start_time=$params['s_start_time'];
 		$s_end_time=$params['s_end_time'];
 		if($s_start_time&&$s_end_time){
@@ -253,7 +252,7 @@ class FinanceController extends BaseController{
 				}
 				if($item['new_balance']<0.01){
 					$item['new_balance']='';
-				}	
+				}
 			}
 			$item['check']=hasPower($pageuser,'Finance_paylog_check')?1:0;
 		}
@@ -267,7 +266,7 @@ class FinanceController extends BaseController{
 			downloadCsv($filename,$str);
 			exit;
 		}*/
-		
+
 		$data=[
 			'list'=>$list,
 			'count'=>intval($count_item['cnt']),
@@ -276,7 +275,7 @@ class FinanceController extends BaseController{
 		];
 		jReturn('1','ok',$data);
 	}
-	
+
 	//充值记录审核
 	public function _paylog_check(){
 		$pageuser=checkPower();
@@ -293,13 +292,13 @@ class FinanceController extends BaseController{
 		if(!$paylog||$paylog['pay_status']>2){
 			jReturn('-1','该订单当前状态不可操作');
 		}
-		
+
 		if($pageuser['gid']>41){
 			if($paylog['aid']!=$pageuser['id']){
 				jReturn('-1','没有权限操作该记录');
 			}
 		}
-		
+
 		$cnf_paylog=[
 			'check_id'=>$pageuser['id'],
 			'check_time'=>NOW_TIME,
@@ -309,7 +308,7 @@ class FinanceController extends BaseController{
 			if($paylog['aid']&&$paylog['aid']!=$pageuser['id']){
 				jReturn('-1','不是所属代理无法审核');
 			}
-			
+
 			//扣除审核者的接单余额
 			if($paylog['aid']){
 				$user2=$this->mysql->fetchRow("select * from sys_user where id={$pageuser['id']} for update");
@@ -320,12 +319,12 @@ class FinanceController extends BaseController{
 					jReturn('-1','您的接单余额不足，无法审核该订单');
 				}
 				$res2=$this->mysql->update($sys_user2,"id={$user2['id']}",'sys_user');
-				$res3=balanceLog($user2,3,53,-$paylog['money'],$paylog['id'],'审核充值订单:'.$paylog['order_sn'],$this->mysql);	
+				$res3=balanceLog($user2,3,53,-$paylog['money'],$paylog['id'],'审核充值订单:'.$paylog['order_sn'],$this->mysql);
 			}else{
 				$res2=true;
 				$res3=true;
 			}
-			
+
 			//增加充值者的接单余额
 			$user=$this->mysql->fetchRow("select * from sys_user where id={$paylog['uid']} for update");
 			$sys_user=[
@@ -333,7 +332,7 @@ class FinanceController extends BaseController{
 			];
 			$res4=$this->mysql->update($sys_user,"id={$user['id']}",'sys_user');
 			$res5=balanceLog($user,3,53,$paylog['money'],$paylog['id'],$paylog['order_sn'],$this->mysql);
-			
+
 			$cnf_paylog['pay_time']=NOW_TIME;
 			$cnf_paylog['ori_balance']=$user['sx_balance'];
 			$cnf_paylog['new_balance']=$sys_user['sx_balance'];
@@ -349,7 +348,7 @@ class FinanceController extends BaseController{
 			jReturn('-1','系统繁忙请稍后再试'.$res.'-'.$res2.'-'.$res3.'-'.$res4.'-'.$res5);
 		}
 		$this->mysql->commit();
-		
+
 		//累计到卡的已收款金额
 		if($params['pay_status']==3){
 			$skbank=$this->mysql->fetchRow("select * from sk_bank where id={$paylog['skbank_id']}");
@@ -362,7 +361,7 @@ class FinanceController extends BaseController{
 			}
 			$this->mysql->update($sk_bank,"id={$skbank['id']}",'sk_bank');
 		}
-		
+
 		$return_data=[
 			'ori_balance'=>$cnf_paylog['ori_balance'],
 			'new_balance'=>$cnf_paylog['new_balance'],
@@ -372,10 +371,10 @@ class FinanceController extends BaseController{
 		];
 		jReturn('1','操作成功',$return_data);
 	}
-	
+
 
 	//#############################提现记录#############################
-	
+
 	//提现记录
 	public function _cashlog(){
 		checkPower();
@@ -385,7 +384,7 @@ class FinanceController extends BaseController{
 		];
 		display('Finance/cashlog.html',$data);
 	}
-	
+
 	//码商提现记录
 	public function _cashlogMs(){
 		checkPower();
@@ -395,7 +394,7 @@ class FinanceController extends BaseController{
 		];
 		display('Finance/cashlog_ms.html',$data);
 	}
-	
+
 	public function _cashlog_list(){
 		$pageuser=checkLogin();
 		$is_download=intval($this->params['is_download']);
@@ -422,7 +421,7 @@ class FinanceController extends BaseController{
 			$uid_str=implode(',',$uid_arr);
 			$where.=" and log.uid in({$uid_str})";
 		}
-		
+
 		$s_start_time=$params['s_start_time'];
 		$s_end_time=$params['s_end_time'];
 		if($s_start_time&&$s_end_time){
@@ -436,7 +435,7 @@ class FinanceController extends BaseController{
 		$where.=empty($params['s_status'])?'':" and log.status={$params['s_status']}";
 		$where.=empty($params['s_pay_status'])?'':" and log.pay_status={$params['s_pay_status']}";
 		$where.=empty($params['s_keyword'])?'':" and (log.csn='{$params['s_keyword']}' or u.account='{$params['s_keyword']}' or u.phone='{$params['s_keyword']}' or u.nickname like '%{$params['s_keyword']}%')";
-		
+
 		$sql_cnt="select count(1) as cnt,sum(log.money) as sum_money,sum(log.fee) as sum_fee 
 		from cnf_cashlog log 
 		left join cnf_banklog blog on log.blog_id=blog.id 
@@ -468,17 +467,17 @@ class FinanceController extends BaseController{
 			}else{
 				$item['pay_time']='';
 			}
-			
+
 			$banklog=json_decode($item['banklog'],true);
 			$item['bank_name']=$banklog['bank_name'];
-			
+
 			$item['check']=hasPower($pageuser,'Finance_cashlog_check')?1:0;
 			if($cnf_xyhk_model=='是'){
 				$item['bkcf']=hasPower($pageuser,'Finance_cashlog_bkcf')?1:0;
 			}else{
 				$item['bkcf']=0;
 			}
-			
+
 		}
 		/*
 		if($is_download){
@@ -501,7 +500,7 @@ class FinanceController extends BaseController{
 		];
 		jReturn('1','ok',$data);
 	}
-	
+
 	public function _cashlog_check(){
 		$pageuser=checkPower();
 		$params=$this->params;
@@ -516,18 +515,18 @@ class FinanceController extends BaseController{
 		if($cashlog['status']!=1){
 			jReturn('-1','该提现申请当前状态不可操作');
 		}
-		
+
 		if($pageuser['gid']>41){
 			$uid_arr=getDownUser($pageuser['id']);
 			if(!in_array($cashlog['uid'],$uid_arr)){
 				jReturn('-1','提现用户不是您的下级无法审核');
 			}
 		}
-		
+
 		if($cashlog['dpay_money']>0){
 			jReturn('-1','已经采用拨款方式支付，不可再直接审核');
 		}
-		
+
 		$user_cash_status=getConfig('user_cash_status');
 		if(!array_key_exists($status,$user_cash_status)){
 			jReturn('-1','未知审核状态');
@@ -540,12 +539,16 @@ class FinanceController extends BaseController{
 		];
 		$res=$this->mysql->update($cashlog_data,"id={$cashlog['id']}",'cnf_cashlog');
 		if($status==3){//退还
-			$user=$this->mysql->fetchRow("select id,balance from sys_user where id={$cashlog['uid']} for update");
-			$user_data=array('balance'=>$user['balance']+$cashlog['money']);
+			$user=$this->mysql->fetchRow("select id,balance,fz_balance from sys_user where id={$cashlog['uid']} for update");
+			$user_data=[
+			    'balance'=>$user['balance']+$cashlog['money'],
+                'fz_balance'=>$user['fz_balance']-$cashlog['money']
+            ];
 			$res2=$this->mysql->update($user_data,"id={$user['id']}",'sys_user');
 			$res3=balanceLog($user,1,12,$cashlog['money'],$cashlog['id'],$cashlog['csn'],$this->mysql);
 		}else{
-			$res2=true;
+            $user=$this->mysql->fetchRow("select id,balance,fz_balance from sys_user where id={$cashlog['uid']} for update");
+            $res2=$this->mysql->update(['fz_balance'=>$user['fz_balance']-$cashlog['money']],"id={$user['id']}",'sys_user');
 			$res3=true;
 		}
 		//api接口
@@ -578,7 +581,7 @@ class FinanceController extends BaseController{
 		}
 		if($res&&$res2&&$res3&&$res4){
 			$this->mysql->commit();
-			
+
 			$return_data=[
 				'check_time'=>date('m-d H:i:s',$cashlog_data['check_time']),
 				'csn'=>$cashlog['csn']
@@ -593,7 +596,7 @@ class FinanceController extends BaseController{
 		$this->mysql->rollback();
 		jReturn('-1','操作失败');
 	}
-	
+
 	private function doDf($cashlog){
 		$df_type='_df1';
 		$df_file=ROOT_PATH.'pay/'.$df_type.'/df.php';
@@ -602,10 +605,10 @@ class FinanceController extends BaseController{
 		}
 		return include($df_file);
 	}
-	
-	
+
+
 	//##################提现银行卡开始##################
-	
+
 	public function _banklog(){
 		checkLogin();
 		$province_arr=$this->mysql->fetchRows("select * from cnf_pc where pid=0");
@@ -615,7 +618,7 @@ class FinanceController extends BaseController{
 		];
 		display('Finance/banklog.html',$data);
 	}
-	
+
 	public function _banklog_list(){
 		$pageuser=checkLogin();
 		$params=$this->params;
@@ -644,7 +647,7 @@ class FinanceController extends BaseController{
 		);
 		jReturn('1','ok',$data);
 	}
-	
+
 	public function _banklog_update(){
 		$pageuser=checkLogin();
 		$params=$this->params;
@@ -652,12 +655,13 @@ class FinanceController extends BaseController{
 		$bank_id=intval($params['bank_id']);
 		$province_id=intval($params['province_id']);
 		$city_id=intval($params['city_id']);
-		if($province_id<1){
-			jReturn('-1','请选择省份');
-		}
-		if($city_id<1){
-			jReturn('-1','请选择城市');
-		}
+        $uid=intval($params['item_uid']);
+//		if($province_id<1){
+//			jReturn('-1','请选择省份');
+//		}
+//		if($city_id<1){
+//			jReturn('-1','请选择城市');
+//		}
 		$data=array(
 			'bank_account'=>$params['bank_account'],
 			'bank_realname'=>$params['bank_realname'],
@@ -678,7 +682,7 @@ class FinanceController extends BaseController{
 			}
 			$res=$this->mysql->update($data,"id={$item_id}",'cnf_banklog');
 		}else{
-			$data['uid']=$pageuser['id'];
+			$data['uid']=$uid;
 			$data['create_time']=NOW_TIME;
 			$res=$this->mysql->insert($data,'cnf_banklog');
 		}
@@ -688,7 +692,7 @@ class FinanceController extends BaseController{
 		$return_data=[];
 		jReturn('1','操作成功',$return_data);
 	}
-	
+
 	public function _banklog_delete(){
 		$pageuser=checkLogin();
 		$item_id=intval($this->_param('item_id'));
@@ -707,9 +711,9 @@ class FinanceController extends BaseController{
 		}
 		jReturn('1','操作成功');
 	}
-	
+
 	//##################提现银行卡结束##################
-	
+
 	//##################账户余额开始##################
 	public function _balance(){
 		$pageuser=checkLogin();
@@ -718,7 +722,7 @@ class FinanceController extends BaseController{
 		$user['fz_balance']=floatval($user['fz_balance']);
 		$user['sx_balance']=floatval($user['sx_balance']);
 		$user['kb_balance']=floatval($user['kb_balance']);
-		
+
 		$banklog_arr=$this->mysql->fetchRows("select log.*,b.bank_name,b.bank_code from cnf_banklog log left join cnf_bank b on log.bank_id=b.id where log.uid={$pageuser['id']}");
 		$cash_cnf=getConfig('cash_cnf');
 		$day_time_arr=explode('-',$cash_cnf['day_time']);
@@ -739,7 +743,7 @@ class FinanceController extends BaseController{
 		];
 		display('Finance/balance.html',$data);
 	}
-	
+
 	public function _balance_cash(){
         $params=$this->params;
 	    if($params['autotx']=="shtx"){
@@ -802,10 +806,11 @@ class FinanceController extends BaseController{
         }
 
 		$new_balance=$user['balance']-$money;
+        $fz_balance=$user['fz_balance']+$money;
 		if($new_balance<0){
 			jReturn('-1','可提现余额不足');
 		}
-		$user_data=['balance'=>$new_balance];
+		$user_data=['balance'=>$new_balance,'fz_balance'=>$fz_balance];
 		$cash_shcharge_money=getConfig('cash_shcharge_money');
 		$fee=$money*$cash_shcharge_money[1]+$cash_shcharge_money[2];
 		$cnf_cashlog=[
@@ -833,16 +838,14 @@ class FinanceController extends BaseController{
 		$res3=balanceLog($user,1,11,-$money,$res2,$cnf_cashlog['csn'],$this->mysql);
 		if($res&&$res2&&$res3){
 			$this->mysql->commit();
-			
 			//$url="{$_ENV['SOCKET']['HTTP_URL']}/?c=Admin&a=noticeCash&csn={$cnf_cashlog['csn']}";
 			//curl_get($url);
-			
 			jReturn('1','提交申请成功，请耐心等待审核');
 		}
 		$this->mysql->rollback();
 		jReturn('-1','系统繁忙请稍后再试');
 	}
-	
+
 	//余额互转
 	public function _balanceTrans(){
 		$pageuser=checkLogin();
@@ -886,14 +889,14 @@ class FinanceController extends BaseController{
 		$this->mysql->rollback();
 		jReturn('-1','系统繁忙请稍后再试');
 	}
-	
+
 	////////////////////////资金变动明细///////////////////////////
 	public function _balancelog(){
 		checkPower();
 		$data=[];
 		display('Finance/balancelog.html',$data);
 	}
-	
+
 	public function _balancelog_list(){
 		$pageuser=checkPower();
 		$params=$this->params;
@@ -933,7 +936,7 @@ class FinanceController extends BaseController{
 		];
 		jReturn('1','ok',$data);
 	}
-	
+
 	//////////////////////////////////////////////////////
 	//应回款查询
 	public function _cashlog_check_ubalance(){
@@ -948,7 +951,7 @@ class FinanceController extends BaseController{
 		];
 		jReturn('1','ok',$return_data);
 	}
-	
+
 	//拨款拆分
 	public function _cashlog_bkcf(){
 		$pageuser=checkPower();
@@ -961,7 +964,7 @@ class FinanceController extends BaseController{
 				jReturn('-1','请填写指定码商代理账号');
 			}else{
 				$user=$this->mysql->fetchRow("select * from sys_user where account='{$params['account']}'");
-			}	
+			}
 		}else{
 			$user=$this->mysql->fetchRow("select * from sys_user where id={$account_id}");
 		}
@@ -992,7 +995,7 @@ class FinanceController extends BaseController{
 			'money'=>$money,
 			'create_time'=>NOW_TIME
 		];
-			
+
 		$res=$this->mysql->update($sys_user,"id={$user['id']}",'sys_user');
 		$res2=$this->mysql->update($cnf_cashlog,"id={$cashlog['id']}",'cnf_cashlog');
 		$res3=$this->mysql->insert($cnf_cashlog_bklog,'cnf_cashlog_bklog');
@@ -1004,7 +1007,7 @@ class FinanceController extends BaseController{
 		$this->mysql->commit();
 		jReturn('1','操作成功');
 	}
-	
+
 	public function _cashlog_bkcf_list(){
 		$pageuser=checkLogin();
 		$pageSize=100;
@@ -1043,14 +1046,14 @@ class FinanceController extends BaseController{
 		];
 		jReturn('1','ok',$data);
 	}
-	
+
 	//##################提现拨款明细开始##################
 	public function _bklog(){
 		$pageuser=checkPower();
 		$data=[];
 		display('Finance/bklog.html',$data);
 	}
-	
+
 	public function _bklog_list(){
 		$pageuser=checkLogin();
 		$pageSize=$this->pageSize;
@@ -1102,7 +1105,7 @@ class FinanceController extends BaseController{
 			}
 			$banklog=json_decode($item['banklog'],true);
 			$item['bank_name']=$banklog['bank_name'];
-			
+
 			$item['check']=hasPower($pageuser,'Finance_bklog_check')?1:0;
 		}
 		$data=[
@@ -1113,7 +1116,7 @@ class FinanceController extends BaseController{
 		];
 		jReturn('1','ok',$data);
 	}
-	
+
 	public function _bklog_update(){
 		$pageuser=checkLogin();
 		$params=$this->params;
@@ -1147,7 +1150,7 @@ class FinanceController extends BaseController{
 		];
 		jReturn('1','提交成功',$return_data);
 	}
-	
+
 	//审核拨款明细
 	public function _bklog_check(){
 		$pageuser=checkPower();
@@ -1164,7 +1167,7 @@ class FinanceController extends BaseController{
 			'status'=>$status
 		];
 		$res=$this->mysql->update($cnf_cashlog_bklog,"id={$item_id}",'cnf_cashlog_bklog');
-		
+
 		if($status==7){
 			$user=$this->mysql->fetchRow("select * from sys_user where id={$bklog['aid']} for update");
 			$cashlog=$this->mysql->fetchRow("select * from cnf_cashlog where id={$bklog['cash_id']} for update");
@@ -1185,13 +1188,13 @@ class FinanceController extends BaseController{
 			$res3=true;
 			$res4=true;
 		}
-		
+
 		if(!$res||!$res2||!$res3||!$res4){
 			$this->mysql->rollback();
 			jReturn('-1','系统繁忙请稍后再试');
 		}
 		$this->mysql->commit();
-		
+
 		if($status==3){
 			$cashlog=$this->mysql->fetchRow("select * from cnf_cashlog where id={$bklog['cash_id']} for update");
 			$cnf_cashlog_bklog2=[
@@ -1208,7 +1211,7 @@ class FinanceController extends BaseController{
 				$this->mysql->update($cashlog_data,"id={$cashlog['id']}",'cnf_cashlog');
 			}
 		}
-		
+
 		$cnf_bklog_status=getConfig('cnf_bklog_status');
 		$return_data=[
 			'check_time'=>date('m-d H:i',NOW_TIME),
@@ -1217,8 +1220,8 @@ class FinanceController extends BaseController{
 		];
 		jReturn('1','提交成功',$return_data);
 	}
-	
-	
+
+
 	//////////////////////////////回款记录////////////////////////////////
 	//获取上级收款银行卡
 	private function getSkbank($topAgent=false){
@@ -1236,16 +1239,16 @@ class FinanceController extends BaseController{
 				}
 			}
 		}
-		
+
 		$where=" where (log.uid={$agent_id} or log.uid=0) and log.status=2";
-		
+
 		$sql="select log.*,bk.bank_name,u.account,u.nickname from sk_bank log 
 		left join cnf_bank bk on log.bank_id=bk.id 
 		left join sys_user u on log.uid=u.id {$where}";
 		$bank_arr=$this->mysql->fetchRows($sql);
 		return $bank_arr;
 	}
-	
+
 	//回款记录
 	public function _agenthk(){
 		$pageuser=checkPower();
@@ -1258,7 +1261,7 @@ class FinanceController extends BaseController{
 		];
 		display('Finance/agenthk.html',$data);
 	}
-	
+
 	public function _agenthk_list(){
 		$pageuser=checkLogin();
 		$pageSize=$this->pageSize;
@@ -1306,10 +1309,10 @@ class FinanceController extends BaseController{
 			}
 			$item['banners']=$banners;
 			$item['cover']=$banners[0];
-			
+
 			$item['remark']=nl2br($item['remark']);
 			$item['skbank']=json_decode($item['skbank'],true);
-			
+
 			$item['edit']=0;
 			if($pageuser['id']==$item['uid']){
 				$item['edit']=1;
@@ -1333,7 +1336,7 @@ class FinanceController extends BaseController{
 		);
 		jReturn('1','ok',$data);
 	}
-	
+
 	public function _agenthk_update(){
 		$pageuser=checkLogin();
 		$params=$this->params;
@@ -1391,7 +1394,7 @@ class FinanceController extends BaseController{
 			$sk_agent_hklog['ori_balance']=$user['kb_balance'];
 			$sk_agent_hklog['new_balance']=$sys_user['kb_balance'];
 			$sk_agent_hklog['skbank']=json_encode($skbank,256);
-			
+
 			$res=$this->mysql->insert($sk_agent_hklog,'sk_agent_hklog');
 			$res2=$this->mysql->update($sys_user,"id={$user['id']}",'sys_user');
 			$res3=balanceLog($user,4,22,-$params['money'],$res,$sk_agent_hklog['order_sn'],$this->mysql);
@@ -1406,7 +1409,7 @@ class FinanceController extends BaseController{
 		];
 		jReturn('1','操作成功',$return_data);
 	}
-	
+
 	//审核回款
 	public function _agenthk_check(){
 		$pageuser=checkPower();
@@ -1458,7 +1461,7 @@ class FinanceController extends BaseController{
 				$sk_order=[
 					'hk_status'=>4
 				];
-				$res6=$this->mysql->update($sk_order,"id={$item['oid']}",'sk_order');	
+				$res6=$this->mysql->update($sk_order,"id={$item['oid']}",'sk_order');
 			}else{
 				$res6=true;
 			}
@@ -1516,7 +1519,7 @@ class FinanceController extends BaseController{
 		];
 		jReturn('1','操作成功',$return_data);
 	}
-	
+
 
 	//回款批量文件导入
 	public function _agenthk_csv(){
@@ -1538,7 +1541,7 @@ class FinanceController extends BaseController{
 		}
 		jReturn('1','保存成功，即将自动处理');
 	}
-	
-	
+
+
 }
 ?>
