@@ -269,6 +269,33 @@ class req {
 
 		//return $result;
 	}
+	//获取账户账单
+	function get_zd() {
+		$this->api_method = "/v1/query/deposit-withdraw";
+		$this->req_method = 'GET';
+		$postdata = [
+			'currency' => "usdt",
+			'type' => "deposit",
+			'direct' => "next",
+			'size' => 100
+		];
+		$url = $this->create_sign_url($postdata);
+		$return = json_decode($this->curl($url));
+
+		$zdlist=$return->data;
+//		For($i=0;$i<count($addresslist);$i++)
+//		{
+//			if($addresslist[$i]->currency=="usdt" and $addresslist[$i]->chain=="trc20usdt") {
+//				$usdtaddress = $addresslist[$i]->address;
+//			}
+//		}
+		return $zdlist;
+
+
+		//return json_decode($this->curl($url));
+
+		//return $result;
+	}
 
 	/**
 	* 借贷类API

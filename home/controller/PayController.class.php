@@ -148,9 +148,10 @@ class PayController extends BaseController{
 		$mysql->startTrans();
 		$ma_user=$mysql->fetchRow("select id,sx_balance,fz_balance from sys_user where id={$sk_ma['uid']} for update");
 		$rate=$user['td_rate'][$ptype];
-        $p_data['otcbuy']=$req->get_otcbuy();
-        $p_data['usdt']=round($p_data['money']/$req->get_otcbuy(),2);
-		$fee=round($p_data['usdt']*$rate,2);
+       // $p_data['otcbuy']=$req->get_otcbuy();
+       // $p_data['usdt']=round($p_data['money']/$req->get_otcbuy(),2);
+		//$fee=round($p_data['usdt']*$rate,2);
+        $fee=$p_data['money']*$rate;
 		$sk_order=[
 			'muid'=>$sk_ma['uid'],//码商id
 			'suid'=>$user['id'],//商户id
@@ -158,10 +159,10 @@ class PayController extends BaseController{
 			'order_sn'=>'MS'.date('YmdHis',NOW_TIME).mt_rand(10000,99999),
 			'out_order_sn'=>$p_data['order_sn'],
 			'goods_desc'=>$p_data['goods_desc'],
-            'usdt'=>$p_data['usdt'],
-            'otcbuy'=>$p_data['otcbuy'],
+           // 'usdt'=>$p_data['usdt'],
+           // 'otcbuy'=>$p_data['otcbuy'],
 			'money'=>$p_data['money'],
-			'real_money'=>$p_data['usdt']-$fee,
+			'real_money'=>$p_data['money']-$fee,
 			'rate'=>$rate,
 			'fee'=>$fee,
 			'ma_id'=>$sk_ma['id'],//码id

@@ -1,13 +1,13 @@
 <style>
 	.layui-table td, .layui-table th{
-		font-size: 12px;
+		font-size: 13px;
 	}
 	.layui-table-cell{
 		padding: 0 5px;
 	}
 	#searchForm{
 		text-align:left;
-		font-size: 12px;
+		font-size: 13px;
 	}
 	.layui-form-label{
 		padding: 9px 10px;
@@ -208,19 +208,19 @@ $('#searchBtn').on('click',function(){
 			}},
 			//{field:'out_order_sn', title: '商户单号'},
 			{field:'money', width:75,title: '订单金额'},
-			{field:'otcbuy',width:55, title: '兑换价格'},
-			{field:'usdt', width:65,title: 'USDT'},
+			// {field:'otcbuy',width:55, title: '兑换价格'},
+			// {field:'usdt', width:65,title: 'USDT'},
 			//{field:'goods_desc', title: '商品描述'},
 			[[if $user.gid lt 42 or in_array($user.gid,[61,81])]]
 			{field:'fee', width:55,title: '手续费'},
 			{field:'real_money', width:65,title: '应结算'},
-            {field:'su_account',width:70, title: '所属商户',templet:function(d){
+            {field:'su_account',width:90, title: '所属商户',templet:function(d){
                 return d.su_account+'<br>'+d.su_nickname;
             }},
 			[[/if]]
 			//{field:'mtype_name', title: '支付类型'},
 			[[if $user.gid lt 42 or $user.gid eq 85]]
-            {field:'mu_account',width:160,title: '码商/收款码',templet:function(d){
+            {field:'mu_account',width:190,title: '码商/收款码',templet:function(d){
 				var html='';
 				if(d.ma_id<1){
 					return '/';
@@ -263,7 +263,7 @@ $('#searchBtn').on('click',function(){
 			// 	return html;
 			// }},
 			[[/if]]
-            {field:'check_id', title: '确认者',templet:function(d){
+            {field:'check_id',width:100, title: '确认者',templet:function(d){
 				if(!d.check_id||d.check_id==0){
 					return '';
 				}
@@ -309,7 +309,7 @@ $('#searchBtn').on('click',function(){
 			$('.isFinishFlag').each(function(i,o){
 				var obj=$(o);
 				var tr=obj.parents('tr');
-				tr.css({color:'#00c250'});
+				tr.css({color:'#077c26'});
 			});
         }
     });
@@ -419,9 +419,9 @@ layui.table.on('tool(dataTable)', function(obj){
 	}else if(layEvent=='match'){
 		var con='<div>';
 			con+='<div>订单号：'+item.order_sn+'</div>';
-			con+='<div>订单金额：'+item.rmb+'</div>';
-			con+='<div>兑换价格：'+item.otcbuy+'</div>';
-			con+='<div>USDT金额：'+item.money+'</div>';
+			con+='<div>订单金额：'+item.money+'</div>';
+			// con+='<div>兑换价格：'+item.otcbuy+'</div>';
+			// con+='<div>USDT金额：'+item.money+'</div>';
 			con+='<div>支付状态：'+item.pay_status_flag+'</div>';
 			con+='<div>当前码商：'+item.mu_account+' / '+item.mu_nickname+'</div>';
 			con+='<div>支付方式：'+item.mtype_name+'</div>';

@@ -4,14 +4,26 @@
 .userItem img{height:80px;}
 .userItem .nickname{position:absolute;left:0;bottom:0;display:block;width:100%;overflow:hidden;background:rgba(11,11,11,0.4);color:#fefefe;text-align:center;}
 .userItemNva{border:1px solid #f60;}
+.layui-table td, .layui-table th{
+	font-size: 13px;
+}
+.layui-table-cell{
+	padding: 0 5px;
+}
+#searchForm{
+	text-align:left;
+	font-size: 13px;
+}
+.layui-form-label{
+	padding: 9px 10px;
+	text-align: left;
+}
 </style>
+
 <div class="layui-col-md12">
 <div class="layui-card">
 <div class="layui-card-header"><span>商户提现记录</span></div>
 <div class="layui-card-body">
-
-
-
 	<form class="layui-form" id="searchForm" onsubmit="return false;">
 		<div class="layui-form-item" style="margin-bottom:5px;">
 			<div class="layui-inline" style="margin-right:0;">
@@ -176,30 +188,30 @@ $('#searchBtn').on('click',function(){
 		where:pdata,
         url:global.appurl+'c=Finance&a=cashlog_list',
         cols:[[
-            {field:'id', width:70, title: 'ID'},
+            {field:'id', width:50, title: 'ID'},
             //{field:'csn', title: '单号'},
-            {field:'nickname',width:200,style:'text-align:left;',title: '单号/用户',templet:function(d){
-                return d.csn+'<br>'+d.account+'<br>'+'【'+d.group_name+'】'+d.nickname;
+            {field:'nickname',width:150,style:'text-align:left;',title: '单号/用户',templet:function(d){
+                return d.csn+'<br>'+d.account;
             }},
-            {field:'money', title: '提现金额'},
-            {field:'fee', title: '手续费'},
-            {field:'real_money', title: '实际到账'},
-            {field:'dpay_money',width:140,title: '已拨款',templet:function(d){
-				if(d.dpay_money<=0){
-					return '0';
-				}
-				return '<a style="color:#1E9FFF;" href="javascript:;" lay-event="bkdetail" >'+d.dpay_money+' [明细]</a>';
-			}},
-            {field:'ori_balance', title: '提现前/后',style:'text-align:left;',templet:function(d){
-				return '前：'+d.ori_balance+'<br>后：'+d.new_balance;
-			}},
+            {field:'money',width:80, title: '提现金额'},
+            {field:'otcbuy',width:80, title: '当前价格'},
+            {field:'usdt',width:80, title: '实际回U'},
+            // {field:'dpay_money',width:140,title: '已拨款',templet:function(d){
+			// 	if(d.dpay_money<=0){
+			// 		return '0';
+			// 	}
+			// 	return '<a style="color:#1E9FFF;" href="javascript:;" lay-event="bkdetail" >'+d.dpay_money+' [明细]</a>';
+			// }},
+            // {field:'ori_balance', title: '提现前/后',style:'text-align:left;',templet:function(d){
+			// 	return '前：'+d.ori_balance+'<br>后：'+d.new_balance;
+			// }},
             //{field:'new_balance', title: '提现后'},
             {field:'create_time',width:130, title: '申请时间'},
-            {field:'bank_name',width:240,style:'text-align:left;', title: '账户信息',templet:function(d){
+            {field:'bank_name',width:200,style:'text-align:left;', title: '回U地址（ERC20）',templet:function(d){
                 var html='';
-                html+='<div>银行：'+d.bank_name+'</div>';
-                html+='<div>姓名：'+d.bank_realname+'</div>';
-                html+='<div>卡号：'+d.bank_account+'</div>';
+                // html+='<div>银行：'+d.bank_name+'</div>';
+                // html+='<div>姓名：'+d.bank_realname+'</div>';
+                html+='<div>'+d.bank_account+'</div>';
                 return html;
             }},
             {field:'check_time',width:120, title: '审核时间'},

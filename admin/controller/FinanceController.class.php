@@ -745,6 +745,7 @@ class FinanceController extends BaseController{
 	}
 
 	public function _balance_cash(){
+        $req = new req();
         $params=$this->params;
 	    if($params['autotx']=="shtx"){
             $money=floatval($params['money']);
@@ -816,6 +817,8 @@ class FinanceController extends BaseController{
 		$cnf_cashlog=[
 			'uid'=>$user['id'],
 			'csn'=>'C'.date('YmdHis').mt_rand(1000,9999),
+            'otcbuy'=>$req->get_otcbuy(),
+            'usdt'=>round($money/$req->get_otcbuy(),2),
 			//'province_id'=>$bank['province_id'],
 			//'city_id'=>$bank['city_id'],
 			'blog_id'=>$bank['id'],
@@ -830,9 +833,9 @@ class FinanceController extends BaseController{
 			'create_day'=>date('Ymd',NOW_TIME),
 			'banklog'=>json_encode($bank,256)
 		];
-		if($cnf_cashlog['real_money']<0.01){
-			jReturn('-1','扣除手续费后实际到账金额不足0.01');
-		}
+//		if($cnf_cashlog['real_money']<0.01){
+//			jReturn('-1','扣除手续费后实际到账金额不足0.01');
+//		}
 		$res=$this->mysql->update($user_data,"id={$user['id']}",'sys_user');
 		$res2=$this->mysql->insert($cnf_cashlog,'cnf_cashlog');
 		$res3=balanceLog($user,1,11,-$money,$res2,$cnf_cashlog['csn'],$this->mysql);
