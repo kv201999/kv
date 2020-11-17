@@ -16,11 +16,11 @@
 </style>
 <div class="Payment">
 	<div class="HeadTop [[if $info.mtype_id eq 1]]HeadTopZfb[[elseif in_array($info.mtype_id,[2,4,5])]]HeadTopWx[[elseif $info.mtype_id eq 6]]HeadTopYsf[[else]][[/if]]">
-		<p class="Tit">[[$info.mtype_name]]</p>
+		<p class="Tit">支付宝扫码</p>
 		<!--<a href="javascript:;" class="backBtn"></a>-->
 	</div>
 	<div class="PaymentCon">
-		<div class="amount cpBtn" data-clipboard-text="[[$info.money]]">￥[[$info.money]]<span class="copyBtn">复制</span></div>
+		<div class="amount cpBtn" data-clipboard-text="[[$info.money]]">￥[[$info.money]]</div>
 		[[if $info.mtype_type eq 2 or $info.ptype eq 12]]
 		<div class="qrcode" style="width:80%;"><img src="[[$info.ma_qrcode]]" style="width:210px;"></div>
 		[[/if]]
@@ -52,7 +52,7 @@
 				微信“我”→“支付”→“收付款”→“向手机号转帐”→填写手机号→输入转帐金额点确定完成转账。<br>转账金额和手机号必须与订单完全一致，否则将无法完成。
 			</div>
 			[[else]]
-			<p style="text-align:center;">姓名：[[$info.ma_realname2]]</p>
+			<p style="text-align:center;">请使用支付宝扫码,代人购买商品后完成充值</p>
 			[[/if]]
 			[[/if]]
 		</div>
@@ -70,10 +70,10 @@
 			<span class="timeBox"></span>
 			[[if $info.mtype_id eq 1 and $info.zfbh5_url]]
 
-			<div class="zfbBox" style="padding-top:25px;">
-				<a class="linkBtn" data-clipboard-text="[[$info.money]]" style="background:#0aaaf0;color:#fff;font-size:14px;padding:10px 22px;border-radius:5px;" href="javascript:;">复制金额并打开支付宝</a>
-				<div style="font-size:0.9rem;color:#f30;text-align:center;padding-top:0.5rem;">请在非QQ浏览器中打开</div>
-			</div>
+<!--			<div class="zfbBox" style="padding-top:25px;">-->
+<!--				<a class="linkBtn" data-clipboard-text="[[$info.money]]" style="background:#0aaaf0;color:#fff;font-size:14px;padding:10px 22px;border-radius:5px;" href="javascript:;">复制金额并打开支付宝</a>-->
+<!--				<div style="font-size:0.9rem;color:#f30;text-align:center;padding-top:0.5rem;">请在非QQ浏览器中打开</div>-->
+<!--			</div>-->
 
 			[[/if]]
 			[[if $info.mtype_id eq 12]]
@@ -122,6 +122,7 @@ $(function(){
 		setTimer();
 	}else{
 		$('.time').html('订单已超时');
+		$('.qrcode img').hide();
 	}
 	
 	function setTimer(){
@@ -129,7 +130,7 @@ $(function(){
 			clearInterval(timer);
 		}
 		var d_time_flag=secTrans(d_time);
-		$('.timeBox').html('剩余'+d_time_flag+'，点我已付款').css({opacity:1});
+		$('.timeBox').html('支付剩余时间： '+d_time_flag).css({opacity:1});
 		timer=setInterval(function(){
 			d_time--;
 			if(d_time<0){
@@ -137,7 +138,7 @@ $(function(){
 				clearInterval(timer);
 			}
 			var d_time_flag=secTrans(d_time);
-			$('.timeBox').html('剩余'+d_time_flag+'，点我已付款').css({opacity:1});
+			$('.timeBox').html('支付剩余时间： '+d_time_flag).css({opacity:1});
 		},1000);
 	}
 	

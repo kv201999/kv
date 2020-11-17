@@ -384,5 +384,44 @@ function orderRebate($order_id){
 	closeDb($mysql);
 	return false;
 }
+//获取商品价格
+function getxyprice($shangpin_id){
+    $ch = curl_init('https://h5api.m.taobao.com/h5/mtop.taobao.idle.mach.advertise.batch.output/1.0/?jsv=2.4.5&appKey=12574478&t=1605369102554&sign=e1612caa14af69526c7d67d23793923f&api=mtop.taobao.idle.mach.advertise.batch.output&v=1.0');
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_HEADER, 1);
+    $result = curl_exec($ch);
+    curl_close($ch);
+    preg_match_all('/^Set-Cookie:\s*([^;]*)/mi', $result, $matches);
+    $cookies = array();
+    foreach($matches[1] as $item) {
+        parse_str($item, $cookie);
+        $cookies = array_merge($cookies, $cookie);
+    }
+    $token=substr($cookies["_m_h5_tk"],0,32);
+    $t=time()*1000;
+    $appKey="12574478";
+    $data='{"itemId":"'.$shangpin_id.'"}';
+    $sign=md5($token.'&'.$t.'&'.$appKey.'&'.$data);
+//    var_dump($token);
+//    var_dump($t);
+//    var_dump($sign);
+    $setcookies="_m_h5_tk=".$cookies["_m_h5_tk"].";"."_m_h5_tk_enc=".$cookies["_m_h5_tk_enc"];
+
+    $xyurl='https://h5api.m.taobao.com/h5/mtop.taobao.idle.awesome.detail/1.0/?jsv=2.4.5&appKey=12574478&t='.$t.'&sign='.$sign.'&api=mtop.taobao.idle.awesome.detail&v=1.0&data='.$data;
+    $url = curl_init($xyurl);
+
+    curl_setopt ($url, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($url, CURLOPT_COOKIE, $setcookies);
+    $file_contents = json_decode(curl_exec($url));
+    $shangpin_status=$file_contents->data->itemDO->itemStatus;
+    $shangpin_price=$file_contents->data->itemDO->soldPrice;
+    $xyinfo=[
+        'status'=>$shangpin_status,
+        'price'=>$shangpin_price
+    ];
+    curl_close($url);
+    return $xyinfo;
+
+}
 
 ?>

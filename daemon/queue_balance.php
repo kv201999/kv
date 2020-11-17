@@ -9,6 +9,7 @@ while(true){
 		$mysql=new Mysql(0);
     }
     $list=$mysql->fetchRows("select * from sk_order where pay_status=9 and js_status=1",1,5);
+	$zdlist=$mysql->fetchRows("select * from cnf_paylog where pay_status=9 and js_status=1");
 	//p($list);exit;
     //echo $mysql->lastSql;exit;
     if(!$list){
@@ -39,7 +40,6 @@ while(true){
 			continue;
 		}
 		$mysql->commit();
-		
 		//结算分成
 		orderRebate($item['id']);
         //触发自动提现
@@ -51,7 +51,7 @@ while(true){
                 'money'=>$user['balance']+$item['real_money'],
                 'autotx'=>"shtx",
             ];
-            $url='http://127.0.0.1/ht.php?c=Finance&a=balance_cash';
+            $url='http://kv.com/ht.php?c=Finance&a=balance_cash';
             $result=curl_post($url,$p_data);
         }
 		//信用单笔回款数量（金额）达到上限自动下线码商

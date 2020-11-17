@@ -1,13 +1,10 @@
 <?php
 // 定义参数
-define('ACCOUNT_ID', '14917665'); // your account ID
-define('ACCESS_KEY','ghjrgrft5g-ca180f30-647ec19a-c1012'); // your ACCESS_KEYs
-define('SECRET_KEY', '64a5934a-bbc8e273-33702cf1-a7306'); // your SECRET_KEY
-
-
+define('ACCOUNT_ID', '15139866'); // your account ID
+define('ACCESS_KEY','527507fc-bg2hyw2dfg-707db7a0-2372d'); // your ACCESS_KEYs
+define('SECRET_KEY', '0297281b-62cf32e9-3f8ce6a1-d718f'); // your SECRET_KEY
 
 include "lib.php";
-
 //实例化类库
 $req = new req();
 // 获取account-id, 用来替换ACCOUNT_ID
@@ -27,11 +24,11 @@ print ("------\n");
 print ("------\n");
 print ("------\n");
 //print ("最新入账金额：".$req->get_zd()['amount']);
-print_r($req->get_zd()[0]->state);
-
+//var_dump($req->get_zd());
+var_dump(time());
 print ("------\n");
 print ("------\n");
-//print ("最新入账时间：".date('Y-m-d H:i:s', $req->get_zd()['updated_at']));
+//print ("最新入账时间：".date('Y-m-d H:i:s', $req->get_zd()["data"][0]["created-at"]/1000));
 
 //var_dump($req->get_otc());
 //print($balancelist[0]->currency);

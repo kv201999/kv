@@ -11,6 +11,7 @@ class req {
 	function __construct() {
 		$this->api = parse_url($this->url)['host'];
 		date_default_timezone_set("Etc/GMT+0");
+		//date_default_timezone_set('Asia/Shanghai');
 	}
 	/**
 	* 行情类API
@@ -277,7 +278,7 @@ class req {
 			'currency' => "usdt",
 			'type' => "deposit",
 			'direct' => "next",
-			'size' => 100
+			'size' => 20
 		];
 		$url = $this->create_sign_url($postdata);
 		$return = json_decode($this->curl($url));
@@ -472,4 +473,6 @@ class req {
 		return $output;
 	}
 }
+
+
 ?>

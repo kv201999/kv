@@ -2,7 +2,7 @@
 <style>
 .bannerItem{margin-right:5px;position:relative;}
 .bannerItem span{position:absolute;top:0px;right:0px;line-height:20px;font-size:28px;}
-
+.copyBtn{border:1px solid #f60;color:#f60;padding:2px 4px;padding-top:1px;font-size:12px;line-height:10px;border-radius:3px;cursor: pointer;}
 .orderDetailCon{line-height:2.2rem;}
 </style>
 <div class="orderDetail">
@@ -14,41 +14,46 @@
 	<div class="orderDetailCon">
 		<p>订单号：[[$paylog.order_sn]]</p>
 
-		<p >所属代理：[[if $paylog.a_account]][[$paylog.a_account]]-[[$paylog.a_nickname]][[else]]平台[[/if]]</p>
+<!--		<p >所属代理：[[if $paylog.a_account]][[$paylog.a_account]]-[[$paylog.a_nickname]][[else]]平台[[/if]]</p>-->
 		<p>充值账号：[[$paylog.account]]</p>
 		<p>下单时间：[[$paylog.create_time]]</p>
 		<p>订单状态：<b>[[$paylog.pay_status_flag]]</b></p>
-		<p>收款姓名：[[$paylog['skbank'].bank_realname]]</p>
+<!--		<p>收款姓名：[[$paylog['skbank'].bank_realname]]</p>-->
 		<p>提交充值金额：[[$paylog.money]]</p>
 		<p>火币实时价格：[[$paylog.otcbuy]]</p>
-		<p style="font-weight:bold;color: red">实际转币金额：[[$paylog.usdt]]</p>
-		<p style="font-weight:bold;">充值钱包地址：[[$paylog['skbank'].bank_account]]</p>
-		<div class="pinzheng">
-			<span>付款凭证：</span>
-			<ul>
-				[[foreach from=$paylog['banners'] item=vo]]
-				<li class="bannerItem"><img src="[[$vo]]"></li>
-				[[/foreach]]
-				[[if $paylog.pay_status eq 1]]
-				<li id="fileUploadH5Btn"><a href="javascript:;"><img src="/public/home/images/add.png"></a></li>
-				[[/if]]
-			</ul>
-			<input type="file" id="fileUploadH5" accept="image/*" style="display:none;" />
-		</div>
-		<p>----------</p>
-		<h3>充值教程：</h3>
-		<p>1.火币网注册实名 2.OTC购买USDT 3.选择提币到上面地址</p>
-		[[if $paylog.pay_status eq 1]]
-		<a href="javascript:;" class="fillCashBtn" style="margin-top:1rem;">我已付款</a>
-		[[/if]]
+		<p style="font-weight:bold;color: red">实际转币数量：<strong style="font-size: 1.8rem">[[$paylog.usdt]] </strong>USDT</p>
+		<p class="cpBtn" style="font-weight:bold;" data-clipboard-text="[[$paylog['skbank'].bank_account]]">充值钱包地址(TRC20)：[[$paylog['skbank'].bank_account]]<span class="copyBtn" style="display:inline-block">点击复制地址</span></p>
+<!--		<div class="pinzheng">-->
+<!--			<span>付款凭证：</span>-->
+<!--			<ul>-->
+<!--				[[foreach from=$paylog['banners'] item=vo]]-->
+<!--				<li class="bannerItem"><img src="[[$vo]]"></li>-->
+<!--				[[/foreach]]-->
+<!--				[[if $paylog.pay_status eq 1]]-->
+<!--				<li id="fileUploadH5Btn"><a href="javascript:;"><img src="/public/home/images/add.png"></a></li>-->
+<!--				[[/if]]-->
+<!--			</ul>-->
+<!--			<input type="file" id="fileUploadH5" accept="image/*" style="display:none;" />-->
+<!--		</div>-->
+
+		<h4 style="margin-top: 20px;">提醒</h4>
+		<p>请在10分钟内完成转币，否则订单将失效</p>
+<!--		[[if $paylog.pay_status eq 1]]-->
+<!--		<a href="javascript:;" class="fillCashBtn" style="margin-top:1rem;">我已付款</a>-->
+<!--		[[/if]]-->
 	</div>
 </div>
 
 [[include file="js.html"]]
 <script src="/public/js/lrz.all.bundle.js"></script>
+<script src="public/js/clipboard.min.js"></script>
 <script>
 	preventDefault();
 	$(function(){
+		var clipboard = new ClipboardJS('.cpBtn');
+		clipboard.on('success', function (e) {
+			_alert("复制成功");
+		});
 		$('#fileUploadH5Btn').on('click',function(){
 			$('#fileUploadH5').trigger('click');
 		});

@@ -46,8 +46,6 @@ $p_data['sign']=md5($sign_str);
 
 $url='http://kv.com/?c=Pay&';
 $url.=http_build_query($p_data);
-var_dump($url);
-return;
-//header("Location:{$url}");
+header("Location:{$url}");
 
 ?>

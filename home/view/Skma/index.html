@@ -121,7 +121,7 @@ select{width:14rem;position: relative;height: 2.2rem;padding: 0 0.5rem;}
 					</div>
 				</div>
 				<div class="Row">
-					<p class="lttxt">收款姓名：</p>
+					<p class="lttxt">商品名称：</p>
 					<div class="inputbox"><input type="text" id="ma_realname" placeholder=""></div>
 				</div>
 				<div class="Row bankBox">
@@ -173,12 +173,16 @@ select{width:14rem;position: relative;height: 2.2rem;padding: 0 0.5rem;}
 						<img src="public/home/images/zfbuid.png" style="width:50%;cursor:pointer;" onclick="showImg(this)" />
 					</div>
 				</div>
+<!--				<div class="Row codeImgBox">-->
+<!--					<p class="lttxt">固定金额：</p>-->
+<!--					<div class="inputbox"><input type="text" id="guding_money" placeholder="" value=""></div>-->
+<!--				</div>-->
 				<div class="Row codeImgBox">
-					<p class="lttxt">固定金额：</p>
-					<div class="inputbox"><input type="text" id="guding_money" placeholder="" value=""></div>
+					<p class="lttxt">商品链接：</p>
+					<div class="inputbox"><input type="text" id="shangpin_id" placeholder="" value=""></div>
 				</div>
 				<div class="Row codeImgBox">
-					<p class="lttxt">闲鱼收款码：</p>
+					<p class="lttxt">代付收款码：</p>
 					<div class="codeImgs">
 						<ul>
 							<li class="bannerItem"><a href="javascript:;"><img src="/public/home/images/add.png"></a></li>
@@ -186,10 +190,10 @@ select{width:14rem;position: relative;height: 2.2rem;padding: 0 0.5rem;}
 						<input type="file" id="maQrcode" accept="image/*" style="display:none;"/>
 					</div>
 				</div>
-				<div class="Row state">
-					<p class="lttxt">状态：</p>
-					<div class="stateNav"><span class="on" data-status="2">在线</span><span data-status="1">离线</span></div>
-				</div>
+<!--				<div class="Row state">-->
+<!--					<p class="lttxt">状态：</p>-->
+<!--					<div class="stateNav"><span class="on" data-status="2">在线</span><span data-status="1">离线</span></div>-->
+<!--				</div>-->
 				<input type="hidden" id="item_id" value="0"/>
 				<a href="javascript:;" class="confirmBtn">提交</a>
 			</div>
@@ -420,9 +424,9 @@ $(function(){
 				$('#min_money').val(item.min_money);
 				$('#max_money').val(item.max_money);
 				$('#guding_money').val(item.max_money);
+				$('#shangpin_id').val(item.shangpin_id);
 				$('#match_num').val(item.match_num);
 				$('.stateNav span[data-status="'+item.status+'"]').trigger('click');
-				
 				$('#item_id').val(item.id);
 				$('.addIdCodePop .ConIn .Tt').text('编辑收款码');
 				$('.addIdCodePop').fadeIn();
@@ -448,6 +452,9 @@ $(function(){
 		var status=$('.stateNav').find('.on').attr('data-status');
 		var ma_zkmoney=$.trim($('#ma_zkmoney').val());
 		var guding_money=$('#guding_money').val();
+		var shangpin_id=getQueryVariable("id");
+
+
 		var ma_zkling=$.trim($('#ma_zkling').val());
 		if(ma_zkling){
 			ma_zkling=Base64.encode(ma_zkling);
@@ -466,7 +473,7 @@ $(function(){
 			data:{
 				item_id:item_id,mtype_id:mtype_id,province_id:province_id,city_id:city_id,bank_id:bank_id,branch_name:branch_name,
 				ma_realname:ma_realname,ma_account:ma_account,ma_qrcode:ma_qrcode,status:status,
-				min_money:min_money,max_money:max_money,match_num:match_num,guding_money:guding_money,
+				min_money:min_money,max_money:max_money,match_num:match_num,guding_money:guding_money,shangpin_id:shangpin_id,
 				ma_zkmoney:ma_zkmoney,ma_zkling:ma_zkling,ma_zfbuid:ma_zfbuid
 			},
 			success:function(json){
@@ -565,39 +572,39 @@ $(function(){
 		html+='<li class="skmaItem" data-id="'+item.id+'">';
 			html+='<div class="ltbox">';
 				html+='<p>类型：'+item.mtpye_name+'</p>';
-				html+='<p>收款人：'+item.ma_realname+"("+item.ma_account+')</p>';
+				html+='<p>商品名称：'+item.ma_realname+'</p>';
 				if(item.mtype_type==3){
 					html+='<p>开户行：'+item.bank_name+'</p>';
 				}else if(item.mtype_type==2){
 					html+='<p class="maQrcodeBox">收款码：<i class="paywayIco" data-ma-qrcode="'+item.ma_qrcode+'" style="background-image:url('+item.ma_qrcode+');position:relative;top:3px;"></i></p>';
 				}
 				//html+='<p>收益率：'+item.fy_rate+'%</p>';
-				html+='<p>今日笔数：'+item.day_tcnt+'/'+item.day_tcnt2+'</p>';
+
 				//html+='<p><a href="/?c=Skma&a=info&id='+item.id+'" style="color:#f30;">自动回调助手</a></p>';
 			html+='</div>';
 			html+='<div class="rtbox">';
 				//!-- 两种状态on-line/off-line --
-				var class_flag='on-line';
-				if(item.status!=2){
-					class_flag='off-line';
-				}
-				html+='<p class="statusItem">状态：<span class="state '+class_flag+'">'+item.status_flag+'</span></p>';
+				// var class_flag='on-line';
+				// if(item.status!=2){
+				// 	class_flag='off-line';
+				// }
+				html+='<p>状态：'+item.status_flag+'</p>';
 				//html+='<p class="maaccountItem">收款号：'+item.ma_account+'</p>';
-				html+='<p>接单范围：'+item.min_money+"-"+item.max_money+'</p>';
-				html+='<p>收益：'+item.yong_money+"("+item.fy_rate+"%)"+'</p>';
-				html+='<p>成功率：'+item.day_percent+'</p>';
-				html+='<p style="color:#fc744d;">';
+				html+='<p>接单金额： '+item.min_money+'</p>';
+				// html+='<p>收益：'+item.yong_money+"("+item.fy_rate+"%)"+'</p>';
+				// html+='<p>成功率：'+item.day_percent+'</p>';
+		html+='<p>接单数量：'+item.day_tcnt2+'</p>';
+				html+='<p style="color:#fc744d;text-align: right;">';
 					html+='<a class="delItem" style="margin-right:10px;">删除</a>';
-					html+='<a class="editItem">修改</a>';
-					if(item.mtype_type<=3){
-						html+='<a class="testItem" style="margin-left:10px;">测试</a>';
-					}
+					// html+='<a class="editItem">修改</a>';
+					// if(item.mtype_type<=3){
+					// 	html+='<a class="testItem" style="margin-left:10px;">测试</a>';
+					// }
 				html+='</p>';
 			html+='</div>';
 		html+='</li>';
 		return html;
 	}
-	
 	//获取记录
     $('.moreBtn').on('click',function(){
         dataPage({
@@ -700,5 +707,20 @@ $(function(){
 	});
 	
 });
+function getQueryVariable()
+{
+	var query = $('#shangpin_id').val()
+	var index=query.lastIndexOf("\id=");
+	str=query.substring(index,query.length);
+	shangpin_id=str.substring(3,15);
+	//
+	// var query = $('#shangpin_id').val();
+	// var vars = query.split("&");
+	// for (var i=0;i<vars.length;i++) {
+	// 	var pair = vars[i].split("=");
+	// 	if(pair[0] == variable){return pair[1];}
+	// }
+	return shangpin_id;
+}
 </script>
 [[include file="foot.html"]]

@@ -198,7 +198,7 @@ function iniOrder(item){
 			html+='<p class="orderId" style="'+color+'">'+item.order_sn+' ('+item.mtype_name+')</p>';
 			html+='<p class="paystate" style="background-image:url(/public/home/images/pstatus'+item.pay_status+'.png);">'+item.pay_status_flag+'</p>';
 		html+='</div>';
-		html+='<p>收款姓名：'+item.ma_realname+'</p>';
+		html+='<p>商品名称：'+item.ma_realname+'</p>';
 		if(item.mtype_type==3){
 		html+='<p>银行账号：'+item.ma_account+'</p>';
 		}

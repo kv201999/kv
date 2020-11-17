@@ -278,7 +278,7 @@ class FinanceController extends BaseController{
 
 	//充值记录审核
 	public function _paylog_check(){
-		$pageuser=checkPower();
+		//$pageuser=checkPower();
 		$params=$this->params;
 		$item_id=intval($params['item_id']);
 		$params['pay_status']=intval($params['pay_status']);
@@ -361,7 +361,6 @@ class FinanceController extends BaseController{
 			}
 			$this->mysql->update($sk_bank,"id={$skbank['id']}",'sk_bank');
 		}
-
 		$return_data=[
 			'ori_balance'=>$cnf_paylog['ori_balance'],
 			'new_balance'=>$cnf_paylog['new_balance'],
