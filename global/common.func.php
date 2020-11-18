@@ -10,7 +10,7 @@ define('SECRET_KEY', '99003dd5-ed5f058d-6948a56f-44010'); // your SECRET_KEY
 //获取二维码内容
 function getQrContent($qrfile){
 	if(!file_exists($qrfile)){
-		return false;
+		return $qrfile;
 	}
 	$mem_key='file_'.md5($qrfile);
 	$memcache=new MyMemcache();
@@ -421,6 +421,34 @@ function getxyprice($shangpin_id){
     ];
     curl_close($url);
     return $xyinfo;
+
+}
+
+function getxy($url){
+
+    $appid = "M7czvDKQB7XiE7Yg" ;
+    $appsecret = "vr3eZ9E2zYSDLvQWrNqEcw6eL3qnRecW" ;
+    $sign = strtolower(md5($appid .$appsecret) ) ;
+   // $url="https://qr.alipay.com/_d?_b=peerpay&enableWK=YES&biz_no=2020111804200308081065408525_429ede3dacda5c6f5c6a7cdf572e9fd5&app_name=tb&sc=qr_code&v=20201125&sign=5c9cec&__webview_options__=pd%3dNO";
+    $purl='http://47.113.82.162:8087/Api_Scrapy/index?appid='.$appid.'&sign='.$sign.'&channel=xianyu_order&url='.urlencode($url);
+    $ch = curl_init($purl);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    $result = json_decode(curl_exec($ch));
+    curl_close($ch);
+//    var_dump($result->data->trade_goodsTitle);
+//    var_dump($result->data->trade_itemRealAmount);
+//    var_dump($result->data->trade_status);
+    $xyinfo=[
+        'status'=>$result->data->trade_status,
+        'price'=>$result->data->trade_itemRealAmount,
+        'title'=>$result->data->trade_goodsTitle
+    ];
+    if($result->code==1){
+        return $xyinfo;
+    }else{
+        return false;
+    }
+
 
 }
 

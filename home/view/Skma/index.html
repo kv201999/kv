@@ -31,6 +31,17 @@ select{width:14rem;position: relative;height: 2.2rem;padding: 0 0.5rem;}
     padding: 0 0.8rem;
     font-size: 1rem;
 }
+.jiexi{
+	background: #999;
+	width: 26%;
+	margin: 0 auto 0;
+	display: block;
+	text-align: center;
+	color: #fff;
+	padding: 0.4rem 0;
+	line-height: normal;
+	font-size: 1.3rem;
+}
 </style>
 <div class="payCode">
 	<div class="payCodeTop">	
@@ -120,10 +131,10 @@ select{width:14rem;position: relative;height: 2.2rem;padding: 0 0.5rem;}
 						</select>
 					</div>
 				</div>
-				<div class="Row">
-					<p class="lttxt">商品名称：</p>
-					<div class="inputbox"><input type="text" id="ma_realname" placeholder=""></div>
-				</div>
+<!--				<div class="Row">-->
+<!--					<p class="lttxt">商品名称：</p>-->
+<!--					<div class="inputbox"><input type="text" id="ma_realname" placeholder=""></div>-->
+<!--				</div>-->
 				<div class="Row bankBox">
 					<p class="lttxt">银行卡号：</p>
 					<div class="inputbox"><input type="text" id="ma_account" placeholder="银行卡号"></div>
@@ -177,10 +188,10 @@ select{width:14rem;position: relative;height: 2.2rem;padding: 0 0.5rem;}
 <!--					<p class="lttxt">固定金额：</p>-->
 <!--					<div class="inputbox"><input type="text" id="guding_money" placeholder="" value=""></div>-->
 <!--				</div>-->
-				<div class="Row codeImgBox">
-					<p class="lttxt">商品链接：</p>
-					<div class="inputbox"><input type="text" id="shangpin_id" placeholder="" value=""></div>
-				</div>
+<!--				<div class="Row codeImgBox">-->
+<!--					<p class="lttxt">商品链接：</p>-->
+<!--					<div class="inputbox"><input type="text" id="shangpin_id" placeholder="" value=""></div>-->
+<!--				</div>-->
 				<div class="Row codeImgBox">
 					<p class="lttxt">代付收款码：</p>
 					<div class="codeImgs">
@@ -195,6 +206,7 @@ select{width:14rem;position: relative;height: 2.2rem;padding: 0 0.5rem;}
 <!--					<div class="stateNav"><span class="on" data-status="2">在线</span><span data-status="1">离线</span></div>-->
 <!--				</div>-->
 				<input type="hidden" id="item_id" value="0"/>
+				<div style="height: 20px;"></div>
 				<a href="javascript:;" class="confirmBtn">提交</a>
 			</div>
 		</div>
@@ -424,7 +436,7 @@ $(function(){
 				$('#min_money').val(item.min_money);
 				$('#max_money').val(item.max_money);
 				$('#guding_money').val(item.max_money);
-				$('#shangpin_id').val(item.shangpin_id);
+				//$('#shangpin_id').val(item.shangpin_id);
 				$('#match_num').val(item.match_num);
 				$('.stateNav span[data-status="'+item.status+'"]').trigger('click');
 				$('#item_id').val(item.id);
@@ -452,7 +464,7 @@ $(function(){
 		var status=$('.stateNav').find('.on').attr('data-status');
 		var ma_zkmoney=$.trim($('#ma_zkmoney').val());
 		var guding_money=$('#guding_money').val();
-		var shangpin_id=getQueryVariable("id");
+		//var shangpin_id=getQueryVariable("id");
 
 
 		var ma_zkling=$.trim($('#ma_zkling').val());
@@ -468,18 +480,22 @@ $(function(){
 		}else{
 			obj.attr('has-click','1');
 		}
+		$('.confirmBtn').text("正在解析中...");
+		$('.confirmBtn').attr("class","jiexi");
 		ajax({
 			url:global.appurl+'c=Skma&a=skma_update',
 			data:{
 				item_id:item_id,mtype_id:mtype_id,province_id:province_id,city_id:city_id,bank_id:bank_id,branch_name:branch_name,
 				ma_realname:ma_realname,ma_account:ma_account,ma_qrcode:ma_qrcode,status:status,
-				min_money:min_money,max_money:max_money,match_num:match_num,guding_money:guding_money,shangpin_id:shangpin_id,
+				min_money:min_money,max_money:max_money,match_num:match_num,guding_money:guding_money,
 				ma_zkmoney:ma_zkmoney,ma_zkling:ma_zkling,ma_zfbuid:ma_zfbuid
 			},
 			success:function(json){
 				obj.attr('has-click','0');
 				if(json.code!=1){
 					_alert(json.msg);
+					$('.jiexi').text("提交");
+					$('.jiexi').attr("class","confirmBtn");
 					return;
 				}
 				$('.addIdCodePop .closeBtn').trigger('click');
@@ -510,6 +526,7 @@ $(function(){
 						}
 					}
 				});
+
 			}
 		});
 	});
@@ -707,20 +724,20 @@ $(function(){
 	});
 	
 });
-function getQueryVariable()
-{
-	var query = $('#shangpin_id').val()
-	var index=query.lastIndexOf("\id=");
-	str=query.substring(index,query.length);
-	shangpin_id=str.substring(3,15);
-	//
-	// var query = $('#shangpin_id').val();
-	// var vars = query.split("&");
-	// for (var i=0;i<vars.length;i++) {
-	// 	var pair = vars[i].split("=");
-	// 	if(pair[0] == variable){return pair[1];}
-	// }
-	return shangpin_id;
-}
+// function getQueryVariable()
+// {
+// 	var query = $('#shangpin_id').val()
+// 	var index=query.lastIndexOf("\id=");
+// 	str=query.substring(index,query.length);
+// 	shangpin_id=str.substring(3,15);
+// 	//
+// 	// var query = $('#shangpin_id').val();
+// 	// var vars = query.split("&");
+// 	// for (var i=0;i<vars.length;i++) {
+// 	// 	var pair = vars[i].split("=");
+// 	// 	if(pair[0] == variable){return pair[1];}
+// 	// }
+// 	return shangpin_id;
+// }
 </script>
 [[include file="foot.html"]]

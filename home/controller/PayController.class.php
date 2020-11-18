@@ -324,7 +324,7 @@ class PayController extends BaseController{
 
 		//检测该码商是否有相同金额订单
 		if($sk_ma){
-			$check_order=$mysql->fetchRow("select id from sk_order where muid={$sk_ma['uid']} and pay_status<=2 and money='{$p_data['money']}'");
+			$check_order=$mysql->fetchRow("select id from sk_order where ma_id={$sk_ma['id']} and pay_status<=2 and money='{$p_data['money']}'");
 			if($check_order['id']){
 				$this->checkMaArr[]=$sk_ma['id'];
 				$this->getMaNum++;

@@ -93,7 +93,7 @@ class SkmaController extends BaseController{
 		$item_id=intval($this->params['item_id']);
 		$sql="select log.id,log.uid,log.mtype_id,log.min_money,log.max_money,
 		log.province_id,log.city_id,log.bank_id,log.branch_name,log.shangpin_id,
-		log.status,log.create_time,log.ma_account,log.ma_realname,log.ma_qrcode,log.ma_zkmoney,log.ma_zkling,log.ma_zfbuid,
+		log.status,log.create_time,log.ma_account,log.ma_realname,log.ma_qrcode,log.ma_qrcodeurl,log.ma_zkmoney,log.ma_zkling,log.ma_zfbuid,
 		mt.name as mtpye_name,mt.type as mtype_type,bk.bank_name,pc.cname as province_name,pc2.cname as city_name 
 		from sk_ma log left join sk_mtype mt on log.mtype_id=mt.id 
 		left join cnf_pc pc on log.province_id=pc.id 
@@ -123,7 +123,7 @@ class SkmaController extends BaseController{
 			$where.=" and (log.ma_account='{$params['keyword']}' or log.ma_realname='{$params['keyword']}')";
 		}
 		$count_item=$this->mysql->fetchRow("select count(1) as cnt from sk_ma log left join sk_mtype mt on log.mtype_id=mt.id {$where}");
-		$sql="select log.id,log.uid,log.mtype_id,log.min_money,log.max_money,log.province_id,log.shangpin_id,log.city_id,log.bank_id,log.branch_name,log.status,log.create_time,log.ma_account,log.ma_realname,log.ma_qrcode,
+		$sql="select log.id,log.uid,log.mtype_id,log.min_money,log.max_money,log.province_id,log.shangpin_id,log.city_id,log.bank_id,log.branch_name,log.status,log.create_time,log.ma_account,log.ma_realname,log.ma_qrcode,log.ma_qrcodeurl,
 		mt.name as mtpye_name,mt.type as mtype_type,bk.bank_name,pc.cname as province_name,pc2.cname as city_name 
 		from sk_ma log left join sk_mtype mt on log.mtype_id=mt.id 
 		left join cnf_pc pc on log.province_id=pc.id 
@@ -205,6 +205,7 @@ class SkmaController extends BaseController{
 		
 		$this->mysql->startTrans();
 		$user=$this->mysql->fetchRow("select * from sys_user where id={$pageuser['id']}");
+		$xyma=$this->mysql->fetchRows("select ma_qrcodeurl from sk_ma where mtype_id=1");
 		$user['td_switch']=json_decode($user['td_switch'],true);
 		if(!$user['td_switch'][$params['mtype_id']]){
 			jReturn('-1','该支付类型暂未对您开放');
@@ -218,20 +219,40 @@ class SkmaController extends BaseController{
 		if($params['max_money']<$params['min_money']){
 			jReturn('-1','最大收款不能小于最小收款');
 		}
+        $qrurl=strval($params['ma_qrcode']);
+        $url=getQrContent($qrurl);
+        //$url=getQrContent("uploads/home/202011/84f4636bd5b9c042.jpeg");
+        if(!$url){
+            //exit('解析失败，请截屏保存后扫码尝试');
+            jReturn('-1','解析失败，请截屏保存后扫码尝试');
+        }
+        foreach($xyma as $xm){
+            if($xm["ma_qrcodeurl"]==$url){
+                jReturn('-1','收款码已使用，请更换二维码');
+            }
+        }
+        if(!getxy($url)){
+            jReturn('-1','解析失败，请截屏保存后扫码尝试');
+        }
+        $xyskma=getxy($url);
+        if(!getxy($xyskma["status"]="BC")){
+            jReturn('-1','商品订单已取消，请更换二维码');
+        }
 		$sk_ma=array(
 			'mtype_id'=>$params['mtype_id'],
 			'province_id'=>$params['province_id'],
 			'city_id'=>$params['city_id'],
 			'ma_account'=>$params['ma_account'],
-			'ma_realname'=>$params['ma_realname'],
+			'ma_realname'=>$xyskma["title"],
 			'status'=>$params['status'],
-			'max_money'=>$params['max_money'],
-			'min_money'=>$params['min_money'],
-            'shangpin_id'=>$params['shangpin_id']
+			'max_money'=>$xyskma["price"],
+			'min_money'=>$xyskma["price"],
+            'shangpin_id'=>$params['shangpin_id'],
 			//'fz_time'=>0
 			//'uid'=>$pageuser['id'],
 			//'bank_id'=>$params['bank_id'],
-			//'ma_qrcode'=>$params['ma_qrcode']
+			'ma_qrcodeurl'=>$url
+
 		);
         $xyinfo=getxyprice($params['shangpin_id']);
         if($xyinfo["status"]!=0){
@@ -239,8 +260,8 @@ class SkmaController extends BaseController{
         }
 		if($mtype['type']==2){
 			$sk_ma['ma_qrcode']=$params['ma_qrcode'];
-            $sk_ma['max_money']=$xyinfo["price"];
-            $sk_ma['min_money']=$xyinfo["price"];
+            $sk_ma['max_money']=$xyskma["price"];
+            $sk_ma['min_money']=$xyskma["price"];
 		}elseif($mtype['type']==3){
 			$sk_ma['bank_id']=$params['bank_id'];
 			$sk_ma['branch_name']=$params['branch_name'];
