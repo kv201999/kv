@@ -605,7 +605,7 @@ class PayController extends BaseController{
 	
 	//确认收款
 	public function _order_check(){
-		$pageuser=checkPower();
+		//$pageuser=checkPower();
 		$item_id=intval($this->params['item_id']);
 		if(!$item_id){
 			jReturn('-1','缺少参数');
