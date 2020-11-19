@@ -25,14 +25,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72f60046-69c8-472f-827d-b75a76e1ff38" name="Default Changelist" comment="自动确认充值">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/controller/PayController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/controller/PayController.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/daemon/queue_checkma.log" beforeDir="false" afterPath="$PROJECT_DIR$/daemon/queue_checkma.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/daemon/queue_checkma.php" beforeDir="false" afterPath="$PROJECT_DIR$/daemon/queue_checkma.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/ma_sql.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ma_sql.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/order.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/order.txt" afterDir="false" />
-    </list>
+    <list default="true" id="72f60046-69c8-472f-827d-b75a76e1ff38" name="Default Changelist" comment="数据库" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -192,7 +185,21 @@
       <option name="project" value="LOCAL" />
       <updated>1605779836128</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="自动回执">
+      <created>1605787007217</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1605787007217</updated>
+    </task>
+    <task id="LOCAL-00013" summary="数据库">
+      <created>1605787304372</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1605787304372</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -243,7 +250,9 @@
     <MESSAGE value="USDT优化" />
     <MESSAGE value="商户自动提现" />
     <MESSAGE value="自动确认充值" />
-    <option name="LAST_COMMIT_MESSAGE" value="自动确认充值" />
+    <MESSAGE value="自动回执" />
+    <MESSAGE value="数据库" />
+    <option name="LAST_COMMIT_MESSAGE" value="数据库" />
   </component>
   <component name="WindowStateProjectService">
     <state x="651" y="274" key="#Notifications" timestamp="1604977964736">
@@ -274,10 +283,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="530" y="114" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1605776853845" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1605779845277">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1605787311727">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1605779845277" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1605787311727" />
     <state x="338" y="168" key="Vcs.Push.Dialog.v2/0.23.1440.825@0.23.1440.825" timestamp="1604364432105" />
     <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1604992790341">
       <screen x="0" y="0" width="1536" height="824" />
